@@ -2,16 +2,20 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 using UnityEngine.InputSystem;
 
 public class Movement : MonoBehaviour
 {
+    private static readonly int IsMoving = Animator.StringToHash("IsMoving");
+
     [Header("Bindings")] 
     [SerializeField] InputAction playerMovement;
     
     [Header("References")]
     [SerializeField] Transform playerBody;
     [SerializeField] CharacterController characterController;
+    [SerializeField] Animator animator;
 
     [Header("Movement Settings")] 
     [SerializeField] float movementSpeed;
@@ -42,6 +46,7 @@ public class Movement : MonoBehaviour
     private void FixedUpdate()
     {
         ProcessMovement();
+        ProccessMovementAnimation();
     }
 
     // ReSharper disable Unity.PerformanceAnalysis
@@ -50,7 +55,18 @@ public class Movement : MonoBehaviour
         Vector2 movement = playerMovement.ReadValue<Vector2>();
         Vector3 movementDirection = transform.forward * movement.y + transform.right * movement.x;
         characterController.Move(movementDirection * movementSpeed * Time.fixedDeltaTime);
+    }
 
-
+    void ProccessMovementAnimation()
+    {
+        if (playerMovement.IsPressed() && !animator.GetCurrentAnimatorStateInfo(0).IsName("IsMoving"))
+        {
+            animator.SetInteger("IsMoving", 1);
+        }
+        else
+        {
+            animator.SetInteger("IsMoving", 0);
+        }
+        
     }
 }
