@@ -1894,8 +1894,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 888321360}
-  - component: {fileID: 888321362}
   - component: {fileID: 888321363}
+  - component: {fileID: 888321366}
+  - component: {fileID: 888321362}
   - component: {fileID: 888321364}
   - component: {fileID: 888321365}
   m_Layer: 0
@@ -2040,6 +2041,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &888321366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888321359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57035d15f5f1db640ac80511be1d6a1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1020154359
 GameObject:
   m_ObjectHideFlags: 0
@@ -3807,3 +3820,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c98c2ee2165e1644825382c98c6d081, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HUD: {fileID: 2131168646}
+  HealthText: {fileID: 529195321}
+  ArmorText: {fileID: 732342834}
+  AmmoText: {fileID: 458162649}
+  BulletText: {fileID: 1198604592}
+  ShellText: {fileID: 1756816199}
+  RocketText: {fileID: 1341294464}

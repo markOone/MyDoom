@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 
 public class HudController : MonoBehaviour
 {
-    [Header("UI Elements")]
-    public GameObject HUD;
+    [Header("UI Elements")] 
+    private GameObject HUD;
     public TextMeshProUGUI HealthText;
     public TextMeshProUGUI ArmorText;
     public TextMeshProUGUI AmmoText;
@@ -24,6 +25,7 @@ public class HudController : MonoBehaviour
     void Awake()
     {
         _instance = this;
+        HUD = this.gameObject;
     }
 
     // Start is called before the first frame update
