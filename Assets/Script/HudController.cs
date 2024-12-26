@@ -37,4 +37,15 @@ public class HudController : MonoBehaviour
     {
         
     }
+
+    public void UpdateHUD(int health, int armor, int bullet, int shell, int rocket)
+    {
+        HealthText.text = health.ToString();
+        ArmorText.text = armor.ToString();
+        BulletText.text = bullet.ToString();
+        ShellText.text = shell.ToString();
+        RocketText.text = rocket.ToString();
+        
+        //Check what ammo shoul be displayed dependent on gun player holds
+    }
 }
