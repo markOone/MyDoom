@@ -31,13 +31,13 @@ public class PlayerStats : MonoBehaviour
     {
         Health = MaxHealth;
         Armor = 0;
-        HudController.Instance.UpdateHUD(Health, Armor, BulletsCounter, ShellCounter, RocketsCounter);
+        HudController.Instance.UpdateHUD();
     }
 
     public void TakeDamage(int damage)
     {
         Health -= damage;
-        HudController.Instance.UpdateHUD(Health, Armor, BulletsCounter, ShellCounter, RocketsCounter);
+        HudController.Instance.UpdateHUD();
         if (Health <= 0)
         {
             Invoke("GameManager.Instance.RestartGame", 2f);
@@ -47,30 +47,36 @@ public class PlayerStats : MonoBehaviour
     public void Heal(int heal)
     {
         Health += heal;
-        HudController.Instance.UpdateHUD(Health, Armor, BulletsCounter, ShellCounter, RocketsCounter);
+        HudController.Instance.UpdateHUD();
     }
 
     public void TakeArmor(int armor)
     {
         Armor += armor;
-        HudController.Instance.UpdateHUD(Health, Armor, BulletsCounter, ShellCounter, RocketsCounter);
+        HudController.Instance.UpdateHUD();
     }
 
     public void TakeBullets(int ammo)
     {
         BulletsCounter += ammo;
-        HudController.Instance.UpdateHUD(Health, Armor, BulletsCounter, ShellCounter, RocketsCounter);
+        HudController.Instance.UpdateHUD();
     }
 
     public void TakeShells(int ammo)
     {
         ShellCounter += ammo;
-        HudController.Instance.UpdateHUD(Health, Armor, BulletsCounter, ShellCounter, RocketsCounter);
+        HudController.Instance.UpdateHUD();
     }
 
     public void TakeRockets(int ammo)
     {
         RocketsCounter += ammo;
-        HudController.Instance.UpdateHUD(Health, Armor, BulletsCounter, ShellCounter, RocketsCounter);
+        HudController.Instance.UpdateHUD();
     }
+
+    public int GetHealth() => Health;
+    public int GetBullets() => BulletsCounter;
+    public int GetShells() => ShellCounter;
+    public int GetRockets() => RocketsCounter;
+    public int GetArmor() => Armor;
 }

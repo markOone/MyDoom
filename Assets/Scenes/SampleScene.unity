@@ -2282,8 +2282,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da9221d341fda4b40bc422e3446aafe8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canShoot: 1
-  weaponCountDown: 1
+  guns:
+  - Pistol
+  - ShotGun
+  - RocketLauncher
   shootingBind:
     m_Name: Shooting Bind
     m_Type: 0

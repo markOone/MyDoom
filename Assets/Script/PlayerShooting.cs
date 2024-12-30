@@ -8,6 +8,8 @@ public class PlayerShooting : MonoBehaviour
     [Header("Weapon Properties")] 
     bool canShoot = true;
     float weaponCountDown = 1.3f;
+    [SerializeField] List<string> guns = new List<string>();
+    private int currentGun = 1;
     
     [Header("Bindings")]
     [SerializeField] InputAction shootingBind;
@@ -16,6 +18,7 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] ShootingField shootingField;
     [SerializeField] Animator weaponAnimator;
     [SerializeField] Animator flashlightAnimator;
+    PlayerStats playerStats;
     
     private void OnEnable()
     {
@@ -30,7 +33,7 @@ public class PlayerShooting : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerStats = PlayerStats.Instance;
     }
 
     // Update is called once per frame
@@ -62,6 +65,12 @@ public class PlayerShooting : MonoBehaviour
                     //enemy.GetComponent<EnemyScript>().TakeDamage(damage);
                 }
             }
+
+            if (currentGun == 0) PlayerStats.Instance.BulletsCounter -= 1;
+            if (currentGun == 1) PlayerStats.Instance.ShellCounter -= 1;
+            if (currentGun == 2) PlayerStats.Instance.RocketsCounter -= 1;
+            
+            HudController.Instance.UpdateHUD();
         }
     }
 

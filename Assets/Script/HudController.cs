@@ -40,13 +40,14 @@ public class HudController : MonoBehaviour
         
     }
 
-    public void UpdateHUD(int health, int armor, int bullet, int shell, int rocket)
+    public void UpdateHUD()
     {
-        HealthText.text = health.ToString();
-        ArmorText.text = armor.ToString();
-        BulletText.text = bullet.ToString();
-        ShellText.text = shell.ToString();
-        RocketText.text = rocket.ToString();
+        
+        HealthText.text = PlayerStats.Instance.GetHealth().ToString();
+        ArmorText.text = PlayerStats.Instance.GetArmor().ToString();
+        BulletText.text = PlayerStats.Instance.GetBullets().ToString();
+        ShellText.text = PlayerStats.Instance.GetShells().ToString();
+        RocketText.text = PlayerStats.Instance.GetRockets().ToString();
         
         //Check what ammo shoul be displayed dependent on gun player holds
     }
