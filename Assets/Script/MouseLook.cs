@@ -6,11 +6,10 @@ using UnityEngine.InputSystem;
 public class MouseLook : MonoBehaviour
 {
     [SerializeField] InputAction Look;
-    // [SerializeField] InputAction LookY;
     [Header("FPS Settings")]
     [SerializeField] GameObject player;
-    // [SerializeField] GameObject playerBody;
     [SerializeField] float MouseSensitivity;
+    
     // Start is called before the first frame update
     void Start()
     {
