@@ -22,6 +22,11 @@ public class PlayerStats : MonoBehaviour
 
     public static PlayerStats Instance { get { if (_instance == null) Debug.Log("No Player"); return _instance; } }
     
+    private void Awake()
+    {
+        _instance = this;
+    }
+
     private void Start()
     {
         Health = MaxHealth;
@@ -54,6 +59,18 @@ public class PlayerStats : MonoBehaviour
     public void TakeBullets(int ammo)
     {
         BulletsCounter += ammo;
+        HudController.Instance.UpdateHUD(Health, Armor, BulletsCounter, ShellCounter, RocketsCounter);
+    }
+
+    public void TakeShells(int ammo)
+    {
+        ShellCounter += ammo;
+        HudController.Instance.UpdateHUD(Health, Armor, BulletsCounter, ShellCounter, RocketsCounter);
+    }
+
+    public void TakeRockets(int ammo)
+    {
+        RocketsCounter += ammo;
         HudController.Instance.UpdateHUD(Health, Armor, BulletsCounter, ShellCounter, RocketsCounter);
     }
 }
