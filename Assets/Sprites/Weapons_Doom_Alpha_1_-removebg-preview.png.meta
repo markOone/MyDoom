@@ -1,0 +1,729 @@
+fileFormatVersion: 2
+guid: 2620f221e6c536640b00008255bfc908
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Weapons_Doom_Alpha_1_-removebg-preview_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 474
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5806aa295009cf45b8586fe28086ec3
+      internalID: 908172541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapons_Doom_Alpha_1_-removebg-preview_1
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 474
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff2544538b9c53b459bc8b5297753ddd
+      internalID: 1265017835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapons_Doom_Alpha_1_-removebg-preview_2
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 474
+        width: 21
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e312ac87531e6e459a88a01e49eb56b
+      internalID: 1932548542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapons_Doom_Alpha_1_-removebg-preview_3
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 474
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f76b338d5917d304f952154617969018
+      internalID: 1604242188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapons_Doom_Alpha_1_-removebg-preview_4
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 475
+        width: 48
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a79b463e89f9e54887b71ecfb10f075
+      internalID: -2141931332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapons_Doom_Alpha_1_-removebg-preview_5
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 475
+        width: 67
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a8fc82563dc67b479636caaf94e7262
+      internalID: 1795927545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapons_Doom_Alpha_1_-removebg-preview_6
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 350
+        width: 78
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b56518680b4c27547b299b21085378bf
+      internalID: 1658920260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapons_Doom_Alpha_1_-removebg-preview_7
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 350
+        width: 106
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 446d95b631938fc48a52f71bd59aeda5
+      internalID: 675353642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapons_Doom_Alpha_1_-removebg-preview_8
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 350
+        width: 96
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37560026a8c7a294d8e959aca4bb5856
+      internalID: 151449838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapons_Doom_Alpha_1_-removebg-preview_9
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 350
+        width: 124
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9717a24f2733b74b8058e2cae77930b
+      internalID: 1812117397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapons_Doom_Alpha_1_-removebg-preview_10
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 254
+        width: 102
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24c15be61da6ad64e8fbeeaa2fb05b8d
+      internalID: 986471039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapons_Doom_Alpha_1_-removebg-preview_11
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 254
+        width: 177
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0c384eeecd12484b8664b85102f6450
+      internalID: 1763087850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapons_Doom_Alpha_1_-removebg-preview_12
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 254
+        width: 198
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d2112ebb564adf41b44d11b6e9243ad
+      internalID: -354885135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapons_Doom_Alpha_1_-removebg-preview_13
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 165
+        width: 88
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fb89ccb52ecf5449b14509f8678789a
+      internalID: 619054783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapons_Doom_Alpha_1_-removebg-preview_14
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 165
+        width: 98
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62d54fbe2fda1c94a812205c328b443d
+      internalID: -985084787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapons_Doom_Alpha_1_-removebg-preview_15
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 232
+        width: 46
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92cbfd6e438bdb143bed75863094b281
+      internalID: 1183198597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapons_Doom_Alpha_1_-removebg-preview_16
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 210
+        width: 52
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 016a4fa4129f69e4fb9961af0a8af05a
+      internalID: 1577806010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapons_Doom_Alpha_1_-removebg-preview_17
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 190
+        width: 36
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adb73a28af1a56348aa84a13c81e9a92
+      internalID: 16165996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapons_Doom_Alpha_1_-removebg-preview_18
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 177
+        width: 35
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 121f4aefa8156cd4497d81e9698071bc
+      internalID: -1425224523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapons_Doom_Alpha_1_-removebg-preview_19
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 89
+        width: 127
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64eb007fa70985248b7fdc0602b8639b
+      internalID: -342960372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapons_Doom_Alpha_1_-removebg-preview_20
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 89
+        width: 127
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73e29703af6a1204c9bfb371ada00154
+      internalID: -189000137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapons_Doom_Alpha_1_-removebg-preview_21
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 162
+        width: 37
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bedabbad995d9594b96fb0e573f439a0
+      internalID: -736764650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapons_Doom_Alpha_1_-removebg-preview_22
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 149
+        width: 51
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95c21beaf1b1de2448654ddf2215fde1
+      internalID: -1586214916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapons_Doom_Alpha_1_-removebg-preview_23
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 136
+        width: 36
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb0d0d6752469414d82ea19c5f66414a
+      internalID: 465732685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapons_Doom_Alpha_1_-removebg-preview_24
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 89
+        width: 116
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6e7135af8114304b934404c61a980a8
+      internalID: 888822736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapons_Doom_Alpha_1_-removebg-preview_25
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 2
+        width: 128
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53a527c0eeb697547b5a5a65ee9ea5c1
+      internalID: 2057267706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapons_Doom_Alpha_1_-removebg-preview_26
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 2
+        width: 131
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c57e1fb00fa41341a2cc87b31650ebc
+      internalID: -1247687292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5ebf19a39f432e045b19fcd17db943de
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Weapons_Doom_Alpha_1_-removebg-preview_0: 908172541
+      Weapons_Doom_Alpha_1_-removebg-preview_1: 1265017835
+      Weapons_Doom_Alpha_1_-removebg-preview_10: 986471039
+      Weapons_Doom_Alpha_1_-removebg-preview_11: 1763087850
+      Weapons_Doom_Alpha_1_-removebg-preview_12: -354885135
+      Weapons_Doom_Alpha_1_-removebg-preview_13: 619054783
+      Weapons_Doom_Alpha_1_-removebg-preview_14: -985084787
+      Weapons_Doom_Alpha_1_-removebg-preview_15: 1183198597
+      Weapons_Doom_Alpha_1_-removebg-preview_16: 1577806010
+      Weapons_Doom_Alpha_1_-removebg-preview_17: 16165996
+      Weapons_Doom_Alpha_1_-removebg-preview_18: -1425224523
+      Weapons_Doom_Alpha_1_-removebg-preview_19: -342960372
+      Weapons_Doom_Alpha_1_-removebg-preview_2: 1932548542
+      Weapons_Doom_Alpha_1_-removebg-preview_20: -189000137
+      Weapons_Doom_Alpha_1_-removebg-preview_21: -736764650
+      Weapons_Doom_Alpha_1_-removebg-preview_22: -1586214916
+      Weapons_Doom_Alpha_1_-removebg-preview_23: 465732685
+      Weapons_Doom_Alpha_1_-removebg-preview_24: 888822736
+      Weapons_Doom_Alpha_1_-removebg-preview_25: 2057267706
+      Weapons_Doom_Alpha_1_-removebg-preview_26: -1247687292
+      Weapons_Doom_Alpha_1_-removebg-preview_3: 1604242188
+      Weapons_Doom_Alpha_1_-removebg-preview_4: -2141931332
+      Weapons_Doom_Alpha_1_-removebg-preview_5: 1795927545
+      Weapons_Doom_Alpha_1_-removebg-preview_6: 1658920260
+      Weapons_Doom_Alpha_1_-removebg-preview_7: 675353642
+      Weapons_Doom_Alpha_1_-removebg-preview_8: 151449838
+      Weapons_Doom_Alpha_1_-removebg-preview_9: 1812117397
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

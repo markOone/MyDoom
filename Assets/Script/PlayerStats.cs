@@ -16,9 +16,9 @@ public class PlayerStats : MonoBehaviour
     int MaxArmor = 200;
     
 
-    int BulletsCounter = 0;
-    int ShellCounter = 0;
-    int RocketsCounter = 0;
+    public int BulletsCounter = 0;
+    public int ShellCounter = 0;
+    public int RocketsCounter = 0;
 
     public static PlayerStats Instance { get { if (_instance == null) Debug.Log("No Player"); return _instance; } }
     
