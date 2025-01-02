@@ -65,6 +65,7 @@ public class PlayerStats : MonoBehaviour
     public void TakeShells(int ammo)
     {
         ShellCounter += ammo;
+        this.GetComponent<PlayerShooting>().guns[this.GetComponent<PlayerShooting>().currentGun].gunData.currentAmmo += ammo;
         HudController.Instance.UpdateHUD();
     }
 

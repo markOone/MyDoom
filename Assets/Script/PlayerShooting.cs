@@ -5,21 +5,25 @@ using UnityEngine.InputSystem;
 
 public class PlayerShooting : MonoBehaviour
 {
+    private static PlayerShooting _instance;
+        
     [Header("Weapon Properties")] 
-    bool canShoot = true;
-    float weaponCountDown = 1.3f;
-    [SerializeField] List<string> guns = new List<string>();
-    private int currentGun = 1;
+    [SerializeField] internal List<Gun> guns = new List<Gun>();
+    internal int currentGun = 0;
     
     [Header("Bindings")]
-    [SerializeField] InputAction shootingBind;
+    [SerializeField]
+    InputAction shootingBind;
+    
     
     [Header("References")]
-    [SerializeField] ShootingField shootingField;
+    [SerializeField] internal ShootingField shootingField;
     [SerializeField] Animator weaponAnimator;
     [SerializeField] Animator flashlightAnimator;
     PlayerStats playerStats;
-    
+
+    public static PlayerShooting Instance { get { if (_instance == null) Debug.Log("No GameManager"); return _instance; } }
+
     private void OnEnable()
     {
         shootingBind.Enable();
@@ -28,6 +32,11 @@ public class PlayerShooting : MonoBehaviour
     private void OnDisable()
     {
         shootingBind.Disable();
+    }
+    
+    private void Awake()
+    {
+        _instance = this;
     }
     
     // Start is called before the first frame update
@@ -46,38 +55,13 @@ public class PlayerShooting : MonoBehaviour
     {
         if (shootingBind.IsPressed())
         {
-            Shoot();
+            guns[0].Shoot();
         }
     }
 
-    void Shoot()
+    public void Shoot2D()
     {
-        if (PlayerStats.Instance.ShellCounter > 0 && canShoot)
-        {
-            StartCoroutine(ShootingCountDown());
             weaponAnimator.SetTrigger("Shooting");
             flashlightAnimator.SetTrigger("Shooting");
-            
-            if (shootingField.EnemiesInField.Count > 0)
-            {
-                foreach (var enemy in shootingField.EnemiesInField)
-                {
-                    //enemy.GetComponent<EnemyScript>().TakeDamage(damage);
-                }
-            }
-
-            if (currentGun == 0) PlayerStats.Instance.BulletsCounter -= 1;
-            if (currentGun == 1) PlayerStats.Instance.ShellCounter -= 1;
-            if (currentGun == 2) PlayerStats.Instance.RocketsCounter -= 1;
-            
-            HudController.Instance.UpdateHUD();
-        }
-    }
-
-    IEnumerator ShootingCountDown()
-    {
-        canShoot = false;
-        yield return new WaitForSeconds(weaponCountDown);
-        canShoot = true;
     }
 }
