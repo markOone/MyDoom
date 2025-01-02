@@ -15,7 +15,8 @@ MonoBehaviour:
   name: Shotgun
   is2D: 1
   damage: 15
-  maxDistance: 50
+  wideRange: 2.5
+  lengthRange: 20
   currentAmmo: 0
   magSize: 100
   fireRate: 56.8

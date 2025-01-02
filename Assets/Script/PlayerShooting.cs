@@ -43,6 +43,8 @@ public class PlayerShooting : MonoBehaviour
     void Start()
     {
         playerStats = PlayerStats.Instance;
+
+        shootingField.ChangeRange(guns[currentGun].gunData.wideRange, guns[currentGun].gunData.lengthRange);
     }
 
     // Update is called once per frame

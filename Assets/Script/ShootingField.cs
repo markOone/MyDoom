@@ -15,4 +15,9 @@ public class ShootingField : MonoBehaviour
     {
         if(other.CompareTag("Enemy")) EnemiesInField.Remove(other.gameObject);
     }
+
+    public void ChangeRange(float wideRange, float legthRange)
+    {
+        this.gameObject.transform.localScale = new Vector3(wideRange, 5.4f, legthRange);
+    }
 }
