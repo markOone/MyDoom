@@ -8,8 +8,8 @@ public class PlayerShooting : MonoBehaviour
     private static PlayerShooting _instance;
         
     [Header("Weapon Properties")] 
-    [SerializeField] internal List<Gun> guns = new List<Gun>();
-    internal int currentGun = 0;
+    [SerializeField] internal GunData currentGunData;
+    [SerializeField] internal Gun currentGun;
     
     [Header("Bindings")]
     [SerializeField] InputAction shootingBind;
@@ -42,8 +42,6 @@ public class PlayerShooting : MonoBehaviour
     void Start()
     {
         playerStats = PlayerStats.Instance;
-
-        shootingField.ChangeRange(guns[currentGun].gunData.wideRange, guns[currentGun].gunData.lengthRange);
     }
 
     // Update is called once per frame
@@ -54,9 +52,9 @@ public class PlayerShooting : MonoBehaviour
 
     public void ProccessShooting()
     {
-        if (shootingBind.IsPressed())
+        if (shootingBind.IsPressed() && currentGunData.currentAmmo > 0)
         {
-            guns[0].Shoot();
+            currentGun.Shoot();
         }
     }
 
@@ -64,5 +62,10 @@ public class PlayerShooting : MonoBehaviour
     {
             weaponAnimator.SetTrigger("Shooting");
             flashlightAnimator.SetTrigger("Shooting");
+    }
+
+    public void ChangeRange()
+    {
+        shootingField.ChangeRange(currentGunData.wideRange, currentGunData.lengthRange);
     }
 }

@@ -20,9 +20,14 @@ public class PlayerStats : MonoBehaviour
     public int ShellCounter = 0;
     public int RocketsCounter = 0;
 
-    public static PlayerStats Instance { get { if (_instance == null) Debug.Log("No Player"); return _instance; } }
+    public static PlayerStats Instance { get { if (_instance == null) Debug.Log("No PlayerStats"); return _instance; } }
     
-    private void Awake()
+    private void OnEnable()
+    {
+        _instance = this;
+    }
+
+    void Awake()
     {
         _instance = this;
     }
@@ -59,19 +64,21 @@ public class PlayerStats : MonoBehaviour
     public void TakeBullets(int ammo)
     {
         BulletsCounter += ammo;
+        if(this.GetComponent<PlayerShooting>().currentGunData.bullets) this.GetComponent<PlayerShooting>().currentGunData.currentAmmo += ammo;
         HudController.Instance.UpdateHUD();
     }
 
     public void TakeShells(int ammo)
     {
         ShellCounter += ammo;
-        this.GetComponent<PlayerShooting>().guns[this.GetComponent<PlayerShooting>().currentGun].gunData.currentAmmo += ammo;
+        if(this.GetComponent<PlayerShooting>().currentGunData.shells) this.GetComponent<PlayerShooting>().currentGunData.currentAmmo += ammo;
         HudController.Instance.UpdateHUD();
     }
 
     public void TakeRockets(int ammo)
     {
         RocketsCounter += ammo;
+        if(this.GetComponent<PlayerShooting>().currentGunData.rockets) this.GetComponent<PlayerShooting>().currentGunData.currentAmmo += ammo;
         HudController.Instance.UpdateHUD();
     }
 

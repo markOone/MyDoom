@@ -73,11 +73,18 @@ public class WeaponSwitching : MonoBehaviour
         if (gunIndex == 2)
         {
             shotgun.gameObject.SetActive(true);
+            PlayerShooting.Instance.currentGunData = shotgun.GetChild(1).gameObject.GetComponent<Gun>().gunData;
+            PlayerShooting.Instance.currentGun = shotgun.GetChild(1).gameObject.GetComponent<Gun>();
         }
         else
         {
             this.gameObject.transform.GetChild(gunIndex).gameObject.SetActive(true);
+            PlayerShooting.Instance.currentGun = this.gameObject.transform.GetChild(gunIndex).gameObject.GetComponent<Gun>();
+            PlayerShooting.Instance.currentGunData = this.gameObject.transform.GetChild(gunIndex).gameObject.GetComponent<Gun>().gunData;
         }
+
+        PlayerShooting.Instance.currentGun.CheckAmmo();
+        PlayerShooting.Instance.ChangeRange();
         
     }
 

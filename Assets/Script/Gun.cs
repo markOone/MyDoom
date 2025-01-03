@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -55,5 +56,12 @@ public class Gun : MonoBehaviour
     private void OnGunShot()
     {
         
+    }
+
+    public void CheckAmmo()
+    {
+        if (gunData.shells) gunData.currentAmmo = PlayerStats.Instance.ShellCounter;
+        if (gunData.bullets) gunData.currentAmmo = PlayerStats.Instance.BulletsCounter;
+        if(gunData.rockets) gunData.currentAmmo = PlayerStats.Instance.RocketsCounter;
     }
 }
