@@ -7,7 +7,6 @@ public class Gun : MonoBehaviour
     [Header("References")]
     [SerializeField] internal GunData gunData;
     float timeSinceLastShot;
-    [SerializeField] Transform playerBody;
 
     private bool CanShoot() => !gunData.reloading && timeSinceLastShot > 1f / (gunData.fireRate / 60f);
     void Start()
@@ -34,8 +33,6 @@ public class Gun : MonoBehaviour
                 {
                     PlayerShooting.Instance.Shoot2D();
                 }
-                
-                
                 
                 gunData.currentAmmo--;
 

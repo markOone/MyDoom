@@ -12,8 +12,7 @@ public class PlayerShooting : MonoBehaviour
     internal int currentGun = 0;
     
     [Header("Bindings")]
-    [SerializeField]
-    InputAction shootingBind;
+    [SerializeField] InputAction shootingBind;
     
     
     [Header("References")]
