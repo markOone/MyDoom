@@ -25,7 +25,8 @@ public class Gun : MonoBehaviour
                 {
                     foreach (GameObject obj in PlayerShooting.Instance.shootingField.EnemiesInField)
                     {
-                        Debug.Log("GameObject Name: " + obj.name); 
+                        IDamagable damagable = obj.GetComponent<IDamagable>();
+                        damagable?.Damage(gunData.damage);
                     }
                 }
 
