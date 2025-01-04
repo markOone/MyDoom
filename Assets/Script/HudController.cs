@@ -16,6 +16,7 @@ public class HudController : MonoBehaviour
     public TextMeshProUGUI BulletText;
     public TextMeshProUGUI ShellText;
     public TextMeshProUGUI RocketText;
+    public TextMeshProUGUI CellsText;
     
 
     private static HudController _instance;
@@ -48,6 +49,7 @@ public class HudController : MonoBehaviour
         BulletText.text = PlayerStats.Instance.GetBullets().ToString();
         ShellText.text = PlayerStats.Instance.GetShells().ToString();
         RocketText.text = PlayerStats.Instance.GetRockets().ToString();
+        CellsText.text = PlayerStats.Instance.GetCells().ToString();
         
         //Check what ammo shoul be displayed dependent on gun player holds
     }

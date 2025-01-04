@@ -17,7 +17,7 @@ public class WeaponSwitching : MonoBehaviour
     [Header("Settings")]
     [SerializeField] float switchTime;
 
-    private int selectedWeapon = 0;
+    private int selectedWeapon = 1;
     private float timeSinceLastSwitch;
     
     private void OnEnable()
@@ -33,8 +33,8 @@ public class WeaponSwitching : MonoBehaviour
     private void Start()
     {
         SetGunActive(selectedWeapon);
-        // weapons = GetComponentsInChildren<Transform>();
         timeSinceLastSwitch = 0f;
+        // PlayerStats.Instance.GetStatsFromGunData(weapons);
     }
 
     private void Update()

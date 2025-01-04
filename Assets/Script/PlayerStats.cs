@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
@@ -96,4 +97,18 @@ public class PlayerStats : MonoBehaviour
     public int GetRockets() => RocketsCounter;
     public int GetArmor() => Armor;
     public int GetCells() => CellsCounter;
+
+    // public void GetStatsFromGunData(Transform[] weaponsList)
+    // {
+    //     for (int i = 0; i < weaponsList.Length; i++)
+    //     {
+    //         if(weaponsList[i].gameObject.GetComponent<Gun>().gunData.shells) ShellCounter += weaponsList[i].gameObject.GetComponent<Gun>().gunData.currentAmmo;
+    //         if (weaponsList[i].gameObject.GetComponent<Gun>().gunData.bullets) BulletsCounter += weaponsList[i].gameObject.GetComponent<Gun>().gunData.currentAmmo;
+    //         if(weaponsList[i].gameObject.GetComponent<Gun>().gunData.rockets) RocketsCounter += weaponsList[i].gameObject.GetComponent<Gun>().gunData.currentAmmo;
+    //         if(weaponsList[i].gameObject.GetComponent<Gun>().gunData.cells) CellsCounter += weaponsList[i].gameObject.GetComponent<Gun>().gunData.currentAmmo;
+    //     }
+    //     HudController.Instance.UpdateHUD();
+    // }
+    
+    
 }

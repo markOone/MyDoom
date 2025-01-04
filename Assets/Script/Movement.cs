@@ -19,6 +19,7 @@ public class Movement : MonoBehaviour
 
     [Header("Movement Settings")] 
     [SerializeField] float movementSpeed;
+    Vector3 velocity;
     
     // Start is called before the first frame update
     void Start()
@@ -47,6 +48,8 @@ public class Movement : MonoBehaviour
     {
         ProcessMovement();
         ProccessMovementAnimation();
+        velocity.y += Physics.gravity.y * Time.fixedDeltaTime;
+        characterController.Move(velocity * Time.fixedDeltaTime);
     }
 
     // ReSharper disable Unity.PerformanceAnalysis

@@ -25,3 +25,4 @@ MonoBehaviour:
   shells: 0
   bullets: 0
   rockets: 0
+  cells: 0
