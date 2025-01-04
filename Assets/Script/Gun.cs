@@ -63,5 +63,6 @@ public class Gun : MonoBehaviour
         if (gunData.shells) gunData.currentAmmo = PlayerStats.Instance.ShellCounter;
         if (gunData.bullets) gunData.currentAmmo = PlayerStats.Instance.BulletsCounter;
         if(gunData.rockets) gunData.currentAmmo = PlayerStats.Instance.RocketsCounter;
+        if(gunData.cells) gunData.currentAmmo = PlayerStats.Instance.CellsCounter;
     }
 }

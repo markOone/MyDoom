@@ -19,6 +19,7 @@ public class PlayerStats : MonoBehaviour
     public int BulletsCounter = 0;
     public int ShellCounter = 0;
     public int RocketsCounter = 0;
+    public int CellsCounter = 0;
 
     public static PlayerStats Instance { get { if (_instance == null) Debug.Log("No PlayerStats"); return _instance; } }
     
@@ -82,9 +83,17 @@ public class PlayerStats : MonoBehaviour
         HudController.Instance.UpdateHUD();
     }
 
+    public void TakeCells(int ammo)
+    {
+        CellsCounter += ammo;
+        if(this.GetComponent<PlayerShooting>().currentGunData.cells) this.GetComponent<PlayerShooting>().currentGunData.currentAmmo += ammo;
+        HudController.Instance.UpdateHUD();
+    }
+
     public int GetHealth() => Health;
     public int GetBullets() => BulletsCounter;
     public int GetShells() => ShellCounter;
     public int GetRockets() => RocketsCounter;
     public int GetArmor() => Armor;
+    public int GetCells() => CellsCounter;
 }

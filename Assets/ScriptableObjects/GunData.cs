@@ -24,6 +24,7 @@ public class GunData : ScriptableObject
     [SerializeField] internal bool shells;
     [SerializeField] internal bool bullets;
     [SerializeField] internal bool rockets;
+    [SerializeField] internal bool cells;
 
 
 }
