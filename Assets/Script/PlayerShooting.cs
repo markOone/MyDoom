@@ -16,7 +16,6 @@ public class PlayerShooting : MonoBehaviour
     
     
     [Header("References")]
-    [SerializeField] internal ShootingField shootingField;
     [SerializeField] Animator weaponAnimator;
     [SerializeField] Animator flashlightAnimator;
     PlayerStats playerStats;
@@ -62,10 +61,5 @@ public class PlayerShooting : MonoBehaviour
     {
             weaponAnimator.SetTrigger("Shooting");
             flashlightAnimator.SetTrigger("Shooting");
-    }
-
-    public void ChangeRange()
-    {
-        shootingField.ChangeRange(currentGunData.wideRange, currentGunData.lengthRange);
     }
 }

@@ -84,8 +84,6 @@ public class WeaponSwitching : MonoBehaviour
         }
 
         PlayerShooting.Instance.currentGun.CheckAmmo();
-        PlayerShooting.Instance.ChangeRange();
-        
     }
 
     private void OnWeaponSelected()

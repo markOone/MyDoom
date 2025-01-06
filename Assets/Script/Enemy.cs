@@ -13,9 +13,4 @@ public class Enemy : MonoBehaviour, IDamagable
         
         if (health <= 0) Destroy(gameObject);
     }
-
-    private void OnDestroy()
-    {
-        PlayerShooting.Instance.shootingField.EnemiesInField.Remove(gameObject);
-    }
 }

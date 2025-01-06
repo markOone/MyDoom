@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 public class DoorOpening : MonoBehaviour
 {
     [SerializeField] InputAction openBind;
-    [SerializeField] Transform camera;
+    [SerializeField] Camera CameraTransform;
     
     private void OnEnable()
     {
@@ -29,13 +29,10 @@ public class DoorOpening : MonoBehaviour
         if (openBind.IsPressed())
         {
             Debug.Log("Pressed");
-            if (PlayerShooting.Instance.shootingField.DoorsInField.Count > 0)
+            if (Physics.Raycast(CameraTransform.transform.position, CameraTransform.transform.forward, out RaycastHit hit, 10f))
             {
-                foreach (GameObject obj in PlayerShooting.Instance.shootingField.DoorsInField)
-                {
-                    IOpenable openable = obj.transform.gameObject.GetComponent<IOpenable>();
-                    openable?.Open();
-                }
+                IOpenable openable = hit.transform.gameObject.GetComponent<IOpenable>();
+                openable?.Open();
             }
         }
     }

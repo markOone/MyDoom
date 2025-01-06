@@ -44,8 +44,8 @@ public class HudController : MonoBehaviour
     public void UpdateHUD()
     {
         
-        HealthText.text = PlayerStats.Instance.GetHealth().ToString();
-        ArmorText.text = PlayerStats.Instance.GetArmor().ToString();
+        HealthText.text = PlayerStats.Instance.GetHealth().ToString() + "%";
+        ArmorText.text = PlayerStats.Instance.GetArmor().ToString() + "%";
         BulletText.text = PlayerStats.Instance.GetBullets().ToString();
         ShellText.text = PlayerStats.Instance.GetShells().ToString();
         RocketText.text = PlayerStats.Instance.GetRockets().ToString();
