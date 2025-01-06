@@ -5,7 +5,7 @@ using UnityEngine;
 public class AmmoBoxScript : MonoBehaviour
 {
     [SerializeField] int AmmoAmount;
-    [SerializeField] bool Bullets, Shells, Rockets;
+    [SerializeField] bool Bullets, Shells, Rockets, Cells;
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
@@ -13,6 +13,7 @@ public class AmmoBoxScript : MonoBehaviour
             if (Bullets) PlayerStats.Instance.TakeBullets(AmmoAmount);
             if(Shells) PlayerStats.Instance.TakeShells(AmmoAmount);
             if(Rockets) PlayerStats.Instance.TakeRockets(AmmoAmount);
+            if(Cells) PlayerStats.Instance.TakeCells(AmmoAmount);
             Invoke("DestroyObject", 0.1f);
         }
     }

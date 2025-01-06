@@ -63,6 +63,53 @@ public class PlayerStats : MonoBehaviour
         HudController.Instance.UpdateHUD();
     }
 
+    public void ArmorBonus()
+    {
+        Armor += 1;
+        if(Armor > 200) Armor = 200;
+        HudController.Instance.UpdateHUD();
+    }
+
+    public void ArmorKit()
+    {
+        if(Armor < 100) Armor = 100;
+        HudController.Instance.UpdateHUD();
+    }
+
+    public void MegaArmor()
+    {
+        if(Armor < 200) Armor = 200;
+        HudController.Instance.UpdateHUD();
+    }
+
+    public void HealthBonus()
+    {
+        Health += 1;
+        if(Health > 200) Health = 200;
+        HudController.Instance.UpdateHUD();
+    }
+
+    public void Stimpack()
+    {
+        Health += 10;
+        if(Health > 100) Health = 100;
+        HudController.Instance.UpdateHUD();
+    }
+
+    public void MedKit()
+    {
+        Health += 25;
+        if(Health > 100) Health = 100;
+        HudController.Instance.UpdateHUD();
+    }
+
+    public void Supercharge()
+    {
+        Health += 100;
+        if(Health > 200) Health = 200;
+        HudController.Instance.UpdateHUD();;
+    }
+
     public void TakeBullets(int ammo)
     {
         BulletsCounter += ammo;

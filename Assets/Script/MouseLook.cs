@@ -16,12 +16,6 @@ public class MouseLook : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     
     private void OnEnable()
     {
@@ -35,15 +29,27 @@ public class MouseLook : MonoBehaviour
 
     void FixedUpdate()
     {
+        // ProcessLookFixed();
+    }
+
+    void Update()
+    {
         ProcessLook();
     }
 
     // ReSharper disable Unity.PerformanceAnalysis
-    private void ProcessLook()
+    // private void ProcessLookFixed()
+    // {
+    //     Vector2 mouseInput = Look.ReadValue<Vector2>();
+    //     float moveY = mouseInput.x * Time.fixedDeltaTime * MouseSensitivity;
+    //     player.transform.Rotate(Vector3.up * moveY);
+    //     // playerBody.transform.Rotate(Vector3.up * moveY);
+    // }
+
+    void ProcessLook()
     {
         Vector2 mouseInput = Look.ReadValue<Vector2>();
-        float moveY = mouseInput.x * Time.fixedDeltaTime * MouseSensitivity;
+        float moveY = mouseInput.x * Time.deltaTime * MouseSensitivity;
         player.transform.Rotate(Vector3.up * moveY);
-        // playerBody.transform.Rotate(Vector3.up * moveY);
     }
 }
