@@ -9,6 +9,9 @@ public class Gun : MonoBehaviour
     [SerializeField] internal GunData gunData;
     [SerializeField] Camera fpsCamera;
     float timeSinceLastShot;
+    [SerializeField] private float shotSoundRadius;
+    [SerializeField] private LayerMask enemyLayerMask;
+    Collider[] colliders;
 
     private bool CanShoot() => !gunData.reloading && timeSinceLastShot > 1f / (gunData.fireRate / 60f);
     void Start()
@@ -22,6 +25,12 @@ public class Gun : MonoBehaviour
         {
             if (CanShoot())
             {
+                colliders = Physics.OverlapSphere(transform.position, shotSoundRadius, enemyLayerMask);
+
+                foreach (var enemy in colliders)
+                {
+                    enemy.GetComponent<EnemyAwarness>().isAggressive = true;
+                }
 
                 if (gunData.name == "Shotgun")
                 {

@@ -43,7 +43,16 @@ public class PlayerStats : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        Health -= damage;
+        if (Armor > 0)
+        {
+            if (Armor > damage) Armor -= damage;
+            else Armor = 0; int remainingDamage = damage - Armor; Health -= remainingDamage;
+        }
+        else
+        {
+            Health -= damage;
+        }
+        
         HudController.Instance.UpdateHUD();
         if (Health <= 0)
         {
