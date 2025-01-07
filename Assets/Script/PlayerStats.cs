@@ -53,6 +53,8 @@ public class PlayerStats : MonoBehaviour
 
     public void ArmorTaking(int type)
     {
+        GameManager.Instance.powerUpEffect();
+        
         if (type == 1)
         {
             Armor += 1;
@@ -75,6 +77,8 @@ public class PlayerStats : MonoBehaviour
     
     public void HealthKit(int type)
     {
+        GameManager.Instance.powerUpEffect();
+        
         if(type == 1)
         {
             Health += 1;
@@ -104,6 +108,8 @@ public class PlayerStats : MonoBehaviour
 
     public void TakingAmmo(int type, int ammoType)
     {
+        GameManager.Instance.powerUpEffect();
+        
         if (ammoType == 1)
         {
             if (type == 1)
@@ -167,20 +173,6 @@ public class PlayerStats : MonoBehaviour
         HudController.Instance.UpdateHUD();
     }
     
-    public void CLip()
-    {
-        BulletsCounter += 10;
-        if(BulletsCounter > 200) BulletsCounter = 200;
-        HudController.Instance.UpdateHUD();
-    }
-
-    public void BoxOfBullets()
-    {
-        BulletsCounter += 50;
-        if(BulletsCounter > 200) BulletsCounter = 200;
-        HudController.Instance.UpdateHUD();
-    }
-
     public int GetHealth() => Health;
     public int GetBullets() => BulletsCounter;
     public int GetShells() => ShellCounter;
