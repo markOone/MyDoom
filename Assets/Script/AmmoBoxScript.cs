@@ -4,16 +4,23 @@ using UnityEngine;
 
 public class AmmoBoxScript : MonoBehaviour
 {
-    [SerializeField] int AmmoAmount;
-    [SerializeField] bool Bullets, Shells, Rockets, Cells;
+    [SerializeField] bool Clip, BoxOfBullets;
+    [SerializeField] bool FShells, BoxOfShells;
+    [SerializeField] bool Rocket, BoxOfRockets;
+    [SerializeField] bool Cell, CellPack;
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            if (Bullets) PlayerStats.Instance.TakeBullets(AmmoAmount);
-            if(Shells) PlayerStats.Instance.TakeShells(AmmoAmount);
-            if(Rockets) PlayerStats.Instance.TakeRockets(AmmoAmount);
-            if(Cells) PlayerStats.Instance.TakeCells(AmmoAmount);
+            if (Clip) PlayerStats.Instance.TakingAmmo(1, 1);
+            if (BoxOfBullets) PlayerStats.Instance.TakingAmmo(2, 1);
+            if (FShells) PlayerStats.Instance.TakingAmmo(1, 2);
+            if (BoxOfShells) PlayerStats.Instance.TakingAmmo(2, 2);
+            if (Rocket) PlayerStats.Instance.TakingAmmo(1, 3);  
+            if (BoxOfRockets) PlayerStats.Instance.TakingAmmo(2, 3);
+            if (Cell) PlayerStats.Instance.TakingAmmo(1, 4);
+            if (CellPack) PlayerStats.Instance.TakingAmmo(2, 4);
+            
             Invoke("DestroyObject", 0.1f);
         }
     }

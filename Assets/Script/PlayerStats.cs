@@ -51,90 +51,133 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    public void Heal(int heal)
+    public void ArmorTaking(int type)
     {
-        Health += heal;
+        if (type == 1)
+        {
+            Armor += 1;
+            if(Armor > 200) Armor = 200;
+        }
+
+        if (type == 2)
+        {
+            if(Armor < 100) Armor = 100;
+        }
+
+        if (type == 3)
+        {
+            if(Armor < 200) Armor = 200;
+        }
+        
+        
+        HudController.Instance.UpdateHUD();
+    }
+    
+    public void HealthKit(int type)
+    {
+        if(type == 1)
+        {
+            Health += 1;
+            if(Health > 200) Health = 200;
+        }
+
+        if (type == 2)
+        {
+            Health += 10;
+            if(Health > 100) Health = 100;
+        }
+
+        if (type == 3)
+        {
+            Health += 25;
+            if(Health > 100) Health = 100;
+        }
+
+        if (type == 4)
+        {
+            Health += 100;
+            if(Health > 200) Health = 200;
+        }
+        
         HudController.Instance.UpdateHUD();
     }
 
-    public void TakeArmor(int armor)
+    public void TakingAmmo(int type, int ammoType)
     {
-        Armor += armor;
+        if (ammoType == 1)
+        {
+            if (type == 1)
+            {
+                BulletsCounter += 10;
+                if(BulletsCounter > 200) BulletsCounter = 200;
+            }
+
+            if (type == 2)
+            {
+                BulletsCounter += 50;
+                if(BulletsCounter > 200) BulletsCounter = 200;
+            }
+        }
+
+        if (ammoType == 2)
+        {
+            if (type == 1)
+            {
+                ShellCounter += 4;
+                if(ShellCounter > 100) ShellCounter = 100;
+            }
+
+            if (type == 2)
+            {
+                ShellCounter += 20;
+                if(ShellCounter > 100) ShellCounter = 100;
+            }
+        }
+
+        if (ammoType == 3)
+        {
+            if (type == 1)
+            {
+                RocketsCounter += 1;
+                if(RocketsCounter > 100) RocketsCounter = 100;
+            }
+
+            if (type == 2)
+            {
+                RocketsCounter += 10;
+                if(RocketsCounter > 100) RocketsCounter = 100;
+            }
+        }
+
+        if (ammoType == 4)
+        {
+            if (type == 1)
+            {
+                CellsCounter += 20;
+                if(CellsCounter > 300) CellsCounter = 300;
+            }
+
+            if (type == 2)
+            {
+                CellsCounter += 100;
+                if(CellsCounter > 300) CellsCounter = 300;
+            }
+        }
+        
+        HudController.Instance.UpdateHUD();
+    }
+    
+    public void CLip()
+    {
+        BulletsCounter += 10;
+        if(BulletsCounter > 200) BulletsCounter = 200;
         HudController.Instance.UpdateHUD();
     }
 
-    public void ArmorBonus()
+    public void BoxOfBullets()
     {
-        Armor += 1;
-        if(Armor > 200) Armor = 200;
-        HudController.Instance.UpdateHUD();
-    }
-
-    public void ArmorKit()
-    {
-        if(Armor < 100) Armor = 100;
-        HudController.Instance.UpdateHUD();
-    }
-
-    public void MegaArmor()
-    {
-        if(Armor < 200) Armor = 200;
-        HudController.Instance.UpdateHUD();
-    }
-
-    public void HealthBonus()
-    {
-        Health += 1;
-        if(Health > 200) Health = 200;
-        HudController.Instance.UpdateHUD();
-    }
-
-    public void Stimpack()
-    {
-        Health += 10;
-        if(Health > 100) Health = 100;
-        HudController.Instance.UpdateHUD();
-    }
-
-    public void MedKit()
-    {
-        Health += 25;
-        if(Health > 100) Health = 100;
-        HudController.Instance.UpdateHUD();
-    }
-
-    public void Supercharge()
-    {
-        Health += 100;
-        if(Health > 200) Health = 200;
-        HudController.Instance.UpdateHUD();;
-    }
-
-    public void TakeBullets(int ammo)
-    {
-        BulletsCounter += ammo;
-        if(this.GetComponent<PlayerShooting>().currentGunData.bullets) this.GetComponent<PlayerShooting>().currentGunData.currentAmmo += ammo;
-        HudController.Instance.UpdateHUD();
-    }
-
-    public void TakeShells(int ammo)
-    {
-        ShellCounter += ammo;
-        if(this.GetComponent<PlayerShooting>().currentGunData.shells) this.GetComponent<PlayerShooting>().currentGunData.currentAmmo += ammo;
-        HudController.Instance.UpdateHUD();
-    }
-
-    public void TakeRockets(int ammo)
-    {
-        RocketsCounter += ammo;
-        if(this.GetComponent<PlayerShooting>().currentGunData.rockets) this.GetComponent<PlayerShooting>().currentGunData.currentAmmo += ammo;
-        HudController.Instance.UpdateHUD();
-    }
-
-    public void TakeCells(int ammo)
-    {
-        CellsCounter += ammo;
-        if(this.GetComponent<PlayerShooting>().currentGunData.cells) this.GetComponent<PlayerShooting>().currentGunData.currentAmmo += ammo;
+        BulletsCounter += 50;
+        if(BulletsCounter > 200) BulletsCounter = 200;
         HudController.Instance.UpdateHUD();
     }
 

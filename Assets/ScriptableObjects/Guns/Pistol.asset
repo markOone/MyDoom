@@ -16,8 +16,8 @@ MonoBehaviour:
   is2D: 0
   damage: 15
   wideRange: 1
-  lengthRange: 25
-  currentAmmo: 1
+  lengthRange: 100
+  currentAmmo: 61
   magSize: 200
   fireRate: 150
   reloadTime: 0
