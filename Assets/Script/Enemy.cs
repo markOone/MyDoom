@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour, IDamagable
     private Transform playerPosition;
     public LayerMask playerMask;
     [SerializeField] NavMeshAgent agent;
+    [SerializeField] AudioSource audioSourcePain;
+    [SerializeField] AudioSource audioSourceDeath;
 
     [Header("For Patrolling")] 
     [SerializeField] private Vector3 walkPoint;
@@ -31,13 +33,20 @@ public class Enemy : MonoBehaviour, IDamagable
     private void Start()
     { 
         playerPosition = GameManager.Instance.playerPosition;
+        audioSourcePain = GetComponent<AudioSource>();
+        audioSourceDeath = this.transform.GetChild(0).GetComponent<AudioSource>();
     }
 
     public void Damage(int damage)
     {
         health -= damage;
-        
-        if (health <= 0) Destroy(gameObject);
+        audioSourcePain?.Play(0);
+        Debug.Log(health);
+        if (health <= 0)
+        {
+            audioSourceDeath?.Play(0); 
+            Destroy(gameObject);
+        }
     }
 
     private void Update()
@@ -76,13 +85,13 @@ public class Enemy : MonoBehaviour, IDamagable
 
     void Chase()
     {
-        Debug.Log("Chasing");
+        // Debug.Log("Chasing");
         agent.SetDestination(playerPosition.position);
     }
 
     void Attack()
     {
-        Debug.Log("Attacking");
+        // Debug.Log("Attacking");
         agent.SetDestination(gameObject.transform.position);
         
         transform.LookAt(playerPosition);

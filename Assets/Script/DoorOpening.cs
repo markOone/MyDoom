@@ -33,6 +33,7 @@ public class DoorOpening : MonoBehaviour
             {
                 IOpenable openable = hit.transform.gameObject.GetComponent<IOpenable>();
                 openable?.Open();
+                Debug.DrawRay(CameraTransform.transform.position, CameraTransform.transform.forward * 10f, Color.red);
             }
         }
     }

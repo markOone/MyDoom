@@ -12,11 +12,12 @@ public class Gun : MonoBehaviour
     [SerializeField] private float shotSoundRadius;
     [SerializeField] private LayerMask enemyLayerMask;
     Collider[] colliders;
+    [SerializeField] AudioSource audioSource;
 
     private bool CanShoot() => !gunData.reloading && timeSinceLastShot > 1f / (gunData.fireRate / 60f);
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void Shoot()
@@ -25,6 +26,7 @@ public class Gun : MonoBehaviour
         {
             if (CanShoot())
             {
+                audioSource?.Play(0);
                 colliders = Physics.OverlapSphere(transform.position, shotSoundRadius, enemyLayerMask);
 
                 foreach (var enemy in colliders)

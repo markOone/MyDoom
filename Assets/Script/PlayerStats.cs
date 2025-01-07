@@ -11,6 +11,7 @@ public class PlayerStats : MonoBehaviour
     
     [Header("References")]
     [SerializeField] Animator damageAnimator;
+    [SerializeField] AudioSource audioSource;
     
     [Header("Player Stats")]
     int Health;
@@ -35,6 +36,7 @@ public class PlayerStats : MonoBehaviour
     void Awake()
     {
         _instance = this;
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Start()
@@ -53,6 +55,7 @@ public class PlayerStats : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        audioSource?.Play(0);
         if (Armor > 0)
         {
             if (Armor >= damage) Armor -= damage;
