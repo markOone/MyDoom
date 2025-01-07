@@ -116,13 +116,17 @@ public class PlayerStats : MonoBehaviour
             {
                 BulletsCounter += 10;
                 if(BulletsCounter > 200) BulletsCounter = 200;
+                
             }
 
             if (type == 2)
             {
                 BulletsCounter += 50;
                 if(BulletsCounter > 200) BulletsCounter = 200;
+                
             }
+            
+            if(PlayerShooting.Instance.currentGunData.bullets) PlayerShooting.Instance.currentGunData.currentAmmo = BulletsCounter;
         }
 
         if (ammoType == 2)
@@ -138,6 +142,8 @@ public class PlayerStats : MonoBehaviour
                 ShellCounter += 20;
                 if(ShellCounter > 100) ShellCounter = 100;
             }
+            
+            if(PlayerShooting.Instance.currentGunData.shells) PlayerShooting.Instance.currentGunData.currentAmmo = ShellCounter;
         }
 
         if (ammoType == 3)
@@ -153,6 +159,8 @@ public class PlayerStats : MonoBehaviour
                 RocketsCounter += 10;
                 if(RocketsCounter > 100) RocketsCounter = 100;
             }
+            
+            if(PlayerShooting.Instance.currentGunData.rockets) PlayerShooting.Instance.currentGunData.currentAmmo = RocketsCounter;
         }
 
         if (ammoType == 4)
@@ -168,6 +176,8 @@ public class PlayerStats : MonoBehaviour
                 CellsCounter += 100;
                 if(CellsCounter > 300) CellsCounter = 300;
             }
+            
+            if(PlayerShooting.Instance.currentGunData.cells) PlayerShooting.Instance.currentGunData.currentAmmo = CellsCounter;
         }
         
         HudController.Instance.UpdateHUD();

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Gun", menuName = "Weapon/Gun")]
@@ -25,6 +26,4 @@ public class GunData : ScriptableObject
     [SerializeField] internal bool bullets;
     [SerializeField] internal bool rockets;
     [SerializeField] internal bool cells;
-
-
 }

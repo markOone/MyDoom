@@ -19,6 +19,9 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] Animator weaponAnimator;
     [SerializeField] Animator flashlightAnimator;
     PlayerStats playerStats;
+    [SerializeField] internal GameObject metalImpactEffect;
+    [SerializeField] internal GameObject stoneImpactEffect;
+    [SerializeField] internal GameObject enemyImpactEffect;
 
     public static PlayerShooting Instance { get { if (_instance == null) Debug.Log("No GameManager"); return _instance; } }
 

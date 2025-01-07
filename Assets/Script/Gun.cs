@@ -25,58 +25,125 @@ public class Gun : MonoBehaviour
 
                 if (gunData.name == "Shotgun")
                 {
-                    Vector3 offset = new Vector3(0.1f, 0f, 0f);
-                    if (Physics.Raycast(fpsCamera.transform.position + offset, fpsCamera.transform.forward, out RaycastHit hitInfo1,
+                    Vector3 offset = new Vector3(0.01f, 0f, 0f);
+                    if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward + offset, out RaycastHit hitInfo1,
                             100f))
                     {
                         IDamagable damagable = hitInfo1.transform.gameObject.GetComponent<IDamagable>();
-                        damagable?.Damage(gunData.damage);
+                        if (damagable != null)
+                        {
+                            damagable.Damage(gunData.damage);
+                            GameObject impactEffect = Instantiate(PlayerShooting.Instance.enemyImpactEffect, hitInfo1.point,
+                                Quaternion.LookRotation(hitInfo1.normal));
+                            DestroyEffect(impactEffect);
+                        }
+                        else
+                        {
+                            GameObject impactEffect = Instantiate(PlayerShooting.Instance.metalImpactEffect, hitInfo1.point,
+                                Quaternion.LookRotation(hitInfo1.normal));
+                            DestroyEffect(impactEffect);
+                        }
                         Debug.Log(hitInfo1.transform.gameObject.name);
                         Debug.DrawRay(fpsCamera.transform.position, fpsCamera.transform.forward * 100f, Color.red);
                     }
                     
-                    if(Physics.Raycast(fpsCamera.transform.position - offset, fpsCamera.transform.forward, out RaycastHit hitInfo2,
+                    if(Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward - offset, out RaycastHit hitInfo2,
                            100f))
                     {
                         IDamagable damagable = hitInfo2.transform.gameObject.GetComponent<IDamagable>();
-                        damagable?.Damage(gunData.damage);
-                        Debug.Log(hitInfo1.transform.gameObject.name);
+                        if (damagable != null)
+                        {
+                            damagable.Damage(gunData.damage);
+                            GameObject impactEffect = Instantiate(PlayerShooting.Instance.enemyImpactEffect, hitInfo2.point,
+                                Quaternion.LookRotation(hitInfo2.normal));
+                            DestroyEffect(impactEffect);
+                        }else
+                        {
+                            GameObject impactEffect = Instantiate(PlayerShooting.Instance.metalImpactEffect, hitInfo2.point,
+                                Quaternion.LookRotation(hitInfo2.normal));
+                            DestroyEffect(impactEffect);
+                        }
+                        Debug.Log(hitInfo2.transform.gameObject.name);
                         Debug.DrawRay(fpsCamera.transform.position, fpsCamera.transform.forward * 100f, Color.red);
                     }
                     
-                    if(Physics.Raycast(fpsCamera.transform.position + (offset * 2), fpsCamera.transform.forward, out RaycastHit hitInfo3,
+                    if(Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward + (offset * 2), out RaycastHit hitInfo3,
                            100f))
                     {
                         IDamagable damagable = hitInfo3.transform.gameObject.GetComponent<IDamagable>();
-                        damagable?.Damage(gunData.damage);
-                        Debug.Log(hitInfo1.transform.gameObject.name);
+                        if (damagable != null)
+                        {
+                            damagable.Damage(gunData.damage);
+                            GameObject impactEffect = Instantiate(PlayerShooting.Instance.enemyImpactEffect, hitInfo3.point,
+                                Quaternion.LookRotation(hitInfo3.normal));
+                            DestroyEffect(impactEffect);
+                        }else
+                        {
+                            GameObject impactEffect = Instantiate(PlayerShooting.Instance.metalImpactEffect, hitInfo3.point,
+                                Quaternion.LookRotation(hitInfo3.normal));
+                            DestroyEffect(impactEffect);
+                        }
+                        Debug.Log(hitInfo3.transform.gameObject.name);
                         Debug.DrawRay(fpsCamera.transform.position, fpsCamera.transform.forward * 100f, Color.red);
                     }
                     
-                    if(Physics.Raycast(fpsCamera.transform.position + (offset * -2), fpsCamera.transform.forward, out RaycastHit hitInfo4,
+                    if(Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward + (offset * -2), out RaycastHit hitInfo4,
                            100f))
                     {
                         IDamagable damagable = hitInfo4.transform.gameObject.GetComponent<IDamagable>();
-                        damagable?.Damage(gunData.damage);
-                        Debug.Log(hitInfo1.transform.gameObject.name);
+                        if (damagable != null)
+                        {
+                            damagable.Damage(gunData.damage);
+                            GameObject impactEffect = Instantiate(PlayerShooting.Instance.enemyImpactEffect, hitInfo4.point,
+                                Quaternion.LookRotation(hitInfo4.normal));
+                            DestroyEffect(impactEffect);
+                        }else
+                        {
+                            GameObject impactEffect = Instantiate(PlayerShooting.Instance.metalImpactEffect, hitInfo4.point,
+                                Quaternion.LookRotation(hitInfo4.normal));
+                            DestroyEffect(impactEffect);
+                        }
+                        Debug.Log(hitInfo4.transform.gameObject.name);
                         Debug.DrawRay(fpsCamera.transform.position, fpsCamera.transform.forward * 100f, Color.red);
                     }
                     
-                    if(Physics.Raycast(fpsCamera.transform.position + (offset * 3), fpsCamera.transform.forward, out RaycastHit hitInfo5,
+                    if(Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward + (offset * 3), out RaycastHit hitInfo5,
                            100f))
                     {
                         IDamagable damagable = hitInfo5.transform.gameObject.GetComponent<IDamagable>();
-                        damagable?.Damage(gunData.damage);
-                        Debug.Log(hitInfo1.transform.gameObject.name);
+                        if (damagable != null)
+                        {
+                            damagable.Damage(gunData.damage);
+                            GameObject impactEffect = Instantiate(PlayerShooting.Instance.enemyImpactEffect, hitInfo5.point,
+                                Quaternion.LookRotation(hitInfo5.normal));
+                            DestroyEffect(impactEffect);
+                        }else
+                        {
+                            GameObject impactEffect = Instantiate(PlayerShooting.Instance.metalImpactEffect, hitInfo5.point,
+                                Quaternion.LookRotation(hitInfo5.normal));
+                            DestroyEffect(impactEffect);
+                        }
+                        Debug.Log(hitInfo5.transform.gameObject.name);
                         Debug.DrawRay(fpsCamera.transform.position, fpsCamera.transform.forward * 100f, Color.red);
                     }
                     
-                    if(Physics.Raycast(fpsCamera.transform.position + (offset * -3), fpsCamera.transform.forward, out RaycastHit hitInfo6,
+                    if(Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward + (offset * -3), out RaycastHit hitInfo6,
                            100f))
                     {
                         IDamagable damagable = hitInfo6.transform.gameObject.GetComponent<IDamagable>();
-                        damagable?.Damage(gunData.damage);
-                        Debug.Log(hitInfo1.transform.gameObject.name);
+                        if (damagable != null)
+                        {
+                            damagable.Damage(gunData.damage);
+                            GameObject impactEffect = Instantiate(PlayerShooting.Instance.enemyImpactEffect, hitInfo6.point,
+                                Quaternion.LookRotation(hitInfo6.normal));
+                            DestroyEffect(impactEffect);
+                        }else
+                        {
+                            GameObject impactEffect = Instantiate(PlayerShooting.Instance.metalImpactEffect, hitInfo6.point,
+                                Quaternion.LookRotation(hitInfo6.normal));
+                            DestroyEffect(impactEffect);
+                        }
+                        Debug.Log(hitInfo6.transform.gameObject.name);
                         Debug.DrawRay(fpsCamera.transform.position, fpsCamera.transform.forward * 100f, Color.red);
                     }
                 }
@@ -85,7 +152,18 @@ public class Gun : MonoBehaviour
                     if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out RaycastHit hitInfo, gunData.lengthRange))
                     {
                         IDamagable damagable = hitInfo.transform.gameObject.GetComponent<IDamagable>();
-                        damagable?.Damage(gunData.damage);
+                        if (damagable != null)
+                        {
+                            damagable.Damage(gunData.damage);
+                            GameObject impactEffect = Instantiate(PlayerShooting.Instance.enemyImpactEffect, hitInfo.point,
+                                Quaternion.LookRotation(hitInfo.normal));
+                            DestroyEffect(impactEffect);
+                        }else
+                        {
+                            GameObject impactEffect = Instantiate(PlayerShooting.Instance.metalImpactEffect, hitInfo.point,
+                                Quaternion.LookRotation(hitInfo.normal));
+                            DestroyEffect(impactEffect);
+                        }
                         Debug.Log(hitInfo.transform.gameObject.name);
                         Debug.DrawRay(fpsCamera.transform.position, fpsCamera.transform.forward * 100f, Color.red);
                     }
@@ -107,6 +185,11 @@ public class Gun : MonoBehaviour
                 HudController.Instance.UpdateHUD();
             }
         }
+    }
+
+    public void DestroyEffect(GameObject effect)
+    {
+        Destroy(effect, 1f);
     }
 
     private void Update()
