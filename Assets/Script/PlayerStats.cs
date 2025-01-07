@@ -55,8 +55,13 @@ public class PlayerStats : MonoBehaviour
     {
         if (Armor > 0)
         {
-            if (Armor > damage) Armor -= damage;
-            else Armor = 0; int remainingDamage = damage - Armor; Health -= remainingDamage;
+            if (Armor >= damage) Armor -= damage;
+            else
+            {
+                int remainingDamage = damage - Armor; 
+                Health -= remainingDamage;
+                Armor = 0;
+            }
         }
         else
         {
