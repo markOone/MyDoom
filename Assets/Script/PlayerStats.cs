@@ -9,6 +9,9 @@ public class PlayerStats : MonoBehaviour
     [Header("Object")]
     private static PlayerStats _instance;
     
+    [Header("References")]
+    [SerializeField] Animator damageAnimator;
+    
     [Header("Player Stats")]
     int Health;
     int MaxHealth = 100;
@@ -41,6 +44,13 @@ public class PlayerStats : MonoBehaviour
         HudController.Instance.UpdateHUD();
     }
 
+    private void FixedUpdate()
+    {
+        if(Health <= 0) Invoke("RestartingGame", 2f);
+    }
+
+    public void RestartingGame() => GameManager.Instance.RestartGame();
+
     public void TakeDamage(int damage)
     {
         if (Armor > 0)
@@ -53,10 +63,11 @@ public class PlayerStats : MonoBehaviour
             Health -= damage;
         }
         
+        damageAnimator.SetTrigger("Damage");
         HudController.Instance.UpdateHUD();
         if (Health <= 0)
         {
-            Invoke("GameManager.Instance.RestartGame", 2f);
+            Invoke("RestartingGame", 2f);
         }
     }
 

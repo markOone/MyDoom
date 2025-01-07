@@ -29,7 +29,7 @@ public class Gun : MonoBehaviour
 
                 foreach (var enemy in colliders)
                 {
-                    enemy.GetComponent<EnemyAwarness>().isAggressive = true;
+                    enemy.GetComponent<Enemy>().playerInSightRange = true;
                 }
 
                 if (gunData.name == "Shotgun")
