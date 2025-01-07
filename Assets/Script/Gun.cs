@@ -26,6 +26,26 @@ public class Gun : MonoBehaviour
                 if (gunData.name == "Shotgun")
                 {
                     Vector3 offset = new Vector3(0.01f, 0f, 0f);
+                    
+                    if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out RaycastHit hitInfo, gunData.lengthRange))
+                    {
+                        IDamagable damagable = hitInfo.transform.gameObject.GetComponent<IDamagable>();
+                        if (damagable != null)
+                        {
+                            damagable.Damage(gunData.damage);
+                            GameObject impactEffect = Instantiate(PlayerShooting.Instance.enemyImpactEffect, hitInfo.point,
+                                Quaternion.LookRotation(hitInfo.normal));
+                            DestroyEffect(impactEffect);
+                        }else
+                        {
+                            GameObject impactEffect = Instantiate(PlayerShooting.Instance.metalImpactEffect, hitInfo.point,
+                                Quaternion.LookRotation(hitInfo.normal));
+                            DestroyEffect(impactEffect);
+                        }
+                        Debug.Log(hitInfo.transform.gameObject.name);
+                        Debug.DrawRay(fpsCamera.transform.position, fpsCamera.transform.forward * 100f, Color.red);
+                    }
+                    
                     if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward + offset, out RaycastHit hitInfo1,
                             100f))
                     {
@@ -149,6 +169,7 @@ public class Gun : MonoBehaviour
                 }
                 else
                 {
+                    PlayerShooting.Instance.muzzleFlashEffect.Play();
                     if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out RaycastHit hitInfo, gunData.lengthRange))
                     {
                         IDamagable damagable = hitInfo.transform.gameObject.GetComponent<IDamagable>();

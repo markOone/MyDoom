@@ -22,6 +22,7 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] internal GameObject metalImpactEffect;
     [SerializeField] internal GameObject stoneImpactEffect;
     [SerializeField] internal GameObject enemyImpactEffect;
+    [SerializeField] internal ParticleSystem muzzleFlashEffect;
 
     public static PlayerShooting Instance { get { if (_instance == null) Debug.Log("No GameManager"); return _instance; } }
 
