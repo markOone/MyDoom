@@ -6,17 +6,17 @@ using UnityEngine.InputSystem;
 
 public class DoorOpening : MonoBehaviour
 {
-    [SerializeField] InputAction openBind;
+    [SerializeField] InputAction interactionBind;//interactionBind
     [SerializeField] Camera CameraTransform;
     
     private void OnEnable()
     {
-        openBind.Enable();
+        interactionBind.Enable();
     }
     
     private void OnDisable()
     {
-        openBind.Disable();
+        interactionBind.Disable();
     }
 
     private void FixedUpdate()
@@ -26,13 +26,13 @@ public class DoorOpening : MonoBehaviour
     
     private void ProccessDoor()
     {
-        if (openBind.IsPressed())
+        if (interactionBind.IsPressed())
         {
             Debug.Log("Pressed");
             if (Physics.Raycast(CameraTransform.transform.position, CameraTransform.transform.forward, out RaycastHit hit, 10f))
             {
-                IOpenable openable = hit.transform.gameObject.GetComponent<IOpenable>();
-                openable?.Open();
+                IInteractable iinteratable = hit.transform.gameObject.GetComponent<IInteractable>();
+                iinteratable?.Interact();
                 Debug.DrawRay(CameraTransform.transform.position, CameraTransform.transform.forward * 10f, Color.red);
             }
         }
