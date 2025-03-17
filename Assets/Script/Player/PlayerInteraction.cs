@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class DoorOpening : MonoBehaviour
+public class PlayerInteraction : MonoBehaviour
 {
     [SerializeField] InputAction interactionBind;//interactionBind
     [SerializeField] Camera CameraTransform;

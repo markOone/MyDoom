@@ -4257,7 +4257,7 @@ GameObject:
   - component: {fileID: 888321363}
   - component: {fileID: 888321366}
   - component: {fileID: 888321367}
-  - component: {fileID: 888321368}
+  - component: {fileID: 888321370}
   - component: {fileID: 888321362}
   - component: {fileID: 888321364}
   - component: {fileID: 888321365}
@@ -4470,36 +4470,6 @@ MonoBehaviour:
   enemyImpactEffect: {fileID: 1000013169864706, guid: e5a3d6da48298a0458c1990f58c27069,
     type: 3}
   muzzleFlashEffect: {fileID: 873112452}
---- !u!114 &888321368
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 888321359}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6a24a2cee246954baf2081c04812d68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  openBind:
-    m_Name: Open Bind
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 375f6718-ce2e-4b12-a512-da27986f122e
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 29a0236d-8b4e-48d3-aa2d-72e90884ceea
-      m_Path: <Keyboard>/#(E)
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Open Bind
-      m_Flags: 0
-    m_Flags: 0
-  CameraTransform: {fileID: 330585545}
 --- !u!82 &888321369
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4596,6 +4566,36 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &888321370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888321359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3466590fd981f07439be3793d0e6ff55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionBind:
+    m_Name: Interaction Bind
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: f3bc51fb-7401-42e2-8613-cf6a3f6784a2
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: c7f27b6c-af79-4a4a-9d12-3e89b132ae22
+      m_Path: <Keyboard>/f
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Interaction Bind
+      m_Flags: 0
+    m_Flags: 0
+  CameraTransform: {fileID: 330585545}
 --- !u!1 &913877063
 GameObject:
   m_ObjectHideFlags: 0
