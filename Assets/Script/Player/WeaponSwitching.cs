@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 public class WeaponSwitching : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] Transform[] weapons;
+    [SerializeField] List<Transform> weapons;
     [SerializeField] Transform shotgun;
 
     [Header("Key")] 
@@ -64,10 +64,23 @@ public class WeaponSwitching : MonoBehaviour
 
     void SetGunActive(int gunIndex)
     {
-        for (int i = 0; i < weapons.Length - 1; i++)
+        // for (int i = 0; i < weapons.Length - 1; i++)
+        // {
+        //     this.gameObject.transform.GetChild(i).gameObject.SetActive(false);    
+        // }
+        
+        TransformIterator iterator = new TransformIterator(weapons);
+        iterator.Reset();
+        while (iterator.MoveNext())
         {
-            this.gameObject.transform.GetChild(i).gameObject.SetActive(false);    
+            iterator.Current.gameObject.SetActive(false);
         }
+        
+        // foreach (var weapon in TransformIterator.GetTransforms(weapons))
+        // {
+        //     weapon.gameObject.SetActive(false);
+        // }
+        
         shotgun.gameObject.SetActive(false);
 
         if (gunIndex == 2)
@@ -103,5 +116,34 @@ public class WeaponSwitching : MonoBehaviour
         }
         
         return result;
+    }
+}
+
+public class TransformIterator : IEnumerator<Transform>
+{
+    private readonly List<Transform> transforms;
+    private static int position = -1;
+
+    public TransformIterator(List<Transform> transforms)
+    {
+        this.transforms = transforms;
+    }
+
+    public Transform Current => transforms[position];
+    object IEnumerator.Current => transforms[position];
+
+    public bool MoveNext() => ++position < transforms.Count;
+    public void Reset() => position = -1;
+    public void Dispose() { }
+
+    public Transform GetNextTransform()
+    {
+        position = (position + 1) % transforms.Count;
+        return transforms[position];
+    } 
+    
+    public static IEnumerable<Transform> GetTransforms(List<Transform> transforms)
+    { 
+        yield return transforms[position];
     }
 }
