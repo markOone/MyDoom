@@ -94,7 +94,7 @@ public class Gun : MonoBehaviour
 
 	    if (damagable != null)
 	    {
-		    damagable.Damage(gunData.damage);
+		    damagable.Damage(gunData.damage, hitInfo.distance);
 		    impactEffect = Instantiate(PlayerShooting.Instance.enemyImpactEffect, hitInfo.point,
 			    Quaternion.LookRotation(hitInfo.normal));
 	    }
@@ -104,7 +104,8 @@ public class Gun : MonoBehaviour
 			    Quaternion.LookRotation(hitInfo.normal));
 	    }
 
-	    DestroyEffect(impactEffect);
+	    //DestroyEffect(impactEffect);
+	    StartCoroutine(DestroyEffectTwo(impactEffect, 1));
 	    Debug.Log(hitInfo.transform.gameObject.name);
 	    Debug.DrawRay(fpsCamera.transform.position, fpsCamera.transform.forward * 100f, Color.red);
     }
@@ -119,6 +120,12 @@ public class Gun : MonoBehaviour
     public void DestroyEffect(GameObject effect)
     {
         Destroy(effect, 1f);
+    }
+
+    IEnumerator DestroyEffectTwo(GameObject effect, float seconds)
+    {
+	    yield return new WaitForSeconds(seconds);
+	    Destroy(effect);
     }
 
     private void Update()

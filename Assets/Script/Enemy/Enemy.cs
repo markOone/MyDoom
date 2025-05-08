@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 
 public class Enemy : MonoBehaviour, IDamagable
 {
-    [SerializeField] int health = 100;
+    [SerializeField] float health = 100;
     private Transform playerPosition;
     public LayerMask playerMask;
     [SerializeField] NavMeshAgent agent;
@@ -35,10 +36,17 @@ public class Enemy : MonoBehaviour, IDamagable
         playerPosition = GameManager.Instance.playerPosition;
         audioSourcePain = GetComponent<AudioSource>();
         audioSourceDeath = this.transform.GetChild(0).GetComponent<AudioSource>();
+        _memoizedCalculateDamage = new Func<float, float, float>(CalculateDamage).Memoize(
+            new Memoizer.MemoizationOptions
+            {
+                Size = 50,
+                Policy = Memoizer.EvictionPolicy.LRU
+            });
     }
 
-    public void Damage(int damage)
+    public void Damage(float damage, float distance)
     {
+        damage = _memoizedCalculateDamage(damage, distance) * Random.Range(0, 4);
         health -= damage;
         audioSourcePain?.Play(0);
         Debug.Log(health);
@@ -48,6 +56,15 @@ public class Enemy : MonoBehaviour, IDamagable
             Destroy(gameObject);
         }
     }
+
+    public float CalculateDamage(float damage, float distance)
+    {
+        float result = damage * (1 - 1/distance);
+
+        return result;
+    }
+    
+    private Func<float, float, float> _memoizedCalculateDamage;
 
     private void Update()
     {

@@ -122,7 +122,7 @@ public class WeaponSwitching : MonoBehaviour
 public class TransformIterator : IEnumerator<Transform>
 {
     private readonly List<Transform> transforms;
-    private static int position = -1;
+    private int position = -1;
 
     public TransformIterator(List<Transform> transforms)
     {
@@ -141,9 +141,4 @@ public class TransformIterator : IEnumerator<Transform>
         position = (position + 1) % transforms.Count;
         return transforms[position];
     } 
-    
-    public static IEnumerable<Transform> GetTransforms(List<Transform> transforms)
-    { 
-        yield return transforms[position];
-    }
 }

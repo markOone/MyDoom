@@ -86,7 +86,7 @@ public class PlayerStats : MonoBehaviour
         if (type == 1)
         {
             Armor += 1;
-            if(Armor > 200) Armor = 200;
+            if(Armor > MaxArmor) Armor = MaxArmor;
         }
 
         if (type == 2)
@@ -96,7 +96,7 @@ public class PlayerStats : MonoBehaviour
 
         if (type == 3)
         {
-            if(Armor < 200) Armor = 200;
+            if(Armor < MaxArmor) Armor = MaxArmor;
         }
         
         
