@@ -69,11 +69,40 @@ public class Gun : MonoBehaviour
 
 	    foreach (var offset in offsets)
 	    {
-		    if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward + offset,
-			        out RaycastHit hitInfo, gunData.lengthRange))
+		    
+		    // for (int i = 0; i < 6; i++)
+		    // {
+			   //  float x = UnityEngine.Random.Range(-0.05f, 0.05f);
+			   //  float y = UnityEngine.Random.Range(-0.05f, 0.05f);
+		    //
+			   //  Vector3 direction = fpsCamera.transform.forward 
+			   //                      + fpsCamera.transform.right * x 
+			   //                      + fpsCamera.transform.up * y;
+		    //
+			   //  direction.Normalize();
+		    //
+			   //  if (Physics.Raycast(fpsCamera.transform.position, direction, out RaycastHit hitInfo, gunData.lengthRange))
+			   //  {
+				  //   HandleHit(hitInfo);
+			   //  }
+		    // }
+		    
+		    Vector3 spreadDirection = fpsCamera.transform.forward 
+		                              + fpsCamera.transform.right * offset.x 
+		                              + fpsCamera.transform.up * offset.y;
+		    spreadDirection.Normalize();
+		    
+		    if (Physics.Raycast(fpsCamera.transform.position, spreadDirection, out RaycastHit hitInfo,
+			        gunData.lengthRange))
 		    {
 			    HandleHit(hitInfo);
 		    }
+		    
+		    // if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward + offset,
+			   //      out RaycastHit hitInfo, gunData.lengthRange))
+		    // {
+			   //  HandleHit(hitInfo);
+		    // }
 	    }
     }
 
@@ -89,6 +118,8 @@ public class Gun : MonoBehaviour
 
     private void HandleHit(RaycastHit hitInfo)
     {
+	    if (hitInfo.transform.gameObject.layer.ToString() == "FireBall") return;
+	    
 	    IDamagable damagable = hitInfo.transform.gameObject.GetComponent<IDamagable>();
 	    GameObject impactEffect;
 

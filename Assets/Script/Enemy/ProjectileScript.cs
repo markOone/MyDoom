@@ -7,7 +7,11 @@ public class ProjectileScript : MonoBehaviour
 {
     void OnCollisionEnter(Collision other)
     {
-        if(!other.gameObject.CompareTag("Enemy")) Invoke("Die", .1f);
+        if (!other.gameObject.CompareTag("Enemy"))
+        {
+            Invoke("Die", .1f);
+            gameObject.GetComponent<Collider>().enabled = false;
+        }
         if (other.transform.gameObject.CompareTag("Player"))
         {
             PlayerStats.Instance.TakeDamage(5);
