@@ -31,6 +31,8 @@ public class Enemy : MonoBehaviour, IDamagable
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
 
+    //Memo
+    private Func<float, float, float> _memoizedCalculateDamage;
     private void Start()
     { 
         playerPosition = GameManager.Instance.playerPosition;
@@ -49,7 +51,7 @@ public class Enemy : MonoBehaviour, IDamagable
         damage = _memoizedCalculateDamage(damage, distance) * Random.Range(0, 4);
         health -= damage;
         audioSourcePain?.Play(0);
-        Debug.Log(health);
+        //Debug.Log(health);
         if (health <= 0)
         {
             audioSourceDeath?.Play(0); 
@@ -63,53 +65,64 @@ public class Enemy : MonoBehaviour, IDamagable
 
         return result;
     }
-    
-    private Func<float, float, float> _memoizedCalculateDamage;
 
     private void Update()
     {
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, playerMask);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, playerMask);
 
-        // if (!playerInSightRange && !playerInAttackRange) Patrol();
+        if (!playerInSightRange && !playerInAttackRange) Patrol();
         if (playerInSightRange && !playerInAttackRange) Chase();
         if (playerInAttackRange && playerInSightRange) Attack();
     }
+    
+    
 
     void CheckIfNotInTheWall()
     {
         if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, 1f))
         {
-            if (hit.collider.gameObject.CompareTag("Wall"))
+            if (hit.collider.gameObject.CompareTag("Wall") || hit.collider.gameObject.CompareTag("Enemy"))
             {
+                //Debug.Log("In the wall");
                 walkPointSet = false;
             }
         }
     }
 
-    // void Patrol()
-    // {
-    //     Debug.Log("Patrolling");
-    //     if (!walkPointSet) SearchWalkPoint();
-    //     
-    //     if(walkPointSet) agent.SetDestination(walkPoint);
-    //     CheckIfNotInTheWall();
-    //     
-    //     Vector3 distanceToWalkPoint = walkPoint - transform.position;
-    //     
-    //     if(distanceToWalkPoint.magnitude < 1f) walkPointSet = false;
-    // }
+    void Patrol()
+    {
+        //Debug.Log("Patrolling");
+        if (!walkPointSet) SearchWalkPoint();
+        
+        if(walkPointSet) agent.SetDestination(walkPoint);
+        CheckIfNotInTheWall();
+        
+        Vector3 distanceToWalkPoint = walkPoint - transform.position;
+        
+        if(distanceToWalkPoint.magnitude < 1f) walkPointSet = false;
+    }
 
     void Chase()
     {
-        // Debug.Log("Chasing");
+        //Debug.Log("Chasing");
+        agent.isStopped = false;
         agent.SetDestination(playerPosition.position);
     }
 
     void Attack()
     {
-        // Debug.Log("Attacking");
-        agent.SetDestination(gameObject.transform.position);
+        //Debug.Log("Attacking");
+        if(CheckForObstacle(playerPosition.position))
+        {
+            Chase();
+            return;
+        }
+        else{
+            agent.SetDestination(gameObject.transform.position);
+            agent.isStopped = true;
+            agent.ResetPath();
+        }
         
         transform.LookAt(playerPosition);
         if (!alreadyAttacked)
@@ -123,21 +136,46 @@ public class Enemy : MonoBehaviour, IDamagable
         }
     }
 
+    bool CheckForObstacle(Vector3 playerPosition)
+    {
+        Vector3 directionToPlayer = (playerPosition - transform.position).normalized;
+        if (Physics.Raycast(transform.position, directionToPlayer, out RaycastHit hit, attackRange + 5f))
+        {
+            if (hit.collider.gameObject.CompareTag("Wall") || hit.collider.gameObject.CompareTag("Enemy"))
+            {
+                //Debug.Log("In the wall");
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     void ResetAttack()
     {
         alreadyAttacked = false;
     }
 
-    // void SearchWalkPoint(){
-    //     Debug.Log("Searching for a walk point");
-    //     float randomZ = UnityEngine.Random.Range(-10f, 10f);
-    //     float randomX = UnityEngine.Random.Range(-10f, 10f);
-    //     
-    //     walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
-    //     
-    //     if (Physics.Raycast(walkPoint, -transform.up, out RaycastHit hit, 2f, whatIsGround))
-    //     {
-    //         walkPointSet = true;
-    //     }
-    // }
+    void SearchWalkPoint(){
+        //Debug.Log("Searching for a walk point");
+        float randomZ = UnityEngine.Random.Range(-10f, 10f);
+        float randomX = UnityEngine.Random.Range(-10f, 10f);
+        
+        walkPoint = new Vector3(transform.position.x + randomX, gameObject.transform.position.y, transform.position.z + randomZ);
+        
+        if (Physics.Raycast(walkPoint, -transform.up, out RaycastHit hit, gameObject.transform.localScale.y + 2f, whatIsGround))
+        {
+            walkPointSet = true;
+        }
+        else
+        {
+            Debug.Log("NO GROUND HEEEEELP");
+            Debug.DrawRay(hit.point, -transform.up, Color.blue, 2f);
+        }
+    }
 }
