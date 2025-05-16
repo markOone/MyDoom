@@ -2,68 +2,80 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using MyDoom.ShootingSystem;
 
-public class PlayerShooting : MonoBehaviour
+namespace MyDoom.Player
 {
-    private static PlayerShooting _instance;
-        
-    [Header("Weapon Properties")] 
-    [SerializeField] internal GunData currentGunData;
-    [SerializeField] internal Gun currentGun;
-    
-    [Header("Bindings")]
-    [SerializeField] InputAction shootingBind;
-    
-    
-    [Header("References")]
-    [SerializeField] Animator weaponAnimator;
-    [SerializeField] Animator flashlightAnimator;
-    PlayerStats playerStats;
-    [SerializeField] internal GameObject metalImpactEffect;
-    [SerializeField] internal GameObject stoneImpactEffect;
-    [SerializeField] internal GameObject enemyImpactEffect;
-    [SerializeField] internal ParticleSystem muzzleFlashEffect;
+    public class PlayerShooting : MonoBehaviour
+    {
+        private static PlayerShooting _instance;
 
-    public static PlayerShooting Instance { get { if (_instance == null) Debug.Log("No GameManager"); return _instance; } }
+        [Header("Weapon Properties")] [SerializeField]
+        internal GunData currentGunData;
 
-    private void OnEnable()
-    {
-        shootingBind.Enable();
-    }
+        [SerializeField] internal Gun currentGun;
 
-    private void OnDisable()
-    {
-        shootingBind.Disable();
-    }
-    
-    private void Awake()
-    {
-        _instance = this;
-    }
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        playerStats = PlayerStats.Instance;
-    }
+        [Header("Bindings")] [SerializeField] InputAction shootingBind;
 
-    // Update is called once per frame
-    void Update()
-    {
-        ProccessShooting();
-    }
 
-    public void ProccessShooting()
-    {
-        if (shootingBind.IsPressed() && currentGunData.currentAmmo > 0)
+        [Header("References")] [SerializeField]
+        Animator weaponAnimator;
+
+        [SerializeField] Animator flashlightAnimator;
+        PlayerStats playerStats;
+        [SerializeField] internal GameObject metalImpactEffect;
+        [SerializeField] internal GameObject stoneImpactEffect;
+        [SerializeField] internal GameObject enemyImpactEffect;
+        [SerializeField] internal ParticleSystem muzzleFlashEffect;
+
+        public static PlayerShooting Instance
         {
-            currentGun.Shoot();
+            get
+            {
+                if (_instance == null) Debug.Log("No GameManager");
+                return _instance;
+            }
         }
-    }
 
-    public void Shoot2D()
-    {
+        private void OnEnable()
+        {
+            shootingBind.Enable();
+        }
+
+        private void OnDisable()
+        {
+            shootingBind.Disable();
+        }
+
+        private void Awake()
+        {
+            _instance = this;
+        }
+
+        // Start is called before the first frame update
+        void Start()
+        {
+            playerStats = PlayerStats.Instance;
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            ProccessShooting();
+        }
+
+        public void ProccessShooting()
+        {
+            if (shootingBind.IsPressed() && currentGunData.currentAmmo > 0)
+            {
+                currentGun.Shoot();
+            }
+        }
+
+        public void Shoot2D()
+        {
             weaponAnimator.SetTrigger("Shooting");
             flashlightAnimator.SetTrigger("Shooting");
+        }
     }
 }

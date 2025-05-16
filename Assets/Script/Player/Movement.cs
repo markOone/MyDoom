@@ -5,71 +5,67 @@ using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.InputSystem;
 
-public class Movement : MonoBehaviour
+namespace MyDoom.Player
 {
-    private static readonly int IsMoving = Animator.StringToHash("IsMoving");
-
-    [Header("Bindings")] 
-    [SerializeField] InputAction playerMovement;
-    
-    [Header("References")]
-    [SerializeField] Transform playerBody;
-    [SerializeField] CharacterController characterController;
-    [SerializeField] Animator animator;
-
-    [Header("Movement Settings")] 
-    [SerializeField] float movementSpeed;
-    Vector3 velocity;
-    
-    // Start is called before the first frame update
-    void Start()
+    public class Movement : MonoBehaviour
     {
-        
-    }
-    
-    private void OnEnable()
-    {
-        playerMovement.Enable();
-    }
+        private static readonly int IsMoving = Animator.StringToHash("IsMoving");
 
-    private void OnDisable()
-    {
-        playerMovement.Disable();
-    }
+        [Header("Bindings")] [SerializeField] InputAction playerMovement;
 
+        [Header("References")] [SerializeField]
+        Transform playerBody;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+        [SerializeField] CharacterController characterController;
+        [SerializeField] Animator animator;
 
-    private void FixedUpdate()
-    {
-        ProcessMovement();
-        ProccessMovementAnimation();
-        velocity.y += Physics.gravity.y * Time.fixedDeltaTime;
-        characterController.Move(velocity * Time.fixedDeltaTime);
-    }
+        [Header("Movement Settings")] [SerializeField]
+        float movementSpeed;
 
-    // ReSharper disable Unity.PerformanceAnalysis
-    void ProcessMovement()
-    {
-        Vector2 movement = playerMovement.ReadValue<Vector2>();
-        Vector3 movementDirection = transform.forward * movement.y + transform.right * movement.x;
-        characterController.Move(movementDirection * movementSpeed * Time.fixedDeltaTime);
-    }
+        Vector3 velocity;
 
-    void ProccessMovementAnimation()
-    {
-        if (playerMovement.IsPressed() && !animator.GetCurrentAnimatorStateInfo(0).IsName("IsMoving"))
+        private void OnEnable()
         {
-            animator.SetInteger("IsMoving", 1);
+            playerMovement.Enable();
         }
-        else
+
+        private void OnDisable()
         {
-            animator.SetInteger("IsMoving", 0);
+            playerMovement.Disable();
         }
-        
+
+
+        // Update is called once per frame
+        void Update()
+        {
+        }
+
+        private void FixedUpdate()
+        {
+            ProcessMovement();
+            ProccessMovementAnimation();
+            velocity.y += Physics.gravity.y * Time.fixedDeltaTime;
+            characterController.Move(velocity * Time.fixedDeltaTime);
+        }
+
+        // ReSharper disable Unity.PerformanceAnalysis
+        void ProcessMovement()
+        {
+            Vector2 movement = playerMovement.ReadValue<Vector2>();
+            Vector3 movementDirection = transform.forward * movement.y + transform.right * movement.x;
+            characterController.Move(movementDirection * movementSpeed * Time.fixedDeltaTime);
+        }
+
+        void ProccessMovementAnimation()
+        {
+            if (playerMovement.IsPressed() && !animator.GetCurrentAnimatorStateInfo(0).IsName("IsMoving"))
+            {
+                animator.SetInteger("IsMoving", 1);
+            }
+            else
+            {
+                animator.SetInteger("IsMoving", 0);
+            }
+        }
     }
 }

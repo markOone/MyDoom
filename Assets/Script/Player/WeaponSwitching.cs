@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using MyDoom.Player;
 
 public class WeaponSwitching : MonoBehaviour
 {
@@ -34,7 +35,6 @@ public class WeaponSwitching : MonoBehaviour
     {
         SetGunActive(selectedWeapon);
         timeSinceLastSwitch = 0f;
-        // PlayerStats.Instance.GetStatsFromGunData(weapons);
     }
 
     private void Update()
@@ -64,36 +64,25 @@ public class WeaponSwitching : MonoBehaviour
 
     void SetGunActive(int gunIndex)
     {
-        // for (int i = 0; i < weapons.Length - 1; i++)
-        // {
-        //     this.gameObject.transform.GetChild(i).gameObject.SetActive(false);    
-        // }
-        
         TransformIterator iterator = new TransformIterator(weapons);
         iterator.Reset();
         while (iterator.MoveNext())
         {
             iterator.Current.gameObject.SetActive(false);
         }
-        
-        // foreach (var weapon in TransformIterator.GetTransforms(weapons))
-        // {
-        //     weapon.gameObject.SetActive(false);
-        // }
-        
         shotgun.gameObject.SetActive(false);
 
         if (gunIndex == 2)
         {
             shotgun.gameObject.SetActive(true);
-            PlayerShooting.Instance.currentGunData = shotgun.GetChild(1).gameObject.GetComponent<Gun>().gunData;
-            PlayerShooting.Instance.currentGun = shotgun.GetChild(1).gameObject.GetComponent<Gun>();
+            PlayerShooting.Instance.currentGunData = shotgun.GetChild(1).gameObject.GetComponent<MyDoom.ShootingSystem.Gun>().gunData;
+            PlayerShooting.Instance.currentGun = shotgun.GetChild(1).gameObject.GetComponent<MyDoom.ShootingSystem.Gun>();
         }
         else
         {
             weapons[gunIndex].gameObject.SetActive(true);
-            PlayerShooting.Instance.currentGun = weapons[gunIndex].gameObject.GetComponent<Gun>();
-            PlayerShooting.Instance.currentGunData = weapons[gunIndex].gameObject.GetComponent<Gun>().gunData;
+            PlayerShooting.Instance.currentGun = weapons[gunIndex].gameObject.GetComponent<MyDoom.ShootingSystem.Gun>();
+            PlayerShooting.Instance.currentGunData = weapons[gunIndex].gameObject.GetComponent<MyDoom.ShootingSystem.Gun>().gunData;
         }
 
         PlayerShooting.Instance.currentGun.CheckAmmo();

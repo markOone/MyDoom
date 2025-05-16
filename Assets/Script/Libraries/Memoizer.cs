@@ -3,7 +3,6 @@ using System.Collections.Generic;
 
 public static class Memoizer
 {
-
 	public class CacheEntity<TResult>
 	{
 		public TResult Value{get;}

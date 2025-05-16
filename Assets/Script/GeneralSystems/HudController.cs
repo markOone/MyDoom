@@ -8,7 +8,6 @@ using Unity.VisualScripting;
 public class HudController : MonoBehaviour
 {
     [Header("UI Elements")] 
-    private GameObject HUD;
     public TextMeshProUGUI HealthText;
     public TextMeshProUGUI ArmorText;
     public TextMeshProUGUI AmmoText;
@@ -26,7 +25,6 @@ public class HudController : MonoBehaviour
     void Awake()
     {
         _instance = this;
-        HUD = this.gameObject;
     }
     
     public void UpdateHUD()
@@ -34,10 +32,10 @@ public class HudController : MonoBehaviour
         
         HealthText.text = PlayerStats.Instance.GetHealth().ToString() + "%";
         ArmorText.text = PlayerStats.Instance.GetArmor().ToString() + "%";
-        BulletText.text = PlayerStats.Instance.GetBullets().ToString();
-        ShellText.text = PlayerStats.Instance.GetShells().ToString();
-        RocketText.text = PlayerStats.Instance.GetRockets().ToString();
-        CellsText.text = PlayerStats.Instance.GetCells().ToString();
+        BulletText.text = PlayerStats.Instance.BulletsCounter.ToString();
+        ShellText.text = PlayerStats.Instance.ShellCounter.ToString();
+        RocketText.text = PlayerStats.Instance.RocketsCounter.ToString();
+        CellsText.text = PlayerStats.Instance.CellsCounter.ToString();
         
         //Check what ammo shoul be displayed dependent on gun player holds
     }

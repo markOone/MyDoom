@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using MyDoom.Player;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -79,131 +80,76 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    public void ArmorTaking(int type)
+    public void ArmorTaking(int amount)
     {
         GameManager.Instance.powerUpEffect();
-        
-        if (type == 1)
-        {
-            Armor += 1;
-            if(Armor > MaxArmor) Armor = MaxArmor;
-        }
 
-        if (type == 2)
+        if (amount == 100)
         {
+            Armor += amount;
             if(Armor < 100) Armor = 100;
         }
-
-        if (type == 3)
+        else
         {
-            if(Armor < MaxArmor) Armor = MaxArmor;
+            Armor += amount;
         }
         
+        if(Armor > MaxArmor) Armor = MaxArmor;
         
         HudController.Instance.UpdateHUD();
     }
     
-    public void HealthKit(int type)
+    public void HealthKit(int amount)
     {
         GameManager.Instance.powerUpEffect();
         
-        if(type == 1)
+        if (amount is 10 or 25)
         {
-            Health += 1;
-            if(Health > 200) Health = 200;
+            Health += amount;
+            if(Health < 100) Armor = 100;
         }
-
-        if (type == 2)
+        else
         {
-            Health += 10;
-            if(Health > 100) Health = 100;
+            Health += amount;
         }
-
-        if (type == 3)
-        {
-            Health += 25;
-            if(Health > 100) Health = 100;
-        }
-
-        if (type == 4)
-        {
-            Health += 100;
-            if(Health > 200) Health = 200;
-        }
+        
+        if(Health > MaxHealth) Health = MaxHealth;
         
         HudController.Instance.UpdateHUD();
     }
 
-    public void TakingAmmo(int type, int ammoType)
+    public void TakingAmmo(int amount, AmmoType ammoType)
     {
         GameManager.Instance.powerUpEffect();
-        
-        if (ammoType == 1)
-        {
-            if (type == 1)
-            {
-                BulletsCounter += 10;
-                if(BulletsCounter > 200) BulletsCounter = 200;
-                
-            }
 
-            if (type == 2)
-            {
-                BulletsCounter += 50;
-                if(BulletsCounter > 200) BulletsCounter = 200;
-                
-            }
+        if (ammoType == AmmoType.Bullet)
+        {
+            BulletsCounter += amount;
+            if(BulletsCounter > 200) BulletsCounter = 200;
             
             if(PlayerShooting.Instance.currentGunData.bullets) PlayerShooting.Instance.currentGunData.currentAmmo = BulletsCounter;
         }
 
-        if (ammoType == 2)
+        if (ammoType == AmmoType.Shell)
         {
-            if (type == 1)
-            {
-                ShellCounter += 4;
-                if(ShellCounter > 100) ShellCounter = 100;
-            }
-
-            if (type == 2)
-            {
-                ShellCounter += 20;
-                if(ShellCounter > 100) ShellCounter = 100;
-            }
+            ShellCounter += amount;
+            if(ShellCounter > 100) ShellCounter = 100;
             
             if(PlayerShooting.Instance.currentGunData.shells) PlayerShooting.Instance.currentGunData.currentAmmo = ShellCounter;
         }
 
-        if (ammoType == 3)
+        if (ammoType == AmmoType.Rocket)
         {
-            if (type == 1)
-            {
-                RocketsCounter += 1;
-                if(RocketsCounter > 100) RocketsCounter = 100;
-            }
-
-            if (type == 2)
-            {
-                RocketsCounter += 10;
-                if(RocketsCounter > 100) RocketsCounter = 100;
-            }
+            RocketsCounter += amount;
+            if(RocketsCounter > 100) RocketsCounter = 100;
             
             if(PlayerShooting.Instance.currentGunData.rockets) PlayerShooting.Instance.currentGunData.currentAmmo = RocketsCounter;
         }
 
-        if (ammoType == 4)
+        if (ammoType == AmmoType.Cell)
         {
-            if (type == 1)
-            {
-                CellsCounter += 20;
-                if(CellsCounter > 300) CellsCounter = 300;
-            }
-
-            if (type == 2)
-            {
-                CellsCounter += 100;
-                if(CellsCounter > 300) CellsCounter = 300;
-            }
+            CellsCounter += amount;
+            if(CellsCounter > 300) CellsCounter = 300;
             
             if(PlayerShooting.Instance.currentGunData.cells) PlayerShooting.Instance.currentGunData.currentAmmo = CellsCounter;
         }
@@ -212,23 +158,14 @@ public class PlayerStats : MonoBehaviour
     }
     
     public int GetHealth() => Health;
-    public int GetBullets() => BulletsCounter;
-    public int GetShells() => ShellCounter;
-    public int GetRockets() => RocketsCounter;
     public int GetArmor() => Armor;
-    public int GetCells() => CellsCounter;
+    
+}
 
-    // public void GetStatsFromGunData(Transform[] weaponsList)
-    // {
-    //     for (int i = 0; i < weaponsList.Length; i++)
-    //     {
-    //         if(weaponsList[i].gameObject.GetComponent<Gun>().gunData.shells) ShellCounter += weaponsList[i].gameObject.GetComponent<Gun>().gunData.currentAmmo;
-    //         if (weaponsList[i].gameObject.GetComponent<Gun>().gunData.bullets) BulletsCounter += weaponsList[i].gameObject.GetComponent<Gun>().gunData.currentAmmo;
-    //         if(weaponsList[i].gameObject.GetComponent<Gun>().gunData.rockets) RocketsCounter += weaponsList[i].gameObject.GetComponent<Gun>().gunData.currentAmmo;
-    //         if(weaponsList[i].gameObject.GetComponent<Gun>().gunData.cells) CellsCounter += weaponsList[i].gameObject.GetComponent<Gun>().gunData.currentAmmo;
-    //     }
-    //     HudController.Instance.UpdateHUD();
-    // }
-    
-    
+public enum AmmoType
+{
+    Bullet,
+    Shell,
+    Rocket,
+    Cell
 }

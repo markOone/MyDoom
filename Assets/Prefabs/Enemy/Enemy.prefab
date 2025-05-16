@@ -339,8 +339,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   agent: {fileID: 8103183484202593802}
-  audioSourcePain: {fileID: 0}
-  audioSourceDeath: {fileID: 0}
+  audioSourcePain: {fileID: 8867525768175693248}
+  audioSourceDeath: {fileID: 6500704857697618512}
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointSet: 0
   whatIsGround:
