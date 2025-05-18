@@ -27,6 +27,7 @@ namespace MyDoom.Enemies
         [Header("For Attacking")] public float timeBetweenAttacks;
         bool alreadyAttacked;
         [SerializeField] GameObject projectile;
+        [SerializeField] Transform projectileSpawnPoint;
 
         [Header("States")] public float sightRange, attackRange;
         public bool playerInSightRange, playerInAttackRange;
@@ -125,7 +126,7 @@ namespace MyDoom.Enemies
             transform.LookAt(playerPosition);
             if (!alreadyAttacked)
             {
-                Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity)
+                Rigidbody rb = Instantiate(projectile, projectileSpawnPoint.position, Quaternion.identity)
                     .GetComponent<Rigidbody>();
                 rb.AddForce(transform.forward * 64f, ForceMode.Impulse);
                 rb.AddForce(transform.up * 4f, ForceMode.Impulse);

@@ -3995,6 +3995,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8103183484202593805, guid: 6fbdef44e011e6f44baf64a9c1202649,
+        type: 3}
+      propertyPath: projectileSpawnPoint
+      value: 
+      objectReference: {fileID: 1924444526}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fbdef44e011e6f44baf64a9c1202649, type: 3}
 --- !u!4 &1833926199 stripped
@@ -4303,6 +4308,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fbdef44e011e6f44baf64a9c1202649, type: 3}
+--- !u!4 &1924444526 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1582908344719834396, guid: 6fbdef44e011e6f44baf64a9c1202649,
+    type: 3}
+  m_PrefabInstance: {fileID: 1924444525}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1945809789 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1823329018613721319, guid: 507c67fe581d43348bdfbb06aba5d40b,
