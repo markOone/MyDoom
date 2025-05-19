@@ -28,7 +28,6 @@ namespace MyDoom.Enemies
         [Header("For Attacking")] public float timeBetweenAttacks;
         bool alreadyAttacked;
         [SerializeField] GameObject projectile;
-        [SerializeField] Transform projectileSpawnPoint;
 
         [Header("States")] public float sightRange, attackRange;
         public bool playerInSightRange, playerInAttackRange;

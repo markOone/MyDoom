@@ -303,6 +303,7 @@ namespace MyDoom.ShootingSystem
             if (gunData.shells) PlayerStats.Instance.ShellCounter--;
             if (gunData.bullets) PlayerStats.Instance.BulletsCounter--;
             if (gunData.rockets) PlayerStats.Instance.RocketsCounter--;
+            if(gunData.cells) PlayerStats.Instance.CellsCounter--;
         }
 
         public void DestroyEffect(GameObject effect)
