@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using MyDoom.Player;
 
-public class PlayerStats : MonoBehaviour
+public class PlayerStats : MonoBehaviour, IDamagable
 {
     [Header("Object")]
     private static PlayerStats _instance;
@@ -159,7 +159,11 @@ public class PlayerStats : MonoBehaviour
     
     public int GetHealth() => Health;
     public int GetArmor() => Armor;
-    
+
+    public void Damage(float damage, float distance)
+    {
+        TakeDamage((int)damage);
+    }
 }
 
 public enum AmmoType

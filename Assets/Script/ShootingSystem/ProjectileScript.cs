@@ -7,26 +7,21 @@ namespace MyDoom.ShootingSystem
 {
     public class ProjectileScript : MonoBehaviour
     {
+        public float Damage = 10f;
+        [SerializeField] GameObject effectPrefab;
         void OnCollisionEnter(Collision other)
         {
-            if (!other.gameObject.CompareTag("Enemy"))
+            //Debug.Log(Damage);
+            GameObject explotion = Instantiate(effectPrefab, transform.position, Quaternion.identity);
+            Collider[] colliders = Physics.OverlapSphere(transform.position, 5f);
+            foreach (Collider collider in colliders)
             {
-                Invoke("Die", .1f);
-                gameObject.GetComponent<Collider>().enabled = false;
+                IDamagable damagable = collider.gameObject.GetComponent<IDamagable>();
+                if(damagable != null) damagable.Damage(Damage, 100f);
+                //Debug.Log(collider.gameObject.name);
             }
-
-            if (other.transform.gameObject.CompareTag("Player"))
-            {
-                PlayerStats.Instance.TakeDamage(5);
-                //Invoke("Die", 1f);
-            }
-
-            //if(other.transform.gameObject.CompareTag("Wall")) Invoke("Die", .1f);
-        }
-
-        private void Start()
-        {
-            //Invoke("Die", 2f);
+            gameObject.GetComponent<Collider>().enabled = false;
+            Invoke("Die", .1f);
         }
 
         void Die()

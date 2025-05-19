@@ -16,6 +16,7 @@ namespace MyDoom.Enemies
         [SerializeField] NavMeshAgent agent;
         [SerializeField] AudioSource audioSourcePain;
         [SerializeField] AudioSource audioSourceDeath;
+        [SerializeField] Transform projectileSpawnPoint;
 
         [Header("For Patrolling")] [SerializeField]
         private Vector3 walkPoint;
@@ -125,7 +126,7 @@ namespace MyDoom.Enemies
             transform.LookAt(playerPosition);
             if (!alreadyAttacked)
             {
-                Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity)
+                Rigidbody rb = Instantiate(projectile, projectileSpawnPoint.position, Quaternion.identity)
                     .GetComponent<Rigidbody>();
                 rb.AddForce(transform.forward * 64f, ForceMode.Impulse);
                 rb.AddForce(transform.up * 4f, ForceMode.Impulse);
@@ -177,7 +178,7 @@ namespace MyDoom.Enemies
             }
             else
             {
-                Debug.Log("NO GROUND HEEEEELP");
+                //Debug.Log("NO GROUND HEEEEELP");
                 Debug.DrawRay(hit.point, -transform.up, Color.blue, 2f);
             }
         }

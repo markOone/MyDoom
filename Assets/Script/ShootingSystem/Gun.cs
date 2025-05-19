@@ -12,6 +12,8 @@ namespace MyDoom.ShootingSystem
     {
         [Header("References")] [SerializeField]
         internal GunData gunData;
+        [SerializeField] GameObject particlePrefab;
+        [SerializeField] Transform particleSpawnPoint;
 
         [SerializeField] Camera fpsCamera;
         float timeSinceLastShot;
@@ -38,9 +40,15 @@ namespace MyDoom.ShootingSystem
                 {
                     ShootShotgun();
                 }
-                else
-                {
-                    ShootSingleRay();
+                
+                if (gunData.rockets || gunData.cells)
+                { 
+                    ShootSingleRay(ShootingType.Particle);
+                }
+                
+                if(gunData.bullets)
+                { 
+                    ShootSingleRay(ShootingType.HitScan);    
                 }
 
                 if (gunData.is2D)
@@ -124,14 +132,31 @@ namespace MyDoom.ShootingSystem
             HandleHit(raycastHits, true);
         }
 
-        private void ShootSingleRay()
+        private void ShootSingleRay(ShootingType type)
         {
             PlayerShooting.Instance.muzzleFlashEffect.Play();
-            if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out RaycastHit hitInfo,
-                    gunData.lengthRange))
+            if (type == ShootingType.Particle)
             {
-                HandleHit(hitInfo, false);
+                Vector3 spawnPoint = particleSpawnPoint.position; 
+                //spawnPoint.z -= 5f;
+                Rigidbody rb = Instantiate(particlePrefab, spawnPoint, particleSpawnPoint.rotation)
+                    .GetComponent<Rigidbody>();
+                //Vector3 spawnPoint = GameManager.Instance.playerPosition.forward;
+                //spawnPoint.z += 1f;
+                rb.gameObject.GetComponent<ProjectileScript>().Damage = gunData.damage;
+                //spawnPoint.y += 1f;
+                rb.AddForce(particleSpawnPoint.forward * 200f, ForceMode.Impulse);
+                //rb.AddForce(transform.up * 4f, ForceMode.Impulse);
             }
+            else
+            {
+                if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out RaycastHit hitInfo,
+                        gunData.lengthRange))
+                {
+                    HandleHit(hitInfo, false);
+                }    
+            }
+            
         }
 
         private void ShootWithAutoAim(GameObject enemy)
@@ -307,5 +332,11 @@ namespace MyDoom.ShootingSystem
             if (gunData.rockets) gunData.currentAmmo = PlayerStats.Instance.RocketsCounter;
             if (gunData.cells) gunData.currentAmmo = PlayerStats.Instance.CellsCounter;
         }
+    }
+
+    public enum ShootingType
+    {
+        HitScan,
+        Particle
     }
 }
