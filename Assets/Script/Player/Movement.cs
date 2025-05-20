@@ -10,6 +10,8 @@ namespace MyDoom.Player
     public class Movement : MonoBehaviour
     {
         private static readonly int IsMoving = Animator.StringToHash("IsMoving");
+        
+        Vector2 movement;
 
         [Header("Bindings")] [SerializeField] InputAction playerMovement;
 
@@ -34,12 +36,6 @@ namespace MyDoom.Player
             playerMovement.Disable();
         }
 
-
-        // Update is called once per frame
-        void Update()
-        {
-        }
-
         private void FixedUpdate()
         {
             ProcessMovement();
@@ -47,11 +43,14 @@ namespace MyDoom.Player
             velocity.y += Physics.gravity.y * Time.fixedDeltaTime;
             characterController.Move(velocity * Time.fixedDeltaTime);
         }
-
-        // ReSharper disable Unity.PerformanceAnalysis
+        
+        public void ProcessMovement(InputAction.CallbackContext context)
+        {
+            movement = context.ReadValue<Vector2>();
+        }
+        
         void ProcessMovement()
         {
-            Vector2 movement = playerMovement.ReadValue<Vector2>();
             Vector3 movementDirection = transform.forward * movement.y + transform.right * movement.x;
             characterController.Move(movementDirection * movementSpeed * Time.fixedDeltaTime);
         }

@@ -31,11 +31,6 @@ namespace MyDoom.Player
             Look.Disable();
         }
 
-        void FixedUpdate()
-        {
-            // ProcessLookFixed();
-        }
-
         void Update()
         {
             ProcessLook();

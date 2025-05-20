@@ -4277,7 +4277,7 @@ PrefabInstance:
         type: 3}
       propertyPath: projectileSpawnPoint
       value: 
-      objectReference: {fileID: 1924444526}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fbdef44e011e6f44baf64a9c1202649, type: 3}
 --- !u!4 &1833926199 stripped
@@ -4653,12 +4653,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fbdef44e011e6f44baf64a9c1202649, type: 3}
---- !u!4 &1924444526 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1582908344719834396, guid: 6fbdef44e011e6f44baf64a9c1202649,
-    type: 3}
-  m_PrefabInstance: {fileID: 1924444525}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1945809789 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1823329018613721319, guid: 507c67fe581d43348bdfbb06aba5d40b,
@@ -5746,12 +5740,89 @@ AudioSource:
     type: 3}
   m_PrefabInstance: {fileID: 4988323643988455317}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4988323643988455319 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4988323644857883354, guid: 4b580d17c83c5da4d854826b82dccf02,
+    type: 3}
+  m_PrefabInstance: {fileID: 4988323643988455317}
+  m_PrefabAsset: {fileID: 0}
 --- !u!82 &4988323643988455320 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 1788582849008284400, guid: 4b580d17c83c5da4d854826b82dccf02,
     type: 3}
   m_PrefabInstance: {fileID: 4988323643988455317}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4988323643988455321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4988323643988455319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 7319ec0eed1b9034f994cb42241761a1,
+    type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4988323643988455332}
+        m_TargetAssemblyTypeName: MyDoom.Player.Movement, Assembly-CSharp
+        m_MethodName: ProcessMovement
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: c3976e16-242b-45a4-a063-6e282ef0dc2f
+    m_ActionName: Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 69069d74-3a36-49ff-98ce-2db20badb9b8
+    m_ActionName: Player/Fire[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9c0c7510-a526-44d3-818b-ed19ca45a074
+    m_ActionName: Player/Switch[/Keyboard/1,/Keyboard/2,/Keyboard/3,/Keyboard/4,/Keyboard/5,/Keyboard/6,/Keyboard/7]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9dab6182-cacb-4d21-9e53-956e12eff2f4
+    m_ActionName: Player/Look[/Mouse/position/y,/Mouse/position/x]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &4988323643988455332 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4988323644857883334, guid: 4b580d17c83c5da4d854826b82dccf02,
+    type: 3}
+  m_PrefabInstance: {fileID: 4988323643988455317}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4988323643988455319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8919f610bf4d8294ba48f59df2649b7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5041944735668899536
 PrefabInstance:
   m_ObjectHideFlags: 0
