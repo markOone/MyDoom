@@ -19,7 +19,7 @@ namespace MyDoom.ShootingSystem
             for(int i = 0; i < colliders.Length; i++)
             {
                 if (colliders[i] == null) continue;
-                IDamagable damageable = colliders[i].gameObject.GetComponent<IDamagable>();
+                IDamagable? damageable = colliders[i].gameObject.GetComponent<IDamagable>();
                 if(damageable != null) damageable.Damage(Damage, 100f);
             }
             

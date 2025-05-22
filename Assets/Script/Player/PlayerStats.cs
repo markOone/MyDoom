@@ -28,7 +28,14 @@ public class PlayerStats : MonoBehaviour, IDamagable
     public int RocketsCounter = 0;
     public int CellsCounter = 0;
 
-    public static PlayerStats Instance { get { if (_instance == null) Debug.Log("No PlayerStats"); return _instance; } }
+    public static PlayerStats Instance
+    {
+        get
+        {
+            if (_instance == null) Debug.Log("No PlayerStats"); 
+            return _instance;
+        }
+    }
     
     private void OnEnable()
     {

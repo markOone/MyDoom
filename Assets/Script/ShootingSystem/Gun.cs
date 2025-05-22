@@ -36,7 +36,7 @@ namespace MyDoom.ShootingSystem
                 for(int i = 0; i < colliders.Length; i++)
                 {
                     if (colliders[i] == null) continue;
-                    Enemy enemy = colliders[i].GetComponent<Enemy>();
+                    Enemy? enemy = colliders[i].GetComponent<Enemy>();
                     if (enemy != null)
                     {
                         enemy.playerInSightRange = true;
@@ -203,7 +203,7 @@ namespace MyDoom.ShootingSystem
                 return;
             }
 
-            IDamagable damagable = hitInfo.collider.GetComponent<IDamagable>();
+            IDamagable? damagable = hitInfo.collider.GetComponent<IDamagable>();
             if (damagable != null)
             {
                 ShootParticle();
@@ -271,7 +271,7 @@ namespace MyDoom.ShootingSystem
                 if (hitInfo.transform.gameObject.layer == LayerMask.NameToLayer("FireBall"))
                     continue;
 
-                IDamagable damagable = hitInfo.transform.gameObject.GetComponent<IDamagable>();
+                IDamagable? damagable = hitInfo.transform.gameObject.GetComponent<IDamagable>();
 
                 if (damagable != null)
                 {
@@ -313,7 +313,7 @@ namespace MyDoom.ShootingSystem
         {
             if (hitInfo.transform.gameObject.layer == LayerMask.NameToLayer("FireBall")) return;
 
-            IDamagable damagable = hitInfo.transform.gameObject.GetComponent<IDamagable>();
+            IDamagable? damagable = hitInfo.transform.gameObject.GetComponent<IDamagable>();
             GameObject impactEffect;
 
             if (damagable != null)
