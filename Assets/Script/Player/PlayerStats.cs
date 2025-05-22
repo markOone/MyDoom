@@ -112,12 +112,12 @@ public class PlayerStats : MonoBehaviour, IDamagable
     {
         _instance = this;
         audioSource = GetComponent<AudioSource>();
+        _health = MaxHealth;
+        _armor = 0;
     }
 
     private void Start()
     {
-        _health = MaxHealth;
-        _armor = 0;
         OnHealthChanged?.Invoke(this, new HealthChangedEventArgs(_health));
         OnArmorChanged?.Invoke(this, new ArmorChangedEventArgs(_armor));
         OnAmmoChanged?.Invoke(this, new AmmoChangedEventArgs(AmmoType.Bullet, BulletsCounter));
@@ -248,28 +248,29 @@ public class PlayerStats : MonoBehaviour, IDamagable
         {
             BulletsCounter -= amount;
             if(BulletsCounter < 0) BulletsCounter = 0;
+            OnAmmoChanged?.Invoke(this, new AmmoChangedEventArgs(ammoType, BulletsCounter));
         }
 
         if (ammoType == AmmoType.Shell)
         {
             ShellCounter -= amount;
             if(ShellCounter < 0) ShellCounter = 0;
+            OnAmmoChanged?.Invoke(this, new AmmoChangedEventArgs(ammoType, ShellCounter));
         }
 
         if (ammoType == AmmoType.Rocket)
         {
             RocketsCounter -= amount;
             if(RocketsCounter < 0) RocketsCounter = 0;
+            OnAmmoChanged?.Invoke(this, new AmmoChangedEventArgs(ammoType, RocketsCounter));
         }
 
         if (ammoType == AmmoType.Cell)
         {
             CellsCounter -= amount;
             if(CellsCounter < 0) CellsCounter = 0;
+            OnAmmoChanged?.Invoke(this, new AmmoChangedEventArgs(ammoType, CellsCounter));
         }
-        
-        //HudController.Instance.UpdateHUD();
-        OnAmmoChanged?.Invoke(this, new AmmoChangedEventArgs(ammoType, amount));
     }
     
     public int GetHealth() => _health;

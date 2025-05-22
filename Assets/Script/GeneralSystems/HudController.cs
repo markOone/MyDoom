@@ -34,11 +34,29 @@ public class HudController : MonoBehaviour
         _instance = this;
     }
 
-    private void OnEnable()
+    void Start()
     {
         PlayerStats.Instance.OnHealthChanged += UpdateHealthUI;
         PlayerStats.Instance.OnArmorChanged += UpdateArmorUI;
         PlayerStats.Instance.OnAmmoChanged += UpdateAmmoUI;
+        
+        // Force initial update
+        UpdateHealthUI(null, new HealthChangedEventArgs(PlayerStats.Instance.Health));
+        UpdateArmorUI(null, new ArmorChangedEventArgs(PlayerStats.Instance.Armor));
+        UpdateAmmoUI(null, new AmmoChangedEventArgs(AmmoType.Bullet, PlayerStats.Instance.BulletsCounter));
+        UpdateAmmoUI(null, new AmmoChangedEventArgs(AmmoType.Shell, PlayerStats.Instance.ShellCounter));
+        UpdateAmmoUI(null, new AmmoChangedEventArgs(AmmoType.Rocket, PlayerStats.Instance.RocketsCounter));
+        UpdateAmmoUI(null, new AmmoChangedEventArgs(AmmoType.Cell, PlayerStats.Instance.CellsCounter));
+    }
+    
+    private void OnDisable()
+    {
+        if (PlayerStats.Instance != null)
+        {
+            PlayerStats.Instance.OnHealthChanged -= UpdateHealthUI;
+            PlayerStats.Instance.OnArmorChanged -= UpdateArmorUI;
+            PlayerStats.Instance.OnAmmoChanged -= UpdateAmmoUI;
+        }
     }
 
     void UpdateHealthUI([CanBeNull] object sender, HealthChangedEventArgs eventArgs)

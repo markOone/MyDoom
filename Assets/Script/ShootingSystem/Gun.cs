@@ -31,12 +31,22 @@ namespace MyDoom.ShootingSystem
         private void Start()
         {
             PlayerStats.Instance.OnAmmoChanged += UpdateAmmoFromPlayerStats;
+            CheckAmmoFromPlayerStats();
+        }
+        
+        private void OnDisable()
+        {
+            if (PlayerStats.Instance != null)
+            {
+                PlayerStats.Instance.OnAmmoChanged -= UpdateAmmoFromPlayerStats;
+            }
         }
 
         internal void Shoot()
         {
             if (gunData.currentAmmo > 0 && CanShoot())
             {
+                colliders = new Collider[20];
                 audioSource?.Play(0);
                 Physics.OverlapSphereNonAlloc(transform.position, shotSoundRadius, colliders, enemyLayerMask);
                 
@@ -50,32 +60,12 @@ namespace MyDoom.ShootingSystem
                     }
                 }
                 
-                // foreach (var enemy in colliders)
-                // {
-                //     enemy.gameObject.GetComponent<Enemy>().playerInSightRange = true;
-                // }
-                Debug.Log(gunData.currentAmmo);
+                if (gunData.shells) ShootShotgun();
+                if (gunData.rockets || gunData.cells) ShootSingleRay(ShootingType.Particle);
+                if (gunData.bullets) ShootSingleRay(ShootingType.HitScan);
+
+                if (gunData.is2D) PlayerShooting.Instance.Shoot2D();
                 
-                if (gunData.shells)
-                {
-                    ShootShotgun();
-                }
-
-                if (gunData.rockets || gunData.cells)
-                {
-                    ShootSingleRay(ShootingType.Particle);
-                }
-
-                if (gunData.bullets)
-                {
-                    ShootSingleRay(ShootingType.HitScan);
-                }
-
-                if (gunData.is2D)
-                {
-                    PlayerShooting.Instance.Shoot2D();
-                }
-
                 gunData.currentAmmo--;
                 UpdateAmmoCounters();
                 timeSinceLastShot = 0;
@@ -424,10 +414,10 @@ namespace MyDoom.ShootingSystem
 
         public void UpdateAmmoFromPlayerStats([CanBeNull] object sender, AmmoChangedEventArgs e)
         {
-            if (gunData.shells || e.Type == AmmoType.Shell) gunData.currentAmmo = e.Ammo;
-            if(gunData.bullets || e.Type == AmmoType.Bullet) gunData.currentAmmo = e.Ammo;
-            if(gunData.rockets || e.Type == AmmoType.Rocket) gunData.currentAmmo = e.Ammo;
-            if(gunData.cells || e.Type == AmmoType.Cell) gunData.currentAmmo = e.Ammo;
+            if (gunData.shells && e.Type == AmmoType.Shell) gunData.currentAmmo = e.Ammo;
+            if(gunData.bullets && e.Type == AmmoType.Bullet) gunData.currentAmmo = e.Ammo;
+            if(gunData.rockets && e.Type == AmmoType.Rocket) gunData.currentAmmo = e.Ammo;
+            if(gunData.cells && e.Type == AmmoType.Cell) gunData.currentAmmo = e.Ammo;
         }
         
         public void CheckAmmoFromPlayerStats()
