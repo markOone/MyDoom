@@ -43,12 +43,14 @@ namespace MyDoom.ShootingSystem
         
         public void HandleDamage(DamageContext context)
         {
+            Debug.Log("HandleDamage");
             if (context.MultipleHits != null)
             {
+                Debug.Log("MultipleHits");
                 HandleMultipleHits(context);
                 return;
             }
-
+            Debug.Log("SingleHit");
             HandleSingleHit(context);
         }
         
@@ -88,7 +90,7 @@ namespace MyDoom.ShootingSystem
 
             bool hitEnemy = false;
             List<RaycastHit> nonEnemyHits = new List<RaycastHit>();
-            
+            Debug.Log("HandleMultipleHits");
             foreach (var hitInfo in context.MultipleHits)
             {
                 if (IsFireballLayer(hitInfo.transform.gameObject))
@@ -103,6 +105,7 @@ namespace MyDoom.ShootingSystem
                         HitInfo = hitInfo, 
                         GunData = context.GunData 
                     }, damageable);
+                    Debug.Log("ДІСТАЛИСЬ ДО СПАВНУ");
                     SpawnImpactEffect(enemyImpactEffect, hitInfo);
                 }
                 else
@@ -115,12 +118,20 @@ namespace MyDoom.ShootingSystem
             {
                 if (context.AutoAimAllowed)
                 {
-                    HandleAutoAim(context);
+                    Debug.Log("АВТО АІМ");
+                    HandleAutoAim(new DamageContext()
+                    {
+                        Origin = context.Origin,
+                        GunData = context.GunData,
+                        AutoAimAllowed = false,
+                        HitInfo = context.HitInfo
+                    });
                 }
                 else
                 {
                     foreach (var hitInfo in nonEnemyHits)
                     {
+                        Debug.Log("СПАВН МЕТАЛУ");
                         SpawnImpactEffect(metalImpactEffect, hitInfo);
                     }
                 }

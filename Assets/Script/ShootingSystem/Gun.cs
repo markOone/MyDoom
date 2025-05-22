@@ -20,6 +20,7 @@ namespace MyDoom.ShootingSystem
 
         [SerializeField] GameObject particlePrefab;
         [SerializeField] Transform particleSpawnPoint;
+        [SerializeField] Transform shooterOrigin;
 
         [SerializeField] Camera fpsCamera;
         float timeSinceLastShot;
@@ -47,19 +48,20 @@ namespace MyDoom.ShootingSystem
 
         internal void Shoot()
         {
-            if (gunData.currentAmmo <= 0 || !CanShoot())
+            if (gunData.currentAmmo <= 0 || !CanShoot() || gunData.name == "Hand")
                 return;
             
             AlertNearbyEnemies();
             
             var context = new WeaponContext
             {
-                Origin = particleSpawnPoint != null ? particleSpawnPoint : transform,
+                Origin = shooterOrigin,
                 GunData = gunData,
                 AutoAimAllowed = true,
                 ProjectilePrefab = particlePrefab
             };
             
+            Debug.Log("Shooting with " + gunData.name);
             _weaponSystem.Shoot(context);
             
             HandlePostShot();
@@ -110,6 +112,7 @@ namespace MyDoom.ShootingSystem
         
         private void InitializeWeaponSystem()
         {
+            if(gunData.name == "Hand") _weaponSystem = ShootingServices.GetComponent<HitScanShooting>();
             // Get appropriate weapon system based on gun type
             if (gunData.shells)
             {

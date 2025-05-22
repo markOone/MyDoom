@@ -5658,6 +5658,11 @@ PrefabInstance:
       objectReference: {fileID: 841211876}
     - target: {fileID: 4988323643703153551, guid: 4b580d17c83c5da4d854826b82dccf02,
         type: 3}
+      propertyPath: shooterOrigin
+      value: 
+      objectReference: {fileID: 681332639}
+    - target: {fileID: 4988323643703153551, guid: 4b580d17c83c5da4d854826b82dccf02,
+        type: 3}
       propertyPath: particlePrefab
       value: 
       objectReference: {fileID: 3403210709634110887, guid: c477ecc07e9c49148b10ce3a9f2a45f8,
@@ -5704,6 +5709,11 @@ PrefabInstance:
       objectReference: {fileID: 868320439}
     - target: {fileID: 4988323644376970465, guid: 4b580d17c83c5da4d854826b82dccf02,
         type: 3}
+      propertyPath: shooterOrigin
+      value: 
+      objectReference: {fileID: 681332639}
+    - target: {fileID: 4988323644376970465, guid: 4b580d17c83c5da4d854826b82dccf02,
+        type: 3}
       propertyPath: particlePrefab
       value: 
       objectReference: {fileID: 3403210709634110887, guid: c477ecc07e9c49148b10ce3a9f2a45f8,
@@ -5716,6 +5726,11 @@ PrefabInstance:
     - target: {fileID: 4988323644376970465, guid: 4b580d17c83c5da4d854826b82dccf02,
         type: 3}
       propertyPath: particleSpawnPoint
+      value: 
+      objectReference: {fileID: 681332639}
+    - target: {fileID: 4988323644397932436, guid: 4b580d17c83c5da4d854826b82dccf02,
+        type: 3}
+      propertyPath: shooterOrigin
       value: 
       objectReference: {fileID: 681332639}
     - target: {fileID: 4988323644397932436, guid: 4b580d17c83c5da4d854826b82dccf02,
@@ -5741,6 +5756,11 @@ PrefabInstance:
       objectReference: {fileID: 4988323643988455320}
     - target: {fileID: 4988323644506562693, guid: 4b580d17c83c5da4d854826b82dccf02,
         type: 3}
+      propertyPath: shooterOrigin
+      value: 
+      objectReference: {fileID: 681332639}
+    - target: {fileID: 4988323644506562693, guid: 4b580d17c83c5da4d854826b82dccf02,
+        type: 3}
       propertyPath: particlePrefab
       value: 
       objectReference: {fileID: 2511270251741025285, guid: 99a6a441feb75b14eaa21ff428e9ba0d,
@@ -5760,6 +5780,11 @@ PrefabInstance:
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 1973934795}
+    - target: {fileID: 4988323644703279341, guid: 4b580d17c83c5da4d854826b82dccf02,
+        type: 3}
+      propertyPath: shooterOrigin
+      value: 
+      objectReference: {fileID: 681332639}
     - target: {fileID: 4988323644703279341, guid: 4b580d17c83c5da4d854826b82dccf02,
         type: 3}
       propertyPath: particlePrefab
@@ -5795,6 +5820,11 @@ PrefabInstance:
         type: 3}
       propertyPath: ShellCounter
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4988323644857883331, guid: 4b580d17c83c5da4d854826b82dccf02,
+        type: 3}
+      propertyPath: _shellCounter
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4988323644857883331, guid: 4b580d17c83c5da4d854826b82dccf02,
         type: 3}
@@ -6615,6 +6645,11 @@ PrefabInstance:
       objectReference: {fileID: 1270012479}
     - target: {fileID: 8297571700152264279, guid: a6026e23e1aa2cf4084913f0181c7fda,
         type: 3}
+      propertyPath: shooterOrigin
+      value: 
+      objectReference: {fileID: 681332639}
+    - target: {fileID: 8297571700152264279, guid: a6026e23e1aa2cf4084913f0181c7fda,
+        type: 3}
       propertyPath: particlePrefab
       value: 
       objectReference: {fileID: 7335851608270131962, guid: bb9eece7749f9c04d83b7d6619f740a1,
@@ -6624,6 +6659,11 @@ PrefabInstance:
       propertyPath: ShootingServices
       value: 
       objectReference: {fileID: 378326753}
+    - target: {fileID: 8297571700152264279, guid: a6026e23e1aa2cf4084913f0181c7fda,
+        type: 3}
+      propertyPath: particleSpawnPoint
+      value: 
+      objectReference: {fileID: 681332639}
     - target: {fileID: 8297571700443979655, guid: a6026e23e1aa2cf4084913f0181c7fda,
         type: 3}
       propertyPath: m_Pivot.x

@@ -41,6 +41,7 @@ namespace MyDoom.ShootingSystem
         {
             if (context.GunData.shells)
             {
+                Debug.Log("I know its Shotgun");
                 HandleShotgunShot(context);
                 return;
             }
@@ -71,6 +72,7 @@ namespace MyDoom.ShootingSystem
         
         private void HandleShotgunShot(WeaponContext context)
         {
+            Debug.Log("HandleShotgunShot");
             var hits = CreateShotgunSpread(context);
             _damageHandler.HandleDamage(new DamageContext
             {
@@ -83,9 +85,10 @@ namespace MyDoom.ShootingSystem
         
         private List<RaycastHit> CreateShotgunSpread(WeaponContext context)
         {
+            Debug.Log("SPREADING");
             Vector3[] offsets =
             {
-                Vector3.zero,
+                new Vector3(0f, 0f, 0f),
                 new Vector3(0.01f, 0f, 0f),
                 new Vector3(-0.01f, 0f, 0f),
                 new Vector3(0.02f, 0f, 0f),
