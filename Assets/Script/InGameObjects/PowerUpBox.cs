@@ -11,14 +11,14 @@ namespace MyDoom.ShootingSystem
     
         public void Interact()
         {
-            if (ArmorBonus) PlayerStats.Instance.ArmorTaking(1);
-            if(Armor) PlayerStats.Instance.ArmorTaking(100);
-            if(MegaArmor) PlayerStats.Instance.ArmorTaking(200);
+            if (ArmorBonus) PlayerStats.Instance.TakeArmor(1);
+            if(Armor) PlayerStats.Instance.TakeArmor(100);
+            if(MegaArmor) PlayerStats.Instance.TakeArmor(200);
             
-            if(HealthBonus) PlayerStats.Instance.HealthKit(1);
-            if(Stimpack) PlayerStats.Instance.HealthKit(10);
-            if(MedKit) PlayerStats.Instance.HealthKit(25);
-            if(Supercharge) PlayerStats.Instance.HealthKit(100);
+            if(HealthBonus) PlayerStats.Instance.TakeHealthKit(1);
+            if(Stimpack) PlayerStats.Instance.TakeHealthKit(10);
+            if(MedKit) PlayerStats.Instance.TakeHealthKit(25);
+            if(Supercharge) PlayerStats.Instance.TakeHealthKit(100);
                 
             Invoke("DestroyObject", 0.1f);
         }

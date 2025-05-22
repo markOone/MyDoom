@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
 using MyDoom.Enemies;
+using MyDoom.GeneralSystems;
 using MyDoom.Player;
+using Object = System.Object;
 
 
 namespace MyDoom.ShootingSystem
@@ -25,6 +27,11 @@ namespace MyDoom.ShootingSystem
         [SerializeField] AudioSource audioSource;
 
         private bool CanShoot() => !gunData.reloading && timeSinceLastShot > 1f / (gunData.fireRate / 60f);
+
+        private void Start()
+        {
+            PlayerStats.Instance.OnAmmoChanged += UpdateAmmoFromPlayerStats;
+        }
 
         internal void Shoot()
         {
@@ -47,7 +54,8 @@ namespace MyDoom.ShootingSystem
                 // {
                 //     enemy.gameObject.GetComponent<Enemy>().playerInSightRange = true;
                 // }
-
+                Debug.Log(gunData.currentAmmo);
+                
                 if (gunData.shells)
                 {
                     ShootShotgun();
@@ -72,7 +80,6 @@ namespace MyDoom.ShootingSystem
                 UpdateAmmoCounters();
                 timeSinceLastShot = 0;
                 OnGunShot();
-                HudController.Instance.UpdateHUD();
             }
         }
 
@@ -239,7 +246,7 @@ namespace MyDoom.ShootingSystem
 
         void ShootPartickeWithAutoAim(GameObject enemy)
         {
-            Debug.Log("ShootPartickeWithAutoAim");
+            //Debug.Log("ShootPartickeWithAutoAim");
             Vector3 origin = fpsCamera.transform.position;
             Vector3 direction = (enemy.transform.position - origin).normalized;
 
@@ -340,7 +347,7 @@ namespace MyDoom.ShootingSystem
                 }
             }
 
-            Debug.Log(hitInfo.transform.gameObject.name);
+            //Debug.Log(hitInfo.transform.gameObject.name);
             Debug.DrawRay(fpsCamera.transform.position, fpsCamera.transform.forward * 100f, Color.red);
         }
 
@@ -389,10 +396,10 @@ namespace MyDoom.ShootingSystem
 
         private void UpdateAmmoCounters()
         {
-            if (gunData.shells) PlayerStats.Instance.ShellCounter--;
-            if (gunData.bullets) PlayerStats.Instance.BulletsCounter--;
-            if (gunData.rockets) PlayerStats.Instance.RocketsCounter--;
-            if (gunData.cells) PlayerStats.Instance.CellsCounter--;
+            if (gunData.shells) PlayerStats.Instance.DecreaseAmmo(1, AmmoType.Shell);
+            if (gunData.bullets) PlayerStats.Instance.DecreaseAmmo(1, AmmoType.Bullet);
+            if (gunData.rockets) PlayerStats.Instance.DecreaseAmmo(1, AmmoType.Rocket);
+            if (gunData.cells) PlayerStats.Instance.DecreaseAmmo(1, AmmoType.Cell);
         }
 
         public void DestroyEffect(GameObject effect)
@@ -415,12 +422,20 @@ namespace MyDoom.ShootingSystem
         {
         }
 
-        public void CheckAmmo()
+        public void UpdateAmmoFromPlayerStats([CanBeNull] object sender, AmmoChangedEventArgs e)
         {
-            if (gunData.shells) gunData.currentAmmo = PlayerStats.Instance.ShellCounter;
-            if (gunData.bullets) gunData.currentAmmo = PlayerStats.Instance.BulletsCounter;
-            if (gunData.rockets) gunData.currentAmmo = PlayerStats.Instance.RocketsCounter;
-            if (gunData.cells) gunData.currentAmmo = PlayerStats.Instance.CellsCounter;
+            if (gunData.shells || e.Type == AmmoType.Shell) gunData.currentAmmo = e.Ammo;
+            if(gunData.bullets || e.Type == AmmoType.Bullet) gunData.currentAmmo = e.Ammo;
+            if(gunData.rockets || e.Type == AmmoType.Rocket) gunData.currentAmmo = e.Ammo;
+            if(gunData.cells || e.Type == AmmoType.Cell) gunData.currentAmmo = e.Ammo;
+        }
+        
+        public void CheckAmmoFromPlayerStats()
+        {
+            if(gunData.shells) gunData.currentAmmo = PlayerStats.Instance.ShellCounter;
+            if(gunData.bullets) gunData.currentAmmo = PlayerStats.Instance.BulletsCounter;
+            if(gunData.rockets) gunData.currentAmmo = PlayerStats.Instance.RocketsCounter;
+            if(gunData.cells) gunData.currentAmmo = PlayerStats.Instance.CellsCounter;
         }
     }
 

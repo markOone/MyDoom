@@ -1,12 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using MyDoom.GeneralSystems;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using MyDoom.Player;
+using MyDoom.ShootingSystem;
 
 public class WeaponSwitching : MonoBehaviour
 {
+    public event EventHandler<AmmoChangedEventArgs> OnWeaponSelectedEvent;
+    
     [Header("References")]
     [SerializeField] List<Transform> weapons;
     [SerializeField] Transform shotgun;
@@ -64,6 +68,7 @@ public class WeaponSwitching : MonoBehaviour
 
     void SetGunActive(int gunIndex)
     {
+        GunData chosenGunGunData;
         TransformIterator iterator = new TransformIterator(weapons);
         iterator.Reset();
         while (iterator.MoveNext())
@@ -75,17 +80,19 @@ public class WeaponSwitching : MonoBehaviour
         if (gunIndex == 2)
         {
             shotgun.gameObject.SetActive(true);
-            PlayerShooting.Instance.currentGunData = shotgun.GetChild(1).gameObject.GetComponent<MyDoom.ShootingSystem.Gun>().gunData;
-            PlayerShooting.Instance.currentGun = shotgun.GetChild(1).gameObject.GetComponent<MyDoom.ShootingSystem.Gun>();
+            PlayerShooting.Instance.currentGunData = shotgun.GetChild(1).gameObject.GetComponent<Gun>().gunData;
+            PlayerShooting.Instance.currentGun = shotgun.GetChild(1).gameObject.GetComponent<Gun>();
+            chosenGunGunData = shotgun.GetChild(1).gameObject.GetComponent<Gun>().gunData;
         }
         else
         {
             weapons[gunIndex].gameObject.SetActive(true);
-            PlayerShooting.Instance.currentGun = weapons[gunIndex].gameObject.GetComponent<MyDoom.ShootingSystem.Gun>();
-            PlayerShooting.Instance.currentGunData = weapons[gunIndex].gameObject.GetComponent<MyDoom.ShootingSystem.Gun>().gunData;
+            PlayerShooting.Instance.currentGun = weapons[gunIndex].gameObject.GetComponent<Gun>();
+            PlayerShooting.Instance.currentGunData = weapons[gunIndex].gameObject.GetComponent<Gun>().gunData;
+            chosenGunGunData = weapons[gunIndex].gameObject.GetComponent<Gun>().gunData;
         }
-
-        PlayerShooting.Instance.currentGun.CheckAmmo();
+        
+        PlayerShooting.Instance.currentGun.CheckAmmoFromPlayerStats();
     }
 
     private void OnWeaponSelected()

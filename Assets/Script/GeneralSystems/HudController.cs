@@ -1,9 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
+using JetBrains.Annotations;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
-using Unity.VisualScripting;
+using MyDoom.GeneralSystems;
+using MyDoom.ShootingSystem;
 
 public class HudController : MonoBehaviour
 {
@@ -20,23 +20,42 @@ public class HudController : MonoBehaviour
 
     private static HudController _instance;
 
-    public static HudController Instance { get { if (_instance == null) Debug.Log("No HUDController"); return _instance; } }
+    public static HudController Instance
+    {
+        get
+        {
+            if (_instance == null) Debug.Log("No HUDController"); 
+            return _instance;
+        }
+    }
 
     void Awake()
     {
         _instance = this;
     }
-    
-    public void UpdateHUD()
+
+    private void OnEnable()
     {
-        
-        HealthText.text = PlayerStats.Instance.GetHealth().ToString() + "%";
-        ArmorText.text = PlayerStats.Instance.GetArmor().ToString() + "%";
-        BulletText.text = PlayerStats.Instance.BulletsCounter.ToString();
-        ShellText.text = PlayerStats.Instance.ShellCounter.ToString();
-        RocketText.text = PlayerStats.Instance.RocketsCounter.ToString();
-        CellsText.text = PlayerStats.Instance.CellsCounter.ToString();
-        
-        //Check what ammo shoul be displayed dependent on gun player holds
+        PlayerStats.Instance.OnHealthChanged += UpdateHealthUI;
+        PlayerStats.Instance.OnArmorChanged += UpdateArmorUI;
+        PlayerStats.Instance.OnAmmoChanged += UpdateAmmoUI;
+    }
+
+    void UpdateHealthUI([CanBeNull] object sender, HealthChangedEventArgs eventArgs)
+    {
+        HealthText.text = eventArgs.Health.ToString() + "%";
+    }
+    
+    void UpdateArmorUI([CanBeNull] object sender, ArmorChangedEventArgs eventArgs)
+    {
+        ArmorText.text = eventArgs.Armor.ToString() + "%";
+    }
+    
+    void UpdateAmmoUI([CanBeNull] object sender, AmmoChangedEventArgs eventArgs)
+    {
+        if(eventArgs.Type == AmmoType.Bullet) BulletText.text = eventArgs.Ammo.ToString();
+        if(eventArgs.Type == AmmoType.Shell) ShellText.text = eventArgs.Ammo.ToString();
+        if(eventArgs.Type == AmmoType.Rocket) RocketText.text = eventArgs.Ammo.ToString();
+        if(eventArgs.Type == AmmoType.Cell) CellsText.text = eventArgs.Ammo.ToString();
     }
 }

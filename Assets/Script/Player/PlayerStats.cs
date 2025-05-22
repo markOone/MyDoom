@@ -5,9 +5,15 @@ using Unity.VisualScripting;
 using UnityEngine;
 using MyDoom.Player;
 using MyDoom.ShootingSystem;
+using MyDoom.GeneralSystems;
 
 public class PlayerStats : MonoBehaviour, IDamagable
 {
+    public event EventHandler<HealthChangedEventArgs> OnHealthChanged;
+    public event EventHandler<ArmorChangedEventArgs> OnArmorChanged;
+    public event EventHandler<AmmoChangedEventArgs> OnAmmoChanged;
+    public event EventHandler OnPlayerDeath;
+    
     [Header("Object")]
     private static PlayerStats _instance;
     
@@ -16,18 +22,78 @@ public class PlayerStats : MonoBehaviour, IDamagable
     [SerializeField] AudioSource audioSource;
     
     [Header("Player Stats")]
-    int Health;
+    int _health;
     int MaxHealth = 100;
 
-    int Armor;
+    int _armor;
     int MaxArmor = 200;
+
+    [SerializeField]private int _bulletsCounter = 0;
+    [SerializeField]private int _shellCounter = 0;
+    [SerializeField]private int _rocketsCounter = 0;
+    [SerializeField]private int _cellsCounter = 0;
+
+    public int Health
+    {
+        get => _health;
+        set
+        {
+            _health = value;
+            OnHealthChanged?.Invoke(this, new HealthChangedEventArgs(_health));
+        }
+    }
     
-
-    public int BulletsCounter = 0;
-    public int ShellCounter = 0;
-    public int RocketsCounter = 0;
-    public int CellsCounter = 0;
-
+    public int Armor
+    {
+        get => _armor;
+        set
+        {
+            _armor = value;
+            OnArmorChanged?.Invoke(this, new ArmorChangedEventArgs(_armor));
+        }
+    }
+    
+    
+    public int BulletsCounter
+    {
+        get => _bulletsCounter;
+        set
+        {
+            _bulletsCounter = value;
+            OnAmmoChanged?.Invoke(this, new AmmoChangedEventArgs(AmmoType.Bullet, _bulletsCounter));
+        }
+    }
+    
+    public int ShellCounter
+    {
+        get => _shellCounter;
+        set
+        {
+            _shellCounter = value;
+            OnAmmoChanged?.Invoke(this, new AmmoChangedEventArgs(AmmoType.Shell, _shellCounter));
+        }
+    }
+    
+    public int RocketsCounter
+    {
+        get => _rocketsCounter;
+        set
+        {
+            _rocketsCounter = value;
+            OnAmmoChanged?.Invoke(this, new AmmoChangedEventArgs(AmmoType.Rocket, _rocketsCounter));
+        }
+    }
+    
+    public int CellsCounter
+    {
+        get => _cellsCounter;
+        set
+        {
+            _cellsCounter = value;
+            OnAmmoChanged?.Invoke(this, new AmmoChangedEventArgs(AmmoType.Cell, _cellsCounter));
+        }
+    }
+    
     public static PlayerStats Instance
     {
         get
@@ -50,83 +116,92 @@ public class PlayerStats : MonoBehaviour, IDamagable
 
     private void Start()
     {
-        Health = MaxHealth;
-        Armor = 0;
-        HudController.Instance.UpdateHUD();
+        _health = MaxHealth;
+        _armor = 0;
+        OnHealthChanged?.Invoke(this, new HealthChangedEventArgs(_health));
+        OnArmorChanged?.Invoke(this, new ArmorChangedEventArgs(_armor));
+        OnAmmoChanged?.Invoke(this, new AmmoChangedEventArgs(AmmoType.Bullet, BulletsCounter));
+        OnAmmoChanged?.Invoke(this, new AmmoChangedEventArgs(AmmoType.Shell, ShellCounter));
+        OnAmmoChanged?.Invoke(this, new AmmoChangedEventArgs(AmmoType.Rocket, RocketsCounter));
+        OnAmmoChanged?.Invoke(this, new AmmoChangedEventArgs(AmmoType.Cell, CellsCounter));
+        //HudController.Instance.UpdateHUD();
     }
 
     private void FixedUpdate()
     {
-        if(Health <= 0) Invoke("RestartingGame", 2f);
+        if(_health <= 0) OnPlayerDeath?.Invoke(this, EventArgs.Empty);
     }
-
-    public void RestartingGame() => GameManager.Instance.RestartGame();
 
     public void TakeDamage(int damage)
     {
         audioSource?.Play(0);
-        if (Armor > 0)
+        if (_armor > 0)
         {
-            if (Armor >= damage) Armor -= damage;
+            if (_armor >= damage) _armor -= damage;
             else
             {
-                int remainingDamage = damage - Armor; 
-                Health -= remainingDamage;
-                Armor = 0;
+                int remainingDamage = damage - _armor; 
+                _health -= remainingDamage;
+                _armor = 0;
             }
         }
         else
         {
-            Health -= damage;
+            _health -= damage;
         }
         
         damageAnimator.SetTrigger("Damage");
-        HudController.Instance.UpdateHUD();
-        if (Health <= 0)
+        OnHealthChanged?.Invoke(this, new HealthChangedEventArgs(_health));
+        OnArmorChanged?.Invoke(this, new ArmorChangedEventArgs(_armor));
+        //HudController.Instance.UpdateHUD();
+        if (_health <= 0)
         {
-            Invoke("RestartingGame", 2f);
+            OnPlayerDeath?.Invoke(this, EventArgs.Empty);
+            // Invoke("RestartingGame", 2f);
         }
     }
 
-    public void ArmorTaking(int amount)
+    public void TakeArmor(int amount)
     {
         GameManager.Instance.powerUpEffect();
 
         if (amount == 100)
         {
-            Armor += amount;
-            if(Armor < 100) Armor = 100;
+            _armor += amount;
+            if(_armor < 100) _armor = 100;
         }
         else
         {
-            Armor += amount;
+            _armor += amount;
         }
         
-        if(Armor > MaxArmor) Armor = MaxArmor;
+        if(_armor > MaxArmor) _armor = MaxArmor;
         
-        HudController.Instance.UpdateHUD();
+        // HudController.Instance.UpdateHUD();
+        OnArmorChanged?.Invoke(this, new ArmorChangedEventArgs(_armor));
     }
     
-    public void HealthKit(int amount)
+    public void TakeHealthKit(int amount)
     {
         GameManager.Instance.powerUpEffect();
         
         if (amount is 10 or 25)
         {
-            Health += amount;
-            if(Health < 100) Armor = 100;
+            _health += amount;
+            if(_health < 100) _armor = 100;
         }
         else
         {
-            Health += amount;
+            _health += amount;
         }
         
-        if(Health > MaxHealth) Health = MaxHealth;
+        if(_health > MaxHealth) _health = MaxHealth;
         
-        HudController.Instance.UpdateHUD();
+        // HudController.Instance.UpdateHUD();
+        OnHealthChanged?.Invoke(this, new HealthChangedEventArgs(_health));
     }
 
-    public void TakingAmmo(int amount, AmmoType ammoType)
+    public void TakeAmmo(int amount, AmmoType ammoType)
     {
         GameManager.Instance.powerUpEffect();
 
@@ -162,11 +237,43 @@ public class PlayerStats : MonoBehaviour, IDamagable
             if(PlayerShooting.Instance.currentGunData.cells) PlayerShooting.Instance.currentGunData.currentAmmo = CellsCounter;
         }
         
-        HudController.Instance.UpdateHUD();
+        //HudController.Instance.UpdateHUD();
+        OnAmmoChanged?.Invoke(this, new AmmoChangedEventArgs(ammoType, amount));
+
     }
     
-    public int GetHealth() => Health;
-    public int GetArmor() => Armor;
+    public void DecreaseAmmo(int amount, AmmoType ammoType)
+    {
+        if (ammoType == AmmoType.Bullet)
+        {
+            BulletsCounter -= amount;
+            if(BulletsCounter < 0) BulletsCounter = 0;
+        }
+
+        if (ammoType == AmmoType.Shell)
+        {
+            ShellCounter -= amount;
+            if(ShellCounter < 0) ShellCounter = 0;
+        }
+
+        if (ammoType == AmmoType.Rocket)
+        {
+            RocketsCounter -= amount;
+            if(RocketsCounter < 0) RocketsCounter = 0;
+        }
+
+        if (ammoType == AmmoType.Cell)
+        {
+            CellsCounter -= amount;
+            if(CellsCounter < 0) CellsCounter = 0;
+        }
+        
+        //HudController.Instance.UpdateHUD();
+        OnAmmoChanged?.Invoke(this, new AmmoChangedEventArgs(ammoType, amount));
+    }
+    
+    public int GetHealth() => _health;
+    public int GetArmor() => _armor;
 
     public void Damage(float damage, float distance)
     {
@@ -174,10 +281,4 @@ public class PlayerStats : MonoBehaviour, IDamagable
     }
 }
 
-public enum AmmoType
-{
-    Bullet,
-    Shell,
-    Rocket,
-    Cell
-}
+
