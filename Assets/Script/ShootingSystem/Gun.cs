@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 using MyDoom.Enemies;
 using MyDoom.Player;
@@ -12,6 +13,7 @@ namespace MyDoom.ShootingSystem
     {
         [Header("References")] [SerializeField]
         internal GunData gunData;
+
         [SerializeField] GameObject particlePrefab;
         [SerializeField] Transform particleSpawnPoint;
 
@@ -36,19 +38,19 @@ namespace MyDoom.ShootingSystem
                     enemy.gameObject.GetComponent<Enemy>().playerInSightRange = true;
                 }
 
-                if (gunData.name == "Shotgun")
+                if (gunData.shells)
                 {
                     ShootShotgun();
                 }
-                
+
                 if (gunData.rockets || gunData.cells)
-                { 
+                {
                     ShootSingleRay(ShootingType.Particle);
                 }
-                
-                if(gunData.bullets)
-                { 
-                    ShootSingleRay(ShootingType.HitScan);    
+
+                if (gunData.bullets)
+                {
+                    ShootSingleRay(ShootingType.HitScan);
                 }
 
                 if (gunData.is2D)
@@ -132,31 +134,107 @@ namespace MyDoom.ShootingSystem
             HandleHit(raycastHits, true);
         }
 
-        private void ShootSingleRay(ShootingType type)
+        // private void ShootSingleRay(ShootingType type)
+        // {
+        //     PlayerShooting.Instance.muzzleFlashEffect.Play();
+        //     if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out RaycastHit hitInfo,
+        //             gunData.lengthRange))
+        //     {
+        //         if (type == ShootingType.HitScan) HandleHit(hitInfo, false);
+        //         if (type == ShootingType.Particle)
+        //         {
+        //             IDamagable damagable = hitInfo.collider.GetComponent<IDamagable>();
+        //             if (damagable != null)
+        //             {
+        //                 ShootParticle();
+        //             }
+        //             else
+        //             {
+        //                 GameObject targetEnemy = ChooseEnemyWithAutoAim();
+        //                 if (targetEnemy != null)
+        //                 {
+        //                     ShootPartickeWithAutoAim(targetEnemy);
+        //                 }
+        //                 else
+        //                 {
+        //                     ShootParticle();
+        //                 }
+        //             }
+        //         }
+        //     }
+        //     else
+        //     {
+        //         if(type == ShootingType.Particle) ShootParticle();
+        //     }
+        // }
+        
+        void ShootSingleRay(ShootingType type)
         {
             PlayerShooting.Instance.muzzleFlashEffect.Play();
+            bool hitTarget = Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out RaycastHit hitInfo, gunData.lengthRange);
+
+            if (type == ShootingType.HitScan)
+            {
+                if (hitTarget) HandleHit(hitInfo, false);
+                return;
+            }
+
             if (type == ShootingType.Particle)
             {
-                Vector3 spawnPoint = particleSpawnPoint.position; 
-                //spawnPoint.z -= 5f;
-                Rigidbody rb = Instantiate(particlePrefab, spawnPoint, particleSpawnPoint.rotation)
-                    .GetComponent<Rigidbody>();
-                //Vector3 spawnPoint = GameManager.Instance.playerPosition.forward;
-                //spawnPoint.z += 1f;
-                rb.gameObject.GetComponent<ProjectileScript>().Damage = gunData.damage;
-                //spawnPoint.y += 1f;
-                rb.AddForce(particleSpawnPoint.forward * 200f, ForceMode.Impulse);
-                //rb.AddForce(transform.up * 4f, ForceMode.Impulse);
+                HandleParticleShot(hitTarget, hitInfo);
+            }
+        }
+        
+        void HandleParticleShot(bool hitTarget, RaycastHit hitInfo)
+        {
+            if (!hitTarget)
+            {
+                ShootParticle();
+                return;
+            }
+
+            IDamagable damagable = hitInfo.collider.GetComponent<IDamagable>();
+            if (damagable != null)
+            {
+                ShootParticle();
+                return;
+            }
+
+            GameObject targetEnemy = ChooseEnemyWithAutoAim();
+            if (targetEnemy != null)
+            {
+                ShootPartickeWithAutoAim(targetEnemy);
             }
             else
             {
-                if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out RaycastHit hitInfo,
-                        gunData.lengthRange))
-                {
-                    HandleHit(hitInfo, false);
-                }    
+                ShootParticle();
             }
-            
+        }
+
+        void ShootParticle(Vector3? direction = null)
+        {
+            Vector3 spawnPoint = particleSpawnPoint.position;
+            Rigidbody rb = Instantiate(particlePrefab, spawnPoint, particleSpawnPoint.rotation)
+                .GetComponent<Rigidbody>();
+            rb.gameObject.GetComponent<ProjectileScript>().Damage = gunData.damage;
+            if (direction != null)
+            {
+                rb.AddForce((Vector3)(direction * 300f), ForceMode.Impulse);
+            }
+            else
+            {
+                rb.AddForce(particleSpawnPoint.forward * 300f, ForceMode.Impulse);
+            }
+        }
+
+        void ShootPartickeWithAutoAim(GameObject enemy)
+        {
+            Debug.Log("ShootPartickeWithAutoAim");
+            Vector3 origin = fpsCamera.transform.position;
+            Vector3 direction = (enemy.transform.position - origin).normalized;
+
+            PlayerShooting.Instance.muzzleFlashEffect.Play();
+            ShootParticle(direction);
         }
 
         private void ShootWithAutoAim(GameObject enemy)
@@ -256,6 +334,7 @@ namespace MyDoom.ShootingSystem
             Debug.DrawRay(fpsCamera.transform.position, fpsCamera.transform.forward * 100f, Color.red);
         }
 
+        [CanBeNull]
         private GameObject ChooseEnemyWithAutoAim()
         {
             List<KeyValuePair<float, GameObject>> enemiesInDirection = new();
@@ -303,7 +382,7 @@ namespace MyDoom.ShootingSystem
             if (gunData.shells) PlayerStats.Instance.ShellCounter--;
             if (gunData.bullets) PlayerStats.Instance.BulletsCounter--;
             if (gunData.rockets) PlayerStats.Instance.RocketsCounter--;
-            if(gunData.cells) PlayerStats.Instance.CellsCounter--;
+            if (gunData.cells) PlayerStats.Instance.CellsCounter--;
         }
 
         public void DestroyEffect(GameObject effect)

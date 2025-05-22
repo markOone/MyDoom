@@ -732,6 +732,12 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
+--- !u!4 &428997873 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 484227360875434609, guid: 6fbdef44e011e6f44baf64a9c1202649,
+    type: 3}
+  m_PrefabInstance: {fileID: 1821094179}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &430464072
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4277,7 +4283,7 @@ PrefabInstance:
         type: 3}
       propertyPath: projectileSpawnPoint
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 428997873}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fbdef44e011e6f44baf64a9c1202649, type: 3}
 --- !u!4 &1833926199 stripped
@@ -5566,8 +5572,13 @@ PrefabInstance:
         type: 3}
       propertyPath: particlePrefab
       value: 
-      objectReference: {fileID: 7335851608270131962, guid: bb9eece7749f9c04d83b7d6619f740a1,
+      objectReference: {fileID: 3403210709634110887, guid: c477ecc07e9c49148b10ce3a9f2a45f8,
         type: 3}
+    - target: {fileID: 4988323643703153551, guid: 4b580d17c83c5da4d854826b82dccf02,
+        type: 3}
+      propertyPath: particleSpawnPoint
+      value: 
+      objectReference: {fileID: 681332639}
     - target: {fileID: 4988323644299639391, guid: 4b580d17c83c5da4d854826b82dccf02,
         type: 3}
       propertyPath: m_LocalRotation.w
@@ -5602,14 +5613,24 @@ PrefabInstance:
         type: 3}
       propertyPath: particlePrefab
       value: 
-      objectReference: {fileID: 7335851608270131962, guid: bb9eece7749f9c04d83b7d6619f740a1,
+      objectReference: {fileID: 3403210709634110887, guid: c477ecc07e9c49148b10ce3a9f2a45f8,
         type: 3}
+    - target: {fileID: 4988323644376970465, guid: 4b580d17c83c5da4d854826b82dccf02,
+        type: 3}
+      propertyPath: particleSpawnPoint
+      value: 
+      objectReference: {fileID: 681332639}
     - target: {fileID: 4988323644397932436, guid: 4b580d17c83c5da4d854826b82dccf02,
         type: 3}
       propertyPath: particlePrefab
       value: 
-      objectReference: {fileID: 7335851608270131962, guid: bb9eece7749f9c04d83b7d6619f740a1,
+      objectReference: {fileID: 3403210709634110887, guid: c477ecc07e9c49148b10ce3a9f2a45f8,
         type: 3}
+    - target: {fileID: 4988323644397932436, guid: 4b580d17c83c5da4d854826b82dccf02,
+        type: 3}
+      propertyPath: particleSpawnPoint
+      value: 
+      objectReference: {fileID: 681332639}
     - target: {fileID: 4988323644506562693, guid: 4b580d17c83c5da4d854826b82dccf02,
         type: 3}
       propertyPath: audioSource
@@ -5619,7 +5640,7 @@ PrefabInstance:
         type: 3}
       propertyPath: particlePrefab
       value: 
-      objectReference: {fileID: 8573332122838480976, guid: 49c8d8e0c582966468dcc9b661af1960,
+      objectReference: {fileID: 2511270251741025285, guid: 99a6a441feb75b14eaa21ff428e9ba0d,
         type: 3}
     - target: {fileID: 4988323644506562693, guid: 4b580d17c83c5da4d854826b82dccf02,
         type: 3}
