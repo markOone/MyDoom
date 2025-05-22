@@ -506,6 +506,94 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 938091698}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &378326753
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 378326758}
+  - component: {fileID: 378326757}
+  - component: {fileID: 378326756}
+  - component: {fileID: 378326755}
+  - component: {fileID: 378326754}
+  m_Layer: 0
+  m_Name: ShootingServices
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &378326754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378326753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 930eee9c1611424fafaab3b9fa98e3ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &378326755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378326753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a1f86bbf1dd48c4b9f05ada2da1a74f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyImpactEffect: {fileID: 1000013169864706, guid: e5a3d6da48298a0458c1990f58c27069,
+    type: 3}
+  metalImpactEffect: {fileID: 1000010355441670, guid: 02a509a7fa70ed740ba4197e20c5d32d,
+    type: 3}
+--- !u!114 &378326756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378326753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf55807cd7354c969603d642835c2990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &378326757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378326753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d1bbae0c4114abf8af2348bab910a0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileForce: 300
+--- !u!4 &378326758
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378326753}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 170.94424, y: 5.09618, z: 174.6923}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &380516055
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5576,6 +5664,11 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 4988323643703153551, guid: 4b580d17c83c5da4d854826b82dccf02,
         type: 3}
+      propertyPath: ShootingServices
+      value: 
+      objectReference: {fileID: 378326753}
+    - target: {fileID: 4988323643703153551, guid: 4b580d17c83c5da4d854826b82dccf02,
+        type: 3}
       propertyPath: particleSpawnPoint
       value: 
       objectReference: {fileID: 681332639}
@@ -5617,6 +5710,11 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 4988323644376970465, guid: 4b580d17c83c5da4d854826b82dccf02,
         type: 3}
+      propertyPath: ShootingServices
+      value: 
+      objectReference: {fileID: 378326753}
+    - target: {fileID: 4988323644376970465, guid: 4b580d17c83c5da4d854826b82dccf02,
+        type: 3}
       propertyPath: particleSpawnPoint
       value: 
       objectReference: {fileID: 681332639}
@@ -5626,6 +5724,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3403210709634110887, guid: c477ecc07e9c49148b10ce3a9f2a45f8,
         type: 3}
+    - target: {fileID: 4988323644397932436, guid: 4b580d17c83c5da4d854826b82dccf02,
+        type: 3}
+      propertyPath: ShootingServices
+      value: 
+      objectReference: {fileID: 378326753}
     - target: {fileID: 4988323644397932436, guid: 4b580d17c83c5da4d854826b82dccf02,
         type: 3}
       propertyPath: particleSpawnPoint
@@ -5644,6 +5747,11 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 4988323644506562693, guid: 4b580d17c83c5da4d854826b82dccf02,
         type: 3}
+      propertyPath: ShootingServices
+      value: 
+      objectReference: {fileID: 378326753}
+    - target: {fileID: 4988323644506562693, guid: 4b580d17c83c5da4d854826b82dccf02,
+        type: 3}
       propertyPath: particleSpawnPoint
       value: 
       objectReference: {fileID: 681332639}
@@ -5658,6 +5766,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5888972625085414619, guid: b4ae37f35d6573d4d88227b2cd3134de,
         type: 3}
+    - target: {fileID: 4988323644703279341, guid: 4b580d17c83c5da4d854826b82dccf02,
+        type: 3}
+      propertyPath: ShootingServices
+      value: 
+      objectReference: {fileID: 378326753}
     - target: {fileID: 4988323644703279341, guid: 4b580d17c83c5da4d854826b82dccf02,
         type: 3}
       propertyPath: particleSpawnPoint
@@ -6506,6 +6619,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7335851608270131962, guid: bb9eece7749f9c04d83b7d6619f740a1,
         type: 3}
+    - target: {fileID: 8297571700152264279, guid: a6026e23e1aa2cf4084913f0181c7fda,
+        type: 3}
+      propertyPath: ShootingServices
+      value: 
+      objectReference: {fileID: 378326753}
     - target: {fileID: 8297571700443979655, guid: a6026e23e1aa2cf4084913f0181c7fda,
         type: 3}
       propertyPath: m_Pivot.x
