@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public interface IDamagable
+namespace MyDoom.ShootingSystem
 {
-    public void Damage(float damage, float distance);
+    public interface IDamagable
+    {
+        public void Damage(float damage, float distance);
+    }
 }

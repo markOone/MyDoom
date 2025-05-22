@@ -31,12 +31,22 @@ namespace MyDoom.ShootingSystem
             if (gunData.currentAmmo > 0 && CanShoot())
             {
                 audioSource?.Play(0);
-                colliders = Physics.OverlapSphere(transform.position, shotSoundRadius, enemyLayerMask);
-
-                foreach (var enemy in colliders)
+                Physics.OverlapSphereNonAlloc(transform.position, shotSoundRadius, colliders, enemyLayerMask);
+                
+                for(int i = 0; i < colliders.Length; i++)
                 {
-                    enemy.gameObject.GetComponent<Enemy>().playerInSightRange = true;
+                    if (colliders[i] == null) continue;
+                    Enemy enemy = colliders[i].GetComponent<Enemy>();
+                    if (enemy != null)
+                    {
+                        enemy.playerInSightRange = true;
+                    }
                 }
+                
+                // foreach (var enemy in colliders)
+                // {
+                //     enemy.gameObject.GetComponent<Enemy>().playerInSightRange = true;
+                // }
 
                 if (gunData.shells)
                 {

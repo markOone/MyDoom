@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using MyDoom.Player;
+using MyDoom.ShootingSystem;
 
 public class PlayerStats : MonoBehaviour, IDamagable
 {

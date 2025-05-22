@@ -11,16 +11,20 @@ namespace MyDoom.ShootingSystem
         [SerializeField] GameObject effectPrefab;
         void OnCollisionEnter(Collision other)
         {
+            Collider[] colliders = new Collider[10];
             if(other.gameObject.layer.ToString() == "FireBall") return;
             GameObject explotion = Instantiate(effectPrefab, transform.position, Quaternion.identity);
-            Collider[] colliders = Physics.OverlapSphere(transform.position, 5f);
-            foreach (Collider collider in colliders)
+            Physics.OverlapSphereNonAlloc(transform.position, 5f, colliders);
+            
+            for(int i = 0; i < colliders.Length; i++)
             {
-                IDamagable damagable = collider.gameObject.GetComponent<IDamagable>();
-                if(damagable != null) damagable.Damage(Damage, 100f);
+                if (colliders[i] == null) continue;
+                IDamagable damageable = colliders[i].gameObject.GetComponent<IDamagable>();
+                if(damageable != null) damageable.Damage(Damage, 100f);
             }
+            
             gameObject.GetComponent<Collider>().enabled = false;
-            Invoke("Die", .1f);
+            Invoke(nameof(Die), .1f);
         }
 
         void Die()
