@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,7 +17,12 @@ public class GameManager : MonoBehaviour
         _instance = this;
     }
 
-    public void RestartGame()
+    void Start()
+    {
+        PlayerStats.Instance.OnPlayerDeath += RestartGame;
+    }
+
+    public void RestartGame([CanBeNull] object sender, EventArgs e)
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }

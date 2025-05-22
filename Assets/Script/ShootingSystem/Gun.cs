@@ -428,10 +428,4 @@ namespace MyDoom.ShootingSystem
             if(gunData.cells) gunData.currentAmmo = PlayerStats.Instance.CellsCounter;
         }
     }
-
-    public enum ShootingType
-    {
-        HitScan,
-        Particle
-    }
 }

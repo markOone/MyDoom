@@ -157,7 +157,6 @@ public class PlayerStats : MonoBehaviour, IDamagable
         if (_health <= 0)
         {
             OnPlayerDeath?.Invoke(this, EventArgs.Empty);
-            // Invoke("RestartingGame", 2f);
         }
     }
 
@@ -211,14 +210,16 @@ public class PlayerStats : MonoBehaviour, IDamagable
             if(BulletsCounter > 200) BulletsCounter = 200;
             
             if(PlayerShooting.Instance.currentGunData.bullets) PlayerShooting.Instance.currentGunData.currentAmmo = BulletsCounter;
+            OnAmmoChanged?.Invoke(this, new AmmoChangedEventArgs(ammoType, BulletsCounter));
         }
 
         if (ammoType == AmmoType.Shell)
         {
             ShellCounter += amount;
             if(ShellCounter > 100) ShellCounter = 100;
-            
+
             if(PlayerShooting.Instance.currentGunData.shells) PlayerShooting.Instance.currentGunData.currentAmmo = ShellCounter;
+            OnAmmoChanged?.Invoke(this, new AmmoChangedEventArgs(ammoType, ShellCounter));
         }
 
         if (ammoType == AmmoType.Rocket)
@@ -227,6 +228,7 @@ public class PlayerStats : MonoBehaviour, IDamagable
             if(RocketsCounter > 100) RocketsCounter = 100;
             
             if(PlayerShooting.Instance.currentGunData.rockets) PlayerShooting.Instance.currentGunData.currentAmmo = RocketsCounter;
+            OnAmmoChanged?.Invoke(this, new AmmoChangedEventArgs(ammoType, RocketsCounter));
         }
 
         if (ammoType == AmmoType.Cell)
@@ -235,10 +237,11 @@ public class PlayerStats : MonoBehaviour, IDamagable
             if(CellsCounter > 300) CellsCounter = 300;
             
             if(PlayerShooting.Instance.currentGunData.cells) PlayerShooting.Instance.currentGunData.currentAmmo = CellsCounter;
+            OnAmmoChanged?.Invoke(this, new AmmoChangedEventArgs(ammoType, CellsCounter));
         }
         
         //HudController.Instance.UpdateHUD();
-        OnAmmoChanged?.Invoke(this, new AmmoChangedEventArgs(ammoType, amount));
+        // OnAmmoChanged?.Invoke(this, new AmmoChangedEventArgs(ammoType, amount));
 
     }
     
