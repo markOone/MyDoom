@@ -25,7 +25,7 @@ namespace MyDoom.ShootingSystem
         {
             _instance = this;
         }
-//(Transform origin, GunData gunData)
+
         [CanBeNull]
         public GameObject ChooseEnemyWithAutoAim(AutoAimContext context)
         {

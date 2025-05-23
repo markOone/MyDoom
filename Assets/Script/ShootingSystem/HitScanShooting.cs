@@ -8,9 +8,9 @@ namespace MyDoom.ShootingSystem
     {
         private IDamageHandler _damageHandler;
         private IAutoAimSystem _autoAimSystem;
-        
+
         private static HitScanShooting _instance;
-        
+
         public static HitScanShooting Instance
         {
             get
@@ -23,8 +23,8 @@ namespace MyDoom.ShootingSystem
                 return _instance;
             }
         }
-        
-        
+
+
         private void Awake()
         {
             _damageHandler = GetComponent<IDamageHandler>();
@@ -48,7 +48,7 @@ namespace MyDoom.ShootingSystem
 
             HandleSingleShot(context);
         }
-        
+
         private void HandleSingleShot(WeaponContext context)
         {
             bool hit = Physics.Raycast(
@@ -69,7 +69,7 @@ namespace MyDoom.ShootingSystem
                 });
             }
         }
-        
+
         private void HandleShotgunShot(WeaponContext context)
         {
             Debug.Log("HandleShotgunShot");
@@ -82,7 +82,7 @@ namespace MyDoom.ShootingSystem
                 Origin = context.Origin
             });
         }
-        
+
         private List<RaycastHit> CreateShotgunSpread(WeaponContext context)
         {
             Debug.Log("SPREADING");
@@ -96,87 +96,30 @@ namespace MyDoom.ShootingSystem
                 new Vector3(0.03f, 0f, 0f),
                 new Vector3(-0.03f, 0f, 0f)
             };
-
+        
             List<RaycastHit> raycastHits = new List<RaycastHit>();
+            
+            Vector3 baseForward = context.Direction ?? context.Origin.forward;
+            Quaternion lookRotation = Quaternion.LookRotation(baseForward);
+            Vector3 spreadRight = lookRotation * Vector3.right;
+            Vector3 spreadUp = lookRotation * Vector3.up;
 
+        
             foreach (var offset in offsets)
             {
-                Vector3 spreadDirection = context.Origin.forward
-                                          + context.Origin.right * offset.x
-                                          + context.Origin.up * offset.y;
+                Vector3 spreadDirection = baseForward
+                                          + spreadRight * offset.x
+                                          + spreadUp * offset.y;
                 spreadDirection.Normalize();
-
+        
                 if (Physics.Raycast(context.Origin.position, spreadDirection, out RaycastHit hitInfo,
                         context.GunData.lengthRange))
                 {
                     raycastHits.Add(hitInfo);
                 }
             }
-
+        
             return raycastHits;
         }
-        
-        // public static void ShootSingleRay(Transform origin, GunData gunData, bool autoAimAllowed, Vector3? direction = null)
-        // {
-        //     RaycastHit hitInfo;
-        //     bool hitTarget;
-        //     if (direction != null)
-        //     {
-        //         hitTarget = Physics.Raycast(origin.position, (Vector3)direction, out hitInfo, gunData.lengthRange);
-        //         if (hitTarget) DamageSystem.Instance.HandleHit(hitInfo, autoAimAllowed, gunData, origin);
-        //         return;
-        //     }
-        //     
-        //     hitTarget = Physics.Raycast(origin.position, origin.forward, out hitInfo, gunData.lengthRange);
-        //     if (hitTarget) DamageSystem.Instance.HandleHit(hitInfo, autoAimAllowed, gunData, origin);
-        // }
-        //
-        // public static void ShootSingleRayWithAutoAim(Transform _origin, GunData gunData, GameObject enemy)
-        // {
-        //     Vector3 origin = _origin.position;
-        //     Vector3 direction = (enemy.transform.position - origin).normalized;
-        //     
-        //     ShootSingleRay(_origin, gunData, false, direction);
-        // }
-        //
-        // private static void ShootShotgun(Transform origin, GunData gunData, bool autoAimAllowed, Vector3? direction = null)
-        // {
-        //     Vector3[] offsets =
-        //     {
-        //         Vector3.zero,
-        //         new Vector3(0.01f, 0f, 0f),
-        //         new Vector3(-0.01f, 0f, 0f),
-        //         new Vector3(0.02f, 0f, 0f),
-        //         new Vector3(-0.02f, 0f, 0f),
-        //         new Vector3(0.03f, 0f, 0f),
-        //         new Vector3(-0.03f, 0f, 0f)
-        //     };
-        //
-        //     List<RaycastHit> raycastHits = new List<RaycastHit>();
-        //
-        //     foreach (var offset in offsets)
-        //     {
-        //         Vector3 spreadDirection = origin.forward
-        //                                   + origin.right * offset.x
-        //                                   + origin.up * offset.y;
-        //         spreadDirection.Normalize();
-        //
-        //         if (Physics.Raycast(origin.position, spreadDirection, out RaycastHit hitInfo,
-        //                 gunData.lengthRange))
-        //         {
-        //             raycastHits.Add(hitInfo);
-        //         }
-        //     }
-        //
-        //     DamageSystem.Instance.HandleHit(raycastHits, false, gunData, origin);
-        // }
-        //
-        // public static void ShootShotGunWithAutoAim(Transform _origin, GunData gunData, GameObject enemy)
-        // {
-        //     Vector3 origin = _origin.position;
-        //     Vector3 direction = (enemy.transform.position - origin).normalized;
-        //     
-        //     ShootShotgun(_origin, gunData, false, direction);
-        // }
     }
 }

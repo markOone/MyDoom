@@ -85,59 +85,5 @@ namespace MyDoom.ShootingSystem
             }
         }
         
-        // public void ShootProjectile(Transform origin, GameObject projectilePrefab, GunData gunData, Vector3? direction = null)
-        // {
-        //     bool hitTarget = Physics.Raycast(origin.position, origin.forward, out RaycastHit hitInfo, gunData.lengthRange);
-        //     
-        //     HandleParticleShot(hitTarget, hitInfo);
-        //     
-        //     Vector3 spawnPoint = origin.position;
-        //     Rigidbody rb = Instantiate(projectilePrefab, spawnPoint, origin.rotation).GetComponent<Rigidbody>();
-        //     rb.gameObject.GetComponent<ProjectileScript>().Damage = gunData.damage;
-        //     if (direction != null)
-        //     {
-        //         rb.AddForce((Vector3)(direction * 300f), ForceMode.Impulse);
-        //     }
-        //     else
-        //     {
-        //         rb.AddForce(origin.forward * 300f, ForceMode.Impulse);
-        //     }
-        // }
-        //
-        // public void ShootPartickeWithAutoAim(Transform _origin, GameObject enemy, GunData gunData, GameObject projectilePrefab)
-        // {
-        //     //Debug.Log("ShootPartickeWithAutoAim");
-        //     Vector3 origin = _origin.position;
-        //     Vector3 direction = (enemy.transform.position - origin).normalized;
-        //
-        //     PlayerShooting.Instance.muzzleFlashEffect.Play();
-        //     ShootProjectile(_origin, projectilePrefab, gunData,direction);
-        // }
-        //
-        // void HandleParticleShot(bool hitTarget, RaycastHit hitInfo)
-        // {
-        //     if (!hitTarget)
-        //     {
-        //         ProjectileShooting.Instance.ShootProjectile();
-        //         return;
-        //     }
-        //
-        //     IDamagable? damagable = hitInfo.collider.GetComponent<IDamagable>();
-        //     if (damagable != null)
-        //     {
-        //         ShootParticle();
-        //         return;
-        //     }
-        //
-        //     GameObject targetEnemy = ChooseEnemyWithAutoAim();
-        //     if (targetEnemy != null)
-        //     {
-        //         ShootPartickeWithAutoAim(targetEnemy);
-        //     }
-        //     else
-        //     {
-        //         ShootParticle();
-        //     }
-        // }
     }
 }

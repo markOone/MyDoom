@@ -88,9 +88,11 @@ namespace MyDoom.ShootingSystem
         {
             if (context.MultipleHits.Count == 0) return;
 
-            bool hitEnemy = false;
-            List<RaycastHit> nonEnemyHits = new List<RaycastHit>();
             Debug.Log("HandleMultipleHits");
+            
+            bool hitEnemyAtLevel = false;
+            List<RaycastHit> nonEnemyHits = new List<RaycastHit>();
+    
             foreach (var hitInfo in context.MultipleHits)
             {
                 if (IsFireballLayer(hitInfo.transform.gameObject))
@@ -99,7 +101,7 @@ namespace MyDoom.ShootingSystem
                 var damageable = hitInfo.transform.gameObject.GetComponent<IDamagable>();
                 if (damageable != null)
                 {
-                    hitEnemy = true;
+                    hitEnemyAtLevel = true;
                     ApplyDamage(new DamageContext 
                     { 
                         HitInfo = hitInfo, 
@@ -114,36 +116,91 @@ namespace MyDoom.ShootingSystem
                 }
             }
             
-            if (!hitEnemy)
+            if (hitEnemyAtLevel)
             {
-                if (context.AutoAimAllowed)
-                {
-                    Debug.Log("АВТО АІМ");
-                    HandleAutoAim(new DamageContext()
-                    {
-                        Origin = context.Origin,
-                        GunData = context.GunData,
-                        AutoAimAllowed = false,
-                        HitInfo = context.HitInfo
-                    });
-                }
-                else
+                return;
+            }
+            
+            if (context.AutoAimAllowed)
+            {
+                Debug.Log("АВТО АІМ");
+                bool autoAimFoundEnemy = TryAutoAim(context);
+                
+                if (!autoAimFoundEnemy && nonEnemyHits.Count > 0)
                 {
                     foreach (var hitInfo in nonEnemyHits)
                     {
-                        Debug.Log("СПАВН МЕТАЛУ");
+                        Debug.Log("СПАВН МЕТАЛУ ПІСЛЯ НЕВДАЛОГО АВТОАІМУ");
                         SpawnImpactEffect(metalImpactEffect, hitInfo);
                     }
                 }
             }
+            else
+            {
+                foreach (var hitInfo in nonEnemyHits)
+                {
+                    Debug.Log("СПАВН МЕТАЛУ БЕЗ АВТОАІМУ");
+                    SpawnImpactEffect(metalImpactEffect, hitInfo);
+                }
+            }
+        }
+        
+        private bool TryAutoAim(DamageContext context)
+        {
+            GameObject targetEnemy = _autoAimSystem.ChooseEnemyWithAutoAim(new AutoAimContext
+            {
+                Origin = context.Origin,
+                GunData = context.GunData,
+                FieldOfView = 60f,
+                RayCount = 15   
+            });
+            
+            if (targetEnemy != null)
+            {
+                Vector3 directionToEnemy = (targetEnemy.transform.position - context.Origin.position).normalized;
+                
+                var autoAimContext = new WeaponContext
+                {
+                    Origin = context.Origin,
+                    GunData = context.GunData,
+                    AutoAimAllowed = false,
+                    Direction = directionToEnemy
+                };
+                
+                IWeaponSystem weaponSystem;
+                if (context.GunData.shells)
+                {
+                    weaponSystem = GetComponent<HitScanShooting>();
+                }
+                else
+                {
+                    weaponSystem = GetComponent<ProjectileShooting>();
+                }
+        
+                weaponSystem?.Shoot(autoAimContext);
+                return true;
+            }
+    
+            return false;
         }
         
         private void SpawnImpactEffect(GameObject effectPrefab, RaycastHit hit)
         {
+            Vector3 normal = hit.normal;
+            if (normal == Vector3.zero)
+            {
+                normal = (hit.transform.position - hit.point).normalized;
+                
+                if (normal == Vector3.zero)
+                {
+                    normal = Vector3.up;
+                }
+            }
+    
             var effect = Instantiate(
                 effectPrefab,
                 hit.point,
-                Quaternion.LookRotation(hit.normal)
+                Quaternion.LookRotation(normal)
             );
             StartCoroutine(DestroyAfterDelay(effect, 1f));
         }
@@ -156,141 +213,49 @@ namespace MyDoom.ShootingSystem
         
         private void HandleAutoAim(DamageContext context)
         {
-            // 1. Try to find nearest enemy using AutoAimSystem
             GameObject targetEnemy = _autoAimSystem.ChooseEnemyWithAutoAim(new AutoAimContext
             {
                 Origin = context.Origin,
                 GunData = context.GunData,
-                FieldOfView = 60f,   // Angle to search for enemies
-                RayCount = 15        // Number of rays to cast for enemy detection
+                FieldOfView = 60f,
+                RayCount = 15
             });
-
-            // 2. If we found an enemy
+            
             if (targetEnemy != null)
             {
-                // 3. Calculate direction to the enemy
                 Vector3 directionToEnemy = (targetEnemy.transform.position - context.Origin.position).normalized;
-
-                // 4. Prepare new context for auto-aimed shot
+                
                 var autoAimContext = new WeaponContext
                 {
                     Origin = context.Origin,
                     GunData = context.GunData,
-                    AutoAimAllowed = false,  // Prevent infinite auto-aim loops
+                    AutoAimAllowed = false,
                     Direction = directionToEnemy
                 };
-
-                // 5. Get the appropriate weapon system based on gun type
+                
                 IWeaponSystem weaponSystem;
                 if (context.GunData.shells)
                 {
-                    // For shotgun
                     weaponSystem = GetComponent<HitScanShooting>();
                 }
                 else
                 {
-                    // For other weapons
                     weaponSystem = GetComponent<ProjectileShooting>();
                 }
-                
+        
                 weaponSystem?.Shoot(autoAimContext);
             }
             else
             {
-                // If no enemy found, just show impact effect
-                SpawnImpactEffect(metalImpactEffect, context.HitInfo);
+                if (context.MultipleHits != null && context.MultipleHits.Count > 0)
+                {
+                    foreach (var hit in context.MultipleHits)
+                    {
+                        SpawnImpactEffect(metalImpactEffect, hit);
+                    }
+                }
             }
         }
-
-
-        // public void HandleHit(RaycastHit hitInfo,
-        //     bool isAutoAimAlllowed,
-        //     GunData gunData,
-        //     Transform originForAutoAim)
-        // {
-        //     if (hitInfo.transform.gameObject.layer == LayerMask.NameToLayer("FireBall")) return;
-        //
-        //     IDamagable? damagable = hitInfo.transform.gameObject.GetComponent<IDamagable>();
-        //     GameObject impactEffect;
-        //
-        //     if (damagable != null)
-        //     {
-        //         damagable.Damage(gunData.damage, hitInfo.distance);
-        //         impactEffect = Instantiate(PlayerShooting.Instance.enemyImpactEffect, hitInfo.point,
-        //             Quaternion.LookRotation(hitInfo.normal));
-        //         StartCoroutine(DestroyEffectTwo(impactEffect, 1));
-        //     }
-        //     else
-        //     {
-        //         if (isAutoAimAlllowed)
-        //         {
-        //             GameObject targetEnemy = AutoAimSystem.Instance.ChooseEnemyWithAutoAim(originForAutoAim, gunData);
-        //             if (targetEnemy != null)
-        //             {
-        //                 //HitScanShooting.ShootSingleRayWithAutoAim(originForAutoAim, gunData, targetEnemy);
-        //                 return;
-        //             }
-        //
-        //             impactEffect = Instantiate(PlayerShooting.Instance.metalImpactEffect, hitInfo.point,
-        //                 Quaternion.LookRotation(hitInfo.normal));
-        //             StartCoroutine(DestroyEffectTwo(impactEffect, 1));
-        //         }
-        //     }
-        // }
-
-        // public void HandleHit(List<RaycastHit> hitInfoArray,
-        //     bool isAutoAimAlllowed,
-        //     GunData gunData,
-        //     Transform originForAutoAim)
-        // {
-        //     if (hitInfoArray.Count == 0) return;
-        //
-        //     bool hitEnemy = false;
-        //     List<RaycastHit> nonEnemyHits = new List<RaycastHit>();
-        //
-        //     foreach (var hitInfo in hitInfoArray)
-        //     {
-        //         if (hitInfo.transform.gameObject.layer == LayerMask.NameToLayer("FireBall"))
-        //             continue;
-        //
-        //         IDamagable? damagable = hitInfo.transform.gameObject.GetComponent<IDamagable>();
-        //
-        //         if (damagable != null)
-        //         {
-        //             hitEnemy = true;
-        //             damagable.Damage(gunData.damage, hitInfo.distance);
-        //             GameObject impactEffect = Instantiate(PlayerShooting.Instance.enemyImpactEffect,
-        //                 hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
-        //             StartCoroutine(DestroyEffectTwo(impactEffect, 1));
-        //         }
-        //         else
-        //         {
-        //             nonEnemyHits.Add(hitInfo);
-        //         }
-        //     }
-        //
-        //     if (!hitEnemy)
-        //     {
-        //         if (isAutoAimAlllowed)
-        //         {
-        //             // Try auto-aim
-        //             GameObject targetEnemy = AutoAimSystem.Instance.ChooseEnemyWithAutoAim(originForAutoAim, gunData);
-        //             if (targetEnemy != null)
-        //             {
-        //                 HitScanShooting.ShootShotGunWithAutoAim(originForAutoAim, gunData, targetEnemy);
-        //                 return;
-        //             }
-        //         }
-        //
-        //         foreach (var hitInfo in nonEnemyHits)
-        //         {
-        //             GameObject impactEffect = Instantiate(PlayerShooting.Instance.metalImpactEffect,
-        //                 hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
-        //             StartCoroutine(DestroyEffectTwo(impactEffect, 1));
-        //         }
-        //     }
-        // }
-        //
         
     }
 }
