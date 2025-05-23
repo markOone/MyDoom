@@ -8,10 +8,9 @@ namespace MyDoom.ShootingSystem
 {
     public class DamageSystem : MonoBehaviour, IDamageHandler
     {
-        [Header("Effects")]
-        [SerializeField] private GameObject enemyImpactEffect;
+        [Header("Effects")] [SerializeField] private GameObject enemyImpactEffect;
         [SerializeField] private GameObject metalImpactEffect;
-        
+
         private IDamageHandler _damageHandler;
         private IAutoAimSystem _autoAimSystem;
 
@@ -40,7 +39,7 @@ namespace MyDoom.ShootingSystem
         {
             _instance = this;
         }
-        
+
         public void HandleDamage(DamageContext context)
         {
             Debug.Log("HandleDamage");
@@ -50,10 +49,11 @@ namespace MyDoom.ShootingSystem
                 HandleMultipleHits(context);
                 return;
             }
+
             Debug.Log("SingleHit");
             HandleSingleHit(context);
         }
-        
+
         private void HandleSingleHit(DamageContext context)
         {
             if (IsFireballLayer(context.HitInfo.transform.gameObject)) return;
@@ -83,16 +83,16 @@ namespace MyDoom.ShootingSystem
         {
             return gameObject.layer == LayerMask.NameToLayer("FireBall");
         }
-        
+
         private void HandleMultipleHits(DamageContext context)
         {
             if (context.MultipleHits.Count == 0) return;
 
             Debug.Log("HandleMultipleHits");
-            
+
             bool hitEnemyAtLevel = false;
             List<RaycastHit> nonEnemyHits = new List<RaycastHit>();
-    
+
             foreach (var hitInfo in context.MultipleHits)
             {
                 if (IsFireballLayer(hitInfo.transform.gameObject))
@@ -102,10 +102,10 @@ namespace MyDoom.ShootingSystem
                 if (damageable != null)
                 {
                     hitEnemyAtLevel = true;
-                    ApplyDamage(new DamageContext 
-                    { 
-                        HitInfo = hitInfo, 
-                        GunData = context.GunData 
+                    ApplyDamage(new DamageContext
+                    {
+                        HitInfo = hitInfo,
+                        GunData = context.GunData
                     }, damageable);
                     Debug.Log("ДІСТАЛИСЬ ДО СПАВНУ");
                     SpawnImpactEffect(enemyImpactEffect, hitInfo);
@@ -115,17 +115,17 @@ namespace MyDoom.ShootingSystem
                     nonEnemyHits.Add(hitInfo);
                 }
             }
-            
+
             if (hitEnemyAtLevel)
             {
                 return;
             }
-            
+
             if (context.AutoAimAllowed)
             {
                 Debug.Log("АВТО АІМ");
                 bool autoAimFoundEnemy = TryAutoAim(context);
-                
+
                 if (!autoAimFoundEnemy && nonEnemyHits.Count > 0)
                 {
                     foreach (var hitInfo in nonEnemyHits)
@@ -144,6 +144,28 @@ namespace MyDoom.ShootingSystem
                 }
             }
         }
+
+        private void HandleAutoAim(DamageContext context)
+        {
+            bool foundEnemy = TryAutoAim(context);
+            
+            if (!foundEnemy)
+            {
+                if (context.HitInfo.transform != null)
+                {
+                    //Debug.Log("СПАВН МЕТАЛУ ПІСЛЯ НЕВДАЛОГО АВТОАІМУ (SINGLE SHOT)");
+                    SpawnImpactEffect(metalImpactEffect, context.HitInfo);
+                }
+                else if (context.MultipleHits != null && context.MultipleHits.Count > 0)
+                {
+                    foreach (var hit in context.MultipleHits)
+                    {
+                        //Debug.Log("СПАВН МЕТАЛУ ПІСЛЯ НЕВДАЛОГО АВТОАІМУ (MULTIPLE HITS)");
+                        SpawnImpactEffect(metalImpactEffect, hit);
+                    }
+                }
+            }
+        }
         
         private bool TryAutoAim(DamageContext context)
         {
@@ -151,8 +173,8 @@ namespace MyDoom.ShootingSystem
             {
                 Origin = context.Origin,
                 GunData = context.GunData,
-                FieldOfView = 60f,
-                RayCount = 15   
+                FieldOfView = 60f,   
+                RayCount = 15        
             });
             
             if (targetEnemy != null)
@@ -163,25 +185,28 @@ namespace MyDoom.ShootingSystem
                 {
                     Origin = context.Origin,
                     GunData = context.GunData,
-                    AutoAimAllowed = false,
+                    AutoAimAllowed = false, 
                     Direction = directionToEnemy
                 };
                 
-                IWeaponSystem weaponSystem;
-                if (context.GunData.shells)
+                if (Physics.Raycast(context.Origin.position, directionToEnemy, out RaycastHit enemyHit, context.GunData.lengthRange))
                 {
-                    weaponSystem = GetComponent<HitScanShooting>();
+                    var damageable = enemyHit.transform.gameObject.GetComponent<IDamagable>();
+                    if (damageable != null)
+                    {
+                        Debug.Log("АВТОАІМ: влучання у ворога!");
+                        ApplyDamage(new DamageContext 
+                        { 
+                            HitInfo = enemyHit, 
+                            GunData = context.GunData 
+                        }, damageable);
+                        SpawnImpactEffect(enemyImpactEffect, enemyHit);
+                    }
                 }
-                else
-                {
-                    weaponSystem = GetComponent<ProjectileShooting>();
-                }
-        
-                weaponSystem?.Shoot(autoAimContext);
-                return true;
+                return true; 
             }
     
-            return false;
+            return false; 
         }
         
         private void SpawnImpactEffect(GameObject effectPrefab, RaycastHit hit)
@@ -190,13 +215,13 @@ namespace MyDoom.ShootingSystem
             if (normal == Vector3.zero)
             {
                 normal = (hit.transform.position - hit.point).normalized;
-                
+
                 if (normal == Vector3.zero)
                 {
                     normal = Vector3.up;
                 }
             }
-    
+
             var effect = Instantiate(
                 effectPrefab,
                 hit.point,
@@ -204,58 +229,11 @@ namespace MyDoom.ShootingSystem
             );
             StartCoroutine(DestroyAfterDelay(effect, 1f));
         }
-        
+
         private IEnumerator DestroyAfterDelay(GameObject obj, float delay)
         {
             yield return new WaitForSeconds(delay);
             Destroy(obj);
         }
-        
-        private void HandleAutoAim(DamageContext context)
-        {
-            GameObject targetEnemy = _autoAimSystem.ChooseEnemyWithAutoAim(new AutoAimContext
-            {
-                Origin = context.Origin,
-                GunData = context.GunData,
-                FieldOfView = 60f,
-                RayCount = 15
-            });
-            
-            if (targetEnemy != null)
-            {
-                Vector3 directionToEnemy = (targetEnemy.transform.position - context.Origin.position).normalized;
-                
-                var autoAimContext = new WeaponContext
-                {
-                    Origin = context.Origin,
-                    GunData = context.GunData,
-                    AutoAimAllowed = false,
-                    Direction = directionToEnemy
-                };
-                
-                IWeaponSystem weaponSystem;
-                if (context.GunData.shells)
-                {
-                    weaponSystem = GetComponent<HitScanShooting>();
-                }
-                else
-                {
-                    weaponSystem = GetComponent<ProjectileShooting>();
-                }
-        
-                weaponSystem?.Shoot(autoAimContext);
-            }
-            else
-            {
-                if (context.MultipleHits != null && context.MultipleHits.Count > 0)
-                {
-                    foreach (var hit in context.MultipleHits)
-                    {
-                        SpawnImpactEffect(metalImpactEffect, hit);
-                    }
-                }
-            }
-        }
-        
     }
 }

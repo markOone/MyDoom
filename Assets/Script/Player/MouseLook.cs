@@ -13,8 +13,7 @@ namespace MyDoom.Player
         GameObject player;
 
         [SerializeField] float MouseSensitivity;
-
-        // Start is called before the first frame update
+        
         void Start()
         {
             Cursor.lockState = CursorLockMode.Locked;
@@ -35,15 +34,6 @@ namespace MyDoom.Player
         {
             ProcessLook();
         }
-
-        // ReSharper disable Unity.PerformanceAnalysis
-        // private void ProcessLookFixed()
-        // {
-        //     Vector2 mouseInput = Look.ReadValue<Vector2>();
-        //     float moveY = mouseInput.x * Time.fixedDeltaTime * MouseSensitivity;
-        //     player.transform.Rotate(Vector3.up * moveY);
-        //     // playerBody.transform.Rotate(Vector3.up * moveY);
-        // }
 
         void ProcessLook()
         {
