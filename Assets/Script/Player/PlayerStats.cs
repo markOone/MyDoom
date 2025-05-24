@@ -3,6 +3,7 @@ using UnityEngine;
 using MyDoom.Player;
 using MyDoom.ShootingSystem;
 using MyDoom.GeneralSystems;
+using Random = UnityEngine.Random;
 
 public class PlayerStats : MonoBehaviour, IDamagable
 {
@@ -132,19 +133,20 @@ public class PlayerStats : MonoBehaviour, IDamagable
     public void TakeDamage(int damage)
     {
         audioSource?.Play(0);
+        int randomizedDamage = damage * Random.Range(0, 4);
         if (_armor > 0)
         {
-            if (_armor >= damage) _armor -= damage;
+            if (_armor >= randomizedDamage) _armor -= randomizedDamage;
             else
             {
-                int remainingDamage = damage - _armor; 
+                int remainingDamage = randomizedDamage - _armor; 
                 _health -= remainingDamage;
                 _armor = 0;
             }
         }
         else
         {
-            _health -= damage;
+            _health -= randomizedDamage;
         }
         
         damageAnimator.SetTrigger("Damage");

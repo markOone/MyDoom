@@ -42,7 +42,7 @@ namespace MyDoom.ShootingSystem
 
         public void HandleDamage(DamageContext context)
         {
-            Debug.Log("HandleDamage");
+            Debug.Log("HandleDamage: " + context.GunData.name);
             if (context.MultipleHits != null)
             {
                 Debug.Log("MultipleHits");

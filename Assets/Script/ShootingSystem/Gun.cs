@@ -48,7 +48,7 @@ namespace MyDoom.ShootingSystem
 
         internal void Shoot()
         {
-            if (gunData.currentAmmo <= 0 || !CanShoot() || gunData.name == "Hand")
+            if (gunData.currentAmmo <= 0 || !CanShoot())
                 return;
             
             AlertNearbyEnemies();
@@ -57,8 +57,9 @@ namespace MyDoom.ShootingSystem
             {
                 Origin = shooterOrigin,
                 GunData = gunData,
-                AutoAimAllowed = true,
-                ProjectilePrefab = particlePrefab
+                AutoAimAllowed = gunData.name == "Hand" ? false : true,
+                ProjectilePrefab = particlePrefab,
+                isHand = gunData.name == "Hand"
             };
             
             Debug.Log("Shooting with " + gunData.name);
@@ -103,9 +104,12 @@ namespace MyDoom.ShootingSystem
             {
                 PlayerShooting.Instance.Shoot2D();
             }
-            
-            gunData.currentAmmo--;
-            UpdateAmmoCounters();
+
+            if (!gunData.isHand)
+            {
+                gunData.currentAmmo--;
+                UpdateAmmoCounters();
+            }
             timeSinceLastShot = 0;
             OnGunShot();
         }

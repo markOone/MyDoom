@@ -14,15 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Hand
   is2D: 0
-  damage: 45
+  damage: 2
   wideRange: 1
-  lengthRange: 100
-  currentAmmo: 99999999
-  magSize: 99999999
-  fireRate: 20
+  lengthRange: 2
+  currentAmmo: -2147483648
+  magSize: -2147483648
+  fireRate: 123
   reloadTime: 0
   reloading: 0
   shells: 0
   bullets: 0
   rockets: 0
   cells: 0
+  isHand: 1

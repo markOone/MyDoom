@@ -51,6 +51,7 @@ namespace MyDoom.ShootingSystem
 
         private void HandleSingleShot(WeaponContext context)
         {
+            Debug.Log("HandleSingleShot: " + context.GunData.name);
             bool hit = Physics.Raycast(
                 context.Origin.position,
                 context.Direction ?? context.Origin.forward,
