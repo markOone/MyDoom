@@ -12,12 +12,13 @@ namespace MyDoom.Enemies
     public class Enemy : MonoBehaviour, IDamagable
     {
         [SerializeField] float health = 100;
-        private Transform playerPosition;
+        [SerializeField] float speed = 12f;
+        internal Transform playerPosition;
         public LayerMask playerMask;
-        [SerializeField] NavMeshAgent agent;
+        [SerializeField] protected NavMeshAgent agent;
         [SerializeField] AudioSource audioSourcePain;
         [SerializeField] AudioSource audioSourceDeath;
-        [SerializeField] Transform projectileSpawnPoint;
+        [SerializeField] protected Transform projectileSpawnPoint;
 
         [Header("For Patrolling")] [SerializeField]
         private Vector3 walkPoint;
@@ -26,9 +27,9 @@ namespace MyDoom.Enemies
         public LayerMask whatIsGround;
         public static float walkPointRange;
 
-        [Header("For Attacking")] public float timeBetweenAttacks;
-        bool alreadyAttacked;
-        [SerializeField] GameObject projectile;
+        [Header("For Attacking")]
+        protected float timeSinceLastShot;
+        [SerializeField] protected GameObject projectile;
 
         [Header("States")] public float sightRange, attackRange;
         public bool playerInSightRange, playerInAttackRange;
@@ -71,7 +72,9 @@ namespace MyDoom.Enemies
         {
             playerInSightRange = Physics.CheckSphere(transform.position, sightRange, playerMask);
             playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, playerMask);
-
+            
+            timeSinceLastShot += Time.deltaTime;
+            
             if (!playerInSightRange && !playerInAttackRange) Patrol();
             if (playerInSightRange && !playerInAttackRange) Chase();
             if (playerInAttackRange && playerInSightRange) Attack();
@@ -95,6 +98,8 @@ namespace MyDoom.Enemies
             if (!walkPointSet) SearchWalkPoint();
 
             if (walkPointSet) agent.SetDestination(walkPoint);
+            agent.isStopped = false;
+            agent.speed = speed / 2f;
             CheckIfNotInTheWall();
 
             Vector3 distanceToWalkPoint = walkPoint - transform.position;
@@ -102,42 +107,20 @@ namespace MyDoom.Enemies
             if (distanceToWalkPoint.magnitude < 1f) walkPointSet = false;
         }
 
-        void Chase()
+        protected void Chase()
         {
             //Debug.Log("Chasing");
             agent.isStopped = false;
             agent.SetDestination(playerPosition.position);
+            agent.speed = speed;
         }
 
-        void Attack()
+        protected virtual void Attack()
         {
-            //Debug.Log("Attacking");
-            if (CheckForObstacle(playerPosition.position))
-            {
-                Chase();
-                return;
-            }
-            else
-            {
-                agent.SetDestination(gameObject.transform.position);
-                agent.isStopped = true;
-                agent.ResetPath();
-            }
-
-            transform.LookAt(playerPosition);
-            if (!alreadyAttacked)
-            {
-                Rigidbody rb = Instantiate(projectile, projectileSpawnPoint.position, Quaternion.identity)
-                    .GetComponent<Rigidbody>();
-                rb.AddForce(transform.forward * 64f, ForceMode.Impulse);
-                rb.AddForce(transform.up * 4f, ForceMode.Impulse);
-
-                alreadyAttacked = true;
-                Invoke(nameof(ResetAttack), timeBetweenAttacks);
-            }
+            Debug.Log("Attacking");
         }
 
-        bool CheckForObstacle(Vector3 playerPosition)
+        protected bool CheckForObstacle(Vector3 playerPosition)
         {
             Vector3 directionToPlayer = (playerPosition - transform.position).normalized;
             if (Physics.Raycast(transform.position, directionToPlayer, out RaycastHit hit, attackRange + 5f))
@@ -156,11 +139,6 @@ namespace MyDoom.Enemies
             {
                 return false;
             }
-        }
-
-        void ResetAttack()
-        {
-            alreadyAttacked = false;
         }
 
         void SearchWalkPoint()

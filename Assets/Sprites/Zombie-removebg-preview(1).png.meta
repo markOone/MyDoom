@@ -1,0 +1,1335 @@
+fileFormatVersion: 2
+guid: e9f6c34f5defe3e4584946ec074feecc
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 416
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a05ce775d966e1448bf2a9db34c46d4d
+      internalID: 331831916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_1
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 416
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa2e21d7072b3fa40b89a642e0a0bbb9
+      internalID: 1891197589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_2
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 416
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4f7a03a41f0987498cd160782cf7772
+      internalID: 982925251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_3
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 416
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8c5a54ac6d277549ab909c5c121f0b7
+      internalID: 2048028436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_4
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 416
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4db93de0ed7ae78479f67b4f98815f0d
+      internalID: 1680954376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_5
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 416
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac62d691441afd04d9acf61f5e81ec0e
+      internalID: -2090182446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 359
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76be77303c2f2eb47a6bdc73c5b0851a
+      internalID: 1662489455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_7
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 359
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 544a06b1430a2e84d9608893a2a00946
+      internalID: 1127127958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_8
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 359
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd78ad9ace4c67948aad0540f2091207
+      internalID: 2042849520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_9
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 359
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9a40368fac64024ba6544513b2fed5a
+      internalID: -1651110123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_10
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 359
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bead544b3c4e4284e8da7419328d48df
+      internalID: 1730368169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_11
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 359
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84f91dca027b7604ea0a1c1f4b175cb4
+      internalID: 74891834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 302
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 628d0701d1397b94790618816141c283
+      internalID: -1006014378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_13
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 302
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73973360e6f548d40bff3685d81c6522
+      internalID: 2007737488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_14
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 302
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f38c20e07faf8f46a270d1a5ccad95d
+      internalID: -572493997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_15
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 302
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07f8c24859f1edf41b7a1284ea2757c1
+      internalID: -1410927810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_16
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 302
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 520038717a5be2c44a41d6940c362ee8
+      internalID: -1104525982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_17
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 302
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 446b33296854d2747bc030c924c630fd
+      internalID: 598904091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_18
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 302
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ffd1b576644c3a47909fb49efca79c2
+      internalID: 691947292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_19
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 245
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9544ef2562b12ae40abd6c80bb2094cf
+      internalID: -1615495040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_20
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 245
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8135a256808d4204897ffb4fb7bb6148
+      internalID: 2077386675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_21
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 245
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b1ee3ac69e12904d8245d670d884ab3
+      internalID: 2040245437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_22
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 245
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4e84c84c1c0a514f8d17eea7a9c9174
+      internalID: 1901754315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_23
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 245
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1289f24eddd15774fb4d538073c808c9
+      internalID: 1415792628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_24
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 245
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 004d65bb47a466a4daa10195d8e1fc45
+      internalID: -363178312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_25
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 245
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80e98279f5f8ae842b18eabd7e38471e
+      internalID: -1382512958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_26
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 188
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afa880352b9bd6e4e9d84966de768852
+      internalID: 2093508075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_27
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 188
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e427e08dff0f2c5469b30e9d006ade64
+      internalID: -130518137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_28
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 188
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41a0848f5f4b8594b87d2cd0cfafe22c
+      internalID: 1865517634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_29
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 188
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 475cefc917701e74db64e9c35f89321f
+      internalID: 321124937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_30
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 188
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dde2e9543a07dd34588f60ae1340339f
+      internalID: 1190989146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_31
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 188
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4b123d59f74fc1478e0a67f52959b11
+      internalID: -9193536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 131
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8a4db04e842fdc40b1d9f385d1d4162
+      internalID: 1623654249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_33
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 131
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e393716978cecae459a65bc7d34d68ab
+      internalID: -1258733851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_34
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 131
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44550ac04d10a44479130ba72f2d0252
+      internalID: -915965127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_35
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 131
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b96f05c42846f943b39912ed77586f4
+      internalID: -1289007801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_36
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 131
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7bf7d1fe4f371b4b9b261d27dfe0ff4
+      internalID: 1603007565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_37
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 74
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54385fffa5635804f88fcce60ace8876
+      internalID: -570275600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_38
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 74
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ee1da943e0ecf64baf4fd22c4f70cbd
+      internalID: 217391852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_39
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 74
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3305c2860a4384f42bcce3d67ad0201d
+      internalID: 2039137282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_40
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 74
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ca47aed2b6454e489854623cd72950a
+      internalID: -329882942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_41
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 74
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8783172271d5ee4492fb4cb1dd9e85c
+      internalID: -1320623695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_42
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 74
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bb3df244d7028c448a75957d1161f62
+      internalID: 696664118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_43
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 17
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8deac140afa35e24c995a7fcda0b1965
+      internalID: 212397923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_44
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 17
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 728c37bfd975dda4580e07ee7fd23aa9
+      internalID: -1855746984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_45
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 17
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fb09756153b71745b47f3b2d087d079
+      internalID: -770907726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_46
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 17
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2a51ffbae016e945b56f2076a6a638c
+      internalID: -2058404372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_47
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 17
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dff408b3029586b4a9204b2d79645258
+      internalID: -1777018332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_48
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 17
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dd72974ba75cf741947b87c6bca246c
+      internalID: 1610909039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_49
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 17
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7bf9110b58b5f34c9d551ca61ce6cd3
+      internalID: 1705333630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_50
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 17
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7838f923bd7dc5044a10d94f95fd87ed
+      internalID: 9592973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_51
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 17
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2377e5f603fd84d4bb02627df5aa8bf2
+      internalID: 1347386602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_52
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 17
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7496e09523b7b594a8ef99fca6a754ef
+      internalID: 494206841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie-removebg-preview(1)_53
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 17
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bbbb0550816aad49b9469a474ba40ad
+      internalID: -1107024718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 9ba4b4ca367d9a14b897042012ca9f29
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Zombie-removebg-preview(1)_0: 331831916
+      Zombie-removebg-preview(1)_1: 1891197589
+      Zombie-removebg-preview(1)_10: 1730368169
+      Zombie-removebg-preview(1)_11: 74891834
+      Zombie-removebg-preview(1)_12: -1006014378
+      Zombie-removebg-preview(1)_13: 2007737488
+      Zombie-removebg-preview(1)_14: -572493997
+      Zombie-removebg-preview(1)_15: -1410927810
+      Zombie-removebg-preview(1)_16: -1104525982
+      Zombie-removebg-preview(1)_17: 598904091
+      Zombie-removebg-preview(1)_18: 691947292
+      Zombie-removebg-preview(1)_19: -1615495040
+      Zombie-removebg-preview(1)_2: 982925251
+      Zombie-removebg-preview(1)_20: 2077386675
+      Zombie-removebg-preview(1)_21: 2040245437
+      Zombie-removebg-preview(1)_22: 1901754315
+      Zombie-removebg-preview(1)_23: 1415792628
+      Zombie-removebg-preview(1)_24: -363178312
+      Zombie-removebg-preview(1)_25: -1382512958
+      Zombie-removebg-preview(1)_26: 2093508075
+      Zombie-removebg-preview(1)_27: -130518137
+      Zombie-removebg-preview(1)_28: 1865517634
+      Zombie-removebg-preview(1)_29: 321124937
+      Zombie-removebg-preview(1)_3: 2048028436
+      Zombie-removebg-preview(1)_30: 1190989146
+      Zombie-removebg-preview(1)_31: -9193536
+      Zombie-removebg-preview(1)_32: 1623654249
+      Zombie-removebg-preview(1)_33: -1258733851
+      Zombie-removebg-preview(1)_34: -915965127
+      Zombie-removebg-preview(1)_35: -1289007801
+      Zombie-removebg-preview(1)_36: 1603007565
+      Zombie-removebg-preview(1)_37: -570275600
+      Zombie-removebg-preview(1)_38: 217391852
+      Zombie-removebg-preview(1)_39: 2039137282
+      Zombie-removebg-preview(1)_4: 1680954376
+      Zombie-removebg-preview(1)_40: -329882942
+      Zombie-removebg-preview(1)_41: -1320623695
+      Zombie-removebg-preview(1)_42: 696664118
+      Zombie-removebg-preview(1)_43: 212397923
+      Zombie-removebg-preview(1)_44: -1855746984
+      Zombie-removebg-preview(1)_45: -770907726
+      Zombie-removebg-preview(1)_46: -2058404372
+      Zombie-removebg-preview(1)_47: -1777018332
+      Zombie-removebg-preview(1)_48: 1610909039
+      Zombie-removebg-preview(1)_49: 1705333630
+      Zombie-removebg-preview(1)_5: -2090182446
+      Zombie-removebg-preview(1)_50: 9592973
+      Zombie-removebg-preview(1)_51: 1347386602
+      Zombie-removebg-preview(1)_52: 494206841
+      Zombie-removebg-preview(1)_53: -1107024718
+      Zombie-removebg-preview(1)_6: 1662489455
+      Zombie-removebg-preview(1)_7: 1127127958
+      Zombie-removebg-preview(1)_8: 2042849520
+      Zombie-removebg-preview(1)_9: -1651110123
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -153,28 +153,28 @@ namespace MyDoom.ShootingSystem
             {
                 if (context.HitInfo.transform != null)
                 {
-                    //Debug.Log("СПАВН МЕТАЛУ ПІСЛЯ НЕВДАЛОГО АВТОАІМУ (SINGLE SHOT)");
+                    Debug.Log("СПАВН МЕТАЛУ ПІСЛЯ НЕВДАЛОГО АВТОАІМУ (SINGLE SHOT)");
                     SpawnImpactEffect(metalImpactEffect, context.HitInfo);
                 }
                 else if (context.MultipleHits != null && context.MultipleHits.Count > 0)
                 {
                     foreach (var hit in context.MultipleHits)
                     {
-                        //Debug.Log("СПАВН МЕТАЛУ ПІСЛЯ НЕВДАЛОГО АВТОАІМУ (MULTIPLE HITS)");
+                        Debug.Log("СПАВН МЕТАЛУ ПІСЛЯ НЕВДАЛОГО АВТОАІМУ (MULTIPLE HITS)");
                         SpawnImpactEffect(metalImpactEffect, hit);
                     }
                 }
             }
         }
-        
+
         private bool TryAutoAim(DamageContext context)
         {
             GameObject targetEnemy = _autoAimSystem.ChooseEnemyWithAutoAim(new AutoAimContext
             {
                 Origin = context.Origin,
                 GunData = context.GunData,
-                FieldOfView = 60f,   
-                RayCount = 15        
+                FieldOfView = 60f,
+                RayCount = 15
             });
             
             if (targetEnemy != null)
@@ -185,30 +185,26 @@ namespace MyDoom.ShootingSystem
                 {
                     Origin = context.Origin,
                     GunData = context.GunData,
-                    AutoAimAllowed = false, 
+                    AutoAimAllowed = false,
                     Direction = directionToEnemy
                 };
                 
-                if (Physics.Raycast(context.Origin.position, directionToEnemy, out RaycastHit enemyHit, context.GunData.lengthRange))
+                if(context.GunData.shells || context.GunData.bullets)
                 {
-                    var damageable = enemyHit.transform.gameObject.GetComponent<IDamagable>();
-                    if (damageable != null)
-                    {
-                        Debug.Log("АВТОАІМ: влучання у ворога!");
-                        ApplyDamage(new DamageContext 
-                        { 
-                            HitInfo = enemyHit, 
-                            GunData = context.GunData 
-                        }, damageable);
-                        SpawnImpactEffect(enemyImpactEffect, enemyHit);
-                    }
+                    IWeaponSystem weaponSystem = GetComponent<HitScanShooting>();
+                    weaponSystem.Shoot(autoAimContext);
+                }else
+                {
+                    IWeaponSystem weaponSystem = GetComponent<ProjectileShooting>();
+                    weaponSystem.Shoot(autoAimContext);
                 }
-                return true; 
+                
+                return true;
             }
-    
-            return false; 
+
+            return false;
         }
-        
+
         private void SpawnImpactEffect(GameObject effectPrefab, RaycastHit hit)
         {
             Vector3 normal = hit.normal;
