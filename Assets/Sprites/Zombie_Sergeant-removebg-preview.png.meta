@@ -1,0 +1,1522 @@
+fileFormatVersion: 2
+guid: 3af68037f9aadba4b8f837f787226d81
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 423
+        width: 36
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 746ab83bcebe3ec41991576d7be95ef0
+      internalID: 1017494373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_1
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 424
+        width: 35
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbd23fe8a1beaba468124180ca7726a1
+      internalID: 1159573633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_2
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 424
+        width: 32
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcfc04100ec42c44e981fe620cc72758
+      internalID: 51315077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_3
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 424
+        width: 34
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35fa5dc5eea69284bbe274be8751c4fc
+      internalID: -1082698018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_4
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 424
+        width: 26
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42fd3db1a1c8586459c7bdd32664de56
+      internalID: -158606491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_5
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 424
+        width: 27
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7eb351ce705305245b7f45d1149d4ca6
+      internalID: -1096242780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_6
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 366
+        width: 32
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d3dbe441a6502a43a63a8deb096e3b0
+      internalID: -1657582821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_7
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 367
+        width: 27
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef6aac80b37d5244ea66a6aa2e7807c2
+      internalID: -1096747959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_8
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 367
+        width: 29
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62aa7256eb4975f41a0a3e83ade98d85
+      internalID: 274684071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_9
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 367
+        width: 28
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 391f3e063c1370342a5e3e9ce7193c73
+      internalID: -442130384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_10
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 367
+        width: 39
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 697415c2d6d5d97498e0175586c9aa66
+      internalID: 1114807726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_11
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 367
+        width: 43
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5dcac870d440b6a4dbd7d54213368761
+      internalID: 341540652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_12
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 308
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae170ff8af29e70459e5360279e2494d
+      internalID: -1357358370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_13
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 308
+        width: 32
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e951b3eb32ffe541957c47d8af8e9d8
+      internalID: 549503953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_14
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 307
+        width: 38
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f9c2d5104b1fab468fc579780c67c37
+      internalID: -97024472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_15
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 307
+        width: 30
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6bce1fc83f178e42ac224142ffb9df0
+      internalID: 1140803202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_16
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 307
+        width: 44
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f5d7eb9a4f78744bad9f0a5301a87f5
+      internalID: -1157659072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_17
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 307
+        width: 49
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3131b086d2a40f4abb1b8f9de1e86a5
+      internalID: 2059614094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_18
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 249
+        width: 45
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 049b4ea1e1b32fe46838b5dc573ab6eb
+      internalID: -200150731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_19
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 249
+        width: 40
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78c4dfec5bd39c34a83ebdec8b3f76e4
+      internalID: 1262573652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_20
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 249
+        width: 39
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22d309c11a6ff9e4fab644f74c3bed0b
+      internalID: 1178969972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_21
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 249
+        width: 38
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55ac5792cacb99949975986191fa66c6
+      internalID: 314101593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_22
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 249
+        width: 34
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad8ea2bb7fba65e4a98ed23a8d4d43bf
+      internalID: 986602791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_23
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 249
+        width: 41
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b193994875d7e2b4d8d619135cded2a5
+      internalID: -1424982684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_24
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 188
+        width: 35
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e406f63d51b77a34b80c793da9e1fc47
+      internalID: 177638022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_25
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 189
+        width: 34
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c861ebc3119b8c40bebe1c951da7eb8
+      internalID: 1798440045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_26
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 189
+        width: 34
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc50673bca1660d44975989ff293b06e
+      internalID: 1844626750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_27
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 189
+        width: 35
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 564a126d46cd69648a846ac3374b1460
+      internalID: 1469060326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_28
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 189
+        width: 26
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 777ef0737ea17d4439b9dc199e60d2d2
+      internalID: -191485110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_29
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 189
+        width: 24
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8810364196cf59346b68b2cb8dc3eab0
+      internalID: -674813401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_30
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 131
+        width: 31
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c095701000e1844eb632d9323cc1b32
+      internalID: 2000118105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_31
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 131
+        width: 33
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01cec3fbf12df7045b2d0017f9503a44
+      internalID: -2075748703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_32
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 131
+        width: 43
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 397f9d11496eaa940ad42857b0bde777
+      internalID: 2073936752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_33
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 131
+        width: 43
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1bb6fa2948f7fc4787d883bca73ef03
+      internalID: 1123023384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_34
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 131
+        width: 31
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c49325b7b98418e4983e1e0c5cb7c2d6
+      internalID: 2139626159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_35
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 68
+        width: 33
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ab16bf032b390542853034ee0470081
+      internalID: 1022674785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_36
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 68
+        width: 35
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd4c79d79addb604fa37e2ca59ed0ac4
+      internalID: 975538156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_37
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 67
+        width: 42
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48e9f5b22070ca04ebd04e2687c46a27
+      internalID: 968603896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_38
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 68
+        width: 48
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5ebe24510fac1c4494ca3b04572afa6
+      internalID: 585015021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_39
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 68
+        width: 52
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 281ab9fde4de70c499e9217393cd0254
+      internalID: 739846400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_40
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 3
+        width: 36
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf7adea55a9546448897372728a1af2f
+      internalID: -1573810757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_41
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 3
+        width: 43
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3500c89be453194492ece331cf5446a
+      internalID: 1649073725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_42
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 3
+        width: 48
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c8fda9171d5e4349acc21be690ab8e3
+      internalID: -788253463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_43
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 48
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c06060b7d94dfad48808b321f0440ad1
+      internalID: 1797500110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_44
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 49
+        width: 5
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f208b8ee11401c045b779e2a77ad1e0e
+      internalID: 635831556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_45
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 42
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22aae70b98c1d3d418e51c1598431eb0
+      internalID: -1597448425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_46
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 41
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca9efe6922ec73444bde4f4913b9ac02
+      internalID: 1477925947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_47
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 44
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f37eb8b6a2b13874fbed73545a8c4a50
+      internalID: 880929047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_48
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 33
+        width: 13
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e57af762102f1c94cb1acfdddfb14cb1
+      internalID: -772366202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_49
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 3
+        width: 53
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51f2974763c1611468e0a0e168767f0c
+      internalID: -429471905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_50
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 39
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9d21894247413c4aaca12c66e040c16
+      internalID: 1337213610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_51
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 38
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d902db6e4c13f84f98a8a8d99ca1dd1
+      internalID: 1539954228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_52
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 30
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cbe1bbe25cdfb5468828bc340b65757
+      internalID: 1459162575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_53
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 31
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c1d9eb896931c5438662b90beba7adc
+      internalID: 1600101594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_54
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 38
+        width: 8
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f3c3a8d41d9d344fade88437b931f83
+      internalID: 425175134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_55
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 35
+        width: 4
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6c907cd12a517045a83c1c05de6c8f1
+      internalID: -1503862884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_56
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 29
+        width: 7
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78b67a21fa387334eabe95968b028b8e
+      internalID: -1742398470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_57
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 3
+        width: 55
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3ec47fd5a0da054989c61770b446cef
+      internalID: -763477668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_58
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 24
+        width: 6
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96b8e82cb61817b41981109f3df9ed29
+      internalID: 1737790616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_59
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 3
+        width: 57
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68803d1696a38904c887e88a023091ef
+      internalID: 1620929707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_60
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 3
+        width: 57
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 304d0d1a61b939a4f95ae41fee0b015c
+      internalID: 1706977940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_61
+      rect:
+        serializedVersion: 2
+        x: 373
+        y: 3
+        width: 57
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb4e84434d2cc4a4da857cc322c4a622
+      internalID: -1851973444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Zombie_Sergeant-removebg-preview_62
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 3
+        width: 57
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 684b8f951bbdf9e498438480e113beb2
+      internalID: -1278974932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: b8e17895a8f4396498ba627ecab306b7
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Zombie_Sergeant-removebg-preview_0: 1017494373
+      Zombie_Sergeant-removebg-preview_1: 1159573633
+      Zombie_Sergeant-removebg-preview_10: 1114807726
+      Zombie_Sergeant-removebg-preview_11: 341540652
+      Zombie_Sergeant-removebg-preview_12: -1357358370
+      Zombie_Sergeant-removebg-preview_13: 549503953
+      Zombie_Sergeant-removebg-preview_14: -97024472
+      Zombie_Sergeant-removebg-preview_15: 1140803202
+      Zombie_Sergeant-removebg-preview_16: -1157659072
+      Zombie_Sergeant-removebg-preview_17: 2059614094
+      Zombie_Sergeant-removebg-preview_18: -200150731
+      Zombie_Sergeant-removebg-preview_19: 1262573652
+      Zombie_Sergeant-removebg-preview_2: 51315077
+      Zombie_Sergeant-removebg-preview_20: 1178969972
+      Zombie_Sergeant-removebg-preview_21: 314101593
+      Zombie_Sergeant-removebg-preview_22: 986602791
+      Zombie_Sergeant-removebg-preview_23: -1424982684
+      Zombie_Sergeant-removebg-preview_24: 177638022
+      Zombie_Sergeant-removebg-preview_25: 1798440045
+      Zombie_Sergeant-removebg-preview_26: 1844626750
+      Zombie_Sergeant-removebg-preview_27: 1469060326
+      Zombie_Sergeant-removebg-preview_28: -191485110
+      Zombie_Sergeant-removebg-preview_29: -674813401
+      Zombie_Sergeant-removebg-preview_3: -1082698018
+      Zombie_Sergeant-removebg-preview_30: 2000118105
+      Zombie_Sergeant-removebg-preview_31: -2075748703
+      Zombie_Sergeant-removebg-preview_32: 2073936752
+      Zombie_Sergeant-removebg-preview_33: 1123023384
+      Zombie_Sergeant-removebg-preview_34: 2139626159
+      Zombie_Sergeant-removebg-preview_35: 1022674785
+      Zombie_Sergeant-removebg-preview_36: 975538156
+      Zombie_Sergeant-removebg-preview_37: 968603896
+      Zombie_Sergeant-removebg-preview_38: 585015021
+      Zombie_Sergeant-removebg-preview_39: 739846400
+      Zombie_Sergeant-removebg-preview_4: -158606491
+      Zombie_Sergeant-removebg-preview_40: -1573810757
+      Zombie_Sergeant-removebg-preview_41: 1649073725
+      Zombie_Sergeant-removebg-preview_42: -788253463
+      Zombie_Sergeant-removebg-preview_43: 1797500110
+      Zombie_Sergeant-removebg-preview_44: 635831556
+      Zombie_Sergeant-removebg-preview_45: -1597448425
+      Zombie_Sergeant-removebg-preview_46: 1477925947
+      Zombie_Sergeant-removebg-preview_47: 880929047
+      Zombie_Sergeant-removebg-preview_48: -772366202
+      Zombie_Sergeant-removebg-preview_49: -429471905
+      Zombie_Sergeant-removebg-preview_5: -1096242780
+      Zombie_Sergeant-removebg-preview_50: 1337213610
+      Zombie_Sergeant-removebg-preview_51: 1539954228
+      Zombie_Sergeant-removebg-preview_52: 1459162575
+      Zombie_Sergeant-removebg-preview_53: 1600101594
+      Zombie_Sergeant-removebg-preview_54: 425175134
+      Zombie_Sergeant-removebg-preview_55: -1503862884
+      Zombie_Sergeant-removebg-preview_56: -1742398470
+      Zombie_Sergeant-removebg-preview_57: -763477668
+      Zombie_Sergeant-removebg-preview_58: 1737790616
+      Zombie_Sergeant-removebg-preview_59: 1620929707
+      Zombie_Sergeant-removebg-preview_6: -1657582821
+      Zombie_Sergeant-removebg-preview_60: 1706977940
+      Zombie_Sergeant-removebg-preview_61: -1851973444
+      Zombie_Sergeant-removebg-preview_62: -1278974932
+      Zombie_Sergeant-removebg-preview_63: 729635470
+      Zombie_Sergeant-removebg-preview_7: -1096747959
+      Zombie_Sergeant-removebg-preview_8: 274684071
+      Zombie_Sergeant-removebg-preview_9: -442130384
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

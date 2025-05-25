@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9db4d6e3f99478242afb6500fed269d0, type: 3}
-  m_Name: Hand
+  m_Name: ImpHand
   m_EditorClassIdentifier: 
-  name: Hand
+  name: Imp's Hand
   is2D: 0
-  damage: 2
+  damage: 8
   wideRange: 1
-  lengthRange: 2
-  currentAmmo: -2147483648
-  magSize: -2147483648
-  fireRate: 123
+  lengthRange: 5
+  currentAmmo: 1000000
+  magSize: 1000000
+  fireRate: 85
   reloadTime: 0
   reloading: 0
   shells: 0

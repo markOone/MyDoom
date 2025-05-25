@@ -344,12 +344,12 @@ MonoBehaviour:
   audioSourcePain: {fileID: 8867525768175693248}
   audioSourceDeath: {fileID: 6500704857697618512}
   projectileSpawnPoint: {fileID: 484227360875434609}
+  falloff_steepness: 10
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointSet: 0
   whatIsGround:
     serializedVersion: 2
     m_Bits: 257
-  timeBetweenAttacks: 1
   projectile: {fileID: 7335851608270131962, guid: bb9eece7749f9c04d83b7d6619f740a1,
     type: 3}
   sightRange: 60

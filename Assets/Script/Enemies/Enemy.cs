@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
 using MyDoom.ShootingSystem;
+using UnityEditor.Rendering;
 
 namespace MyDoom.Enemies
 {
@@ -19,6 +20,7 @@ namespace MyDoom.Enemies
         [SerializeField] AudioSource audioSourcePain;
         [SerializeField] AudioSource audioSourceDeath;
         [SerializeField] protected Transform projectileSpawnPoint;
+        [SerializeField] protected float falloff_steepness = 5f;
 
         [Header("For Patrolling")] [SerializeField]
         private Vector3 walkPoint;
@@ -29,7 +31,7 @@ namespace MyDoom.Enemies
 
         [Header("For Attacking")]
         protected float timeSinceLastShot;
-        [SerializeField] protected GameObject projectile;
+        [SerializeField] protected GameObject projectilePrefab;
 
         [Header("States")] public float sightRange, attackRange;
         public bool playerInSightRange, playerInAttackRange;
@@ -53,7 +55,7 @@ namespace MyDoom.Enemies
             damage = _memoizedCalculateDamage(damage, distance) * Random.Range(0, 4);
             health -= damage;
             audioSourcePain?.Play(0);
-            //Debug.Log(health);
+            Debug.Log("Damage: " + damage);
             if (health <= 0)
             {
                 audioSourceDeath?.Play(0);
@@ -63,7 +65,10 @@ namespace MyDoom.Enemies
 
         public float CalculateDamage(float damage, float distance)
         {
-            float result = damage * (1 - 1 / distance);
+            Debug.Log("Falloff: " + falloff_steepness);
+            float result = damage * (falloff_steepness / (distance + falloff_steepness));
+            if(result < 0) result = -result;
+            Debug.Log("Calculated damage: " + result);
 
             return result;
         }
@@ -117,7 +122,7 @@ namespace MyDoom.Enemies
 
         protected virtual void Attack()
         {
-            Debug.Log("Attacking");
+            //Debug.Log("Attacking");
         }
 
         protected bool CheckForObstacle(Vector3 playerPosition)
@@ -139,6 +144,11 @@ namespace MyDoom.Enemies
             {
                 return false;
             }
+        }
+
+        protected float CheckDistance(Vector3 playerPosition)
+        {
+            return Vector3.Distance(transform.position, playerPosition);
         }
 
         void SearchWalkPoint()

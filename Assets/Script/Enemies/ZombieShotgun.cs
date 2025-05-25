@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using MyDoom.ShootingSystem;
 using UnityEngine;
+using MyDoom.ShootingSystem;
 
 namespace MyDoom.Enemies
 {
-    public class Zombie : Enemy
+    public class ZombieShotgun : Enemy
     {
         IWeaponSystem hitScanShootingSystem;
         [SerializeField] private GunData gunData;
