@@ -10,6 +10,7 @@ namespace MyDoom.ShootingSystem
         public bool AutoAimAllowed { get; set; }
         public Vector3? Direction { get; set; }
         public GameObject ProjectilePrefab { get; set; } // Only for projectile weapons
+        public float ProjectileForce { get; set; } = 300f; // Default force for projectiles
         public bool isHand { get; set; } = true;
     }
 

@@ -64,6 +64,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3403210709634110882, guid: c477ecc07e9c49148b10ce3a9f2a45f8,
         type: 3}
+      propertyPath: Damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3403210709634110882, guid: c477ecc07e9c49148b10ce3a9f2a45f8,
+        type: 3}
       propertyPath: effectPrefab
       value: 
       objectReference: {fileID: 3566857352333420997, guid: dea2ced97c85b454f84a82447840bc56,
@@ -73,5 +78,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FireBall
       objectReference: {fileID: 0}
+    - target: {fileID: 3403210710495038056, guid: c477ecc07e9c49148b10ce3a9f2a45f8,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a1cf5d5d6e15d3b4d825becfc9674fb2, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c477ecc07e9c49148b10ce3a9f2a45f8, type: 3}

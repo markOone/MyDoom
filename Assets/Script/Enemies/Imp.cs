@@ -54,10 +54,11 @@ namespace MyDoom.Enemies
                 projectileShootingSystem.Shoot(new WeaponContext()
                 {
                     Origin = projectileSpawnPoint,
-                    Direction = playerPosition.position - projectileSpawnPoint.position,
+                    //Direction = playerPosition.position - projectileSpawnPoint.position,
                     GunData = gunData,
                     AutoAimAllowed = false,
-                    ProjectilePrefab = projectilePrefab
+                    ProjectilePrefab = projectilePrefab,
+                    ProjectileForce = 60f
                 });
                 attackCounter++;
                 timeSinceLastShot = 0f;

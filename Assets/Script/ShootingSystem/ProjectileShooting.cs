@@ -81,7 +81,7 @@ namespace MyDoom.ShootingSystem
 
             if (rb != null)
             {
-                rb.AddForce(direction * projectileForce, ForceMode.Impulse);
+                rb.AddForce(direction * context.ProjectileForce, ForceMode.Impulse);
             }
         }
         

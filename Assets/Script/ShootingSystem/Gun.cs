@@ -59,6 +59,7 @@ namespace MyDoom.ShootingSystem
                 GunData = gunData,
                 AutoAimAllowed = gunData.name == "Hand" ? false : true,
                 ProjectilePrefab = particlePrefab,
+                ProjectileForce = 150f,
                 isHand = gunData.name == "Hand"
             };
             

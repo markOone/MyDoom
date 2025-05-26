@@ -11,6 +11,7 @@ namespace MyDoom.ShootingSystem
         [SerializeField] GameObject effectPrefab;
         void OnCollisionEnter(Collision other)
         {
+            Debug.Log("Collision with: " + other.gameObject.name);
             Collider[] colliders = new Collider[10];
             if(other.gameObject.layer.ToString() == "FireBall") return;
             GameObject explotion = Instantiate(effectPrefab, transform.position, Quaternion.identity);
