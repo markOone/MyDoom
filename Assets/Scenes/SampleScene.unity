@@ -947,7 +947,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 484257899}
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1365,6 +1366,88 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1605594143}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &484257898
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 484257899}
+  m_Layer: 0
+  m_Name: ProjectilePools
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &484257899
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 484257898}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 760157983}
+  - {fileID: 485579246}
+  - {fileID: 1963328872}
+  m_Father: {fileID: 378326758}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &485579245
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 485579246}
+  - component: {fileID: 485579247}
+  m_Layer: 0
+  m_Name: PlasmaPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &485579246
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485579245}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 484257899}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &485579247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485579245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ccd10a99d10eb9448ae2e7a35c0525f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 5888972625085414619, guid: b4ae37f35d6573d4d88227b2cd3134de,
+    type: 3}
+  defaultCapacity: 20
+  maxSize: 100
 --- !u!1 &488405117
 GameObject:
   m_ObjectHideFlags: 0
@@ -2159,6 +2242,54 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 361030278}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &760157982
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 760157983}
+  - component: {fileID: 760157984}
+  m_Layer: 0
+  m_Name: FireBallPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &760157983
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760157982}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 484257899}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &760157984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760157982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ccd10a99d10eb9448ae2e7a35c0525f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 8573332122838480976, guid: 49c8d8e0c582966468dcc9b661af1960,
+    type: 3}
+  defaultCapacity: 20
+  maxSize: 100
 --- !u!1001 &819536200
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5464,6 +5595,54 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1959459953}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1963328871
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1963328872}
+  - component: {fileID: 1963328873}
+  m_Layer: 0
+  m_Name: RocketPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1963328872
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1963328871}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 484257899}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1963328873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1963328871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ccd10a99d10eb9448ae2e7a35c0525f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 2511270251741025285, guid: 99a6a441feb75b14eaa21ff428e9ba0d,
+    type: 3}
+  defaultCapacity: 20
+  maxSize: 100
 --- !u!82 &1973934795 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 6213778204619631472, guid: 4b580d17c83c5da4d854826b82dccf02,
@@ -6526,6 +6705,11 @@ PrefabInstance:
       propertyPath: particleSpawnPoint
       value: 
       objectReference: {fileID: 681332639}
+    - target: {fileID: 4988323643703153551, guid: 4b580d17c83c5da4d854826b82dccf02,
+        type: 3}
+      propertyPath: projectilePoolingSystemObject
+      value: 
+      objectReference: {fileID: 760157984}
     - target: {fileID: 4988323643860046859, guid: 4b580d17c83c5da4d854826b82dccf02,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -6582,6 +6766,11 @@ PrefabInstance:
       propertyPath: particleSpawnPoint
       value: 
       objectReference: {fileID: 681332639}
+    - target: {fileID: 4988323644376970465, guid: 4b580d17c83c5da4d854826b82dccf02,
+        type: 3}
+      propertyPath: projectilePoolingSystemObject
+      value: 
+      objectReference: {fileID: 760157984}
     - target: {fileID: 4988323644397932436, guid: 4b580d17c83c5da4d854826b82dccf02,
         type: 3}
       propertyPath: audioSource
@@ -6608,6 +6797,11 @@ PrefabInstance:
       propertyPath: particleSpawnPoint
       value: 
       objectReference: {fileID: 681332639}
+    - target: {fileID: 4988323644397932436, guid: 4b580d17c83c5da4d854826b82dccf02,
+        type: 3}
+      propertyPath: projectilePoolingSystemObject
+      value: 
+      objectReference: {fileID: 760157984}
     - target: {fileID: 4988323644506562693, guid: 4b580d17c83c5da4d854826b82dccf02,
         type: 3}
       propertyPath: audioSource
@@ -6634,6 +6828,11 @@ PrefabInstance:
       propertyPath: particleSpawnPoint
       value: 
       objectReference: {fileID: 681332639}
+    - target: {fileID: 4988323644506562693, guid: 4b580d17c83c5da4d854826b82dccf02,
+        type: 3}
+      propertyPath: projectilePoolingSystemObject
+      value: 
+      objectReference: {fileID: 1963328873}
     - target: {fileID: 4988323644703279341, guid: 4b580d17c83c5da4d854826b82dccf02,
         type: 3}
       propertyPath: audioSource
@@ -6660,6 +6859,11 @@ PrefabInstance:
       propertyPath: particleSpawnPoint
       value: 
       objectReference: {fileID: 681332639}
+    - target: {fileID: 4988323644703279341, guid: 4b580d17c83c5da4d854826b82dccf02,
+        type: 3}
+      propertyPath: projectilePoolingSystemObject
+      value: 
+      objectReference: {fileID: 485579247}
     - target: {fileID: 4988323644857883330, guid: 4b580d17c83c5da4d854826b82dccf02,
         type: 3}
       propertyPath: weaponAnimator

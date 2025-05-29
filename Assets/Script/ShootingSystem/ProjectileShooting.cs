@@ -65,11 +65,22 @@ namespace MyDoom.ShootingSystem
         
         private void LaunchProjectile(WeaponContext context, Vector3 direction)
         {
-            var projectile = Instantiate(
-                context.ProjectilePrefab,
-                context.Origin.position,
-                context.Origin.rotation
-            );
+            GameObject projectile = context.ObjectPool.Get();
+            
+            if(projectile == null)
+            {
+                projectile = Instantiate(
+                    context.ProjectilePrefab,
+                    context.Origin.position,
+                    context.Origin.rotation
+                );
+                
+                projectile.GetComponent<ProjectileScript>().ObjectPool = context.ObjectPool;
+                context.ObjectPool.Release(projectile);
+                projectile = context.ObjectPool.Get();
+            }
+            
+            projectile.transform.SetPositionAndRotation(context.Origin.position, context.Origin.rotation);
 
             var rb = projectile.GetComponent<Rigidbody>();
             var projectileComponent = projectile.GetComponent<ProjectileScript>();

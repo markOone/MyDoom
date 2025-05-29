@@ -6,6 +6,7 @@ using UnityEngine;
 using MyDoom.Enemies;
 using MyDoom.GeneralSystems;
 using MyDoom.Player;
+using UnityEngine.Pool;
 using Object = System.Object;
 
 
@@ -16,6 +17,8 @@ namespace MyDoom.ShootingSystem
         [Header("References")] 
         [SerializeField] GameObject ShootingServices;
         private IWeaponSystem _weaponSystem;
+        [SerializeField] ProjectilePoolingSystem projectilePoolingSystemObject;
+         IObjectPool<GameObject> projectilePoolingSystem;
         [SerializeField] internal GunData gunData;
 
         [SerializeField] GameObject particlePrefab;
@@ -34,6 +37,7 @@ namespace MyDoom.ShootingSystem
         private void Start()
         {
             InitializeWeaponSystem();
+            projectilePoolingSystem = projectilePoolingSystemObject.ObjectPool;
             SubscribeToEvents();
             CheckAmmoFromPlayerStats();
         }
@@ -60,7 +64,8 @@ namespace MyDoom.ShootingSystem
                 AutoAimAllowed = gunData.name == "Hand" ? false : true,
                 ProjectilePrefab = particlePrefab,
                 ProjectileForce = 150f,
-                isHand = gunData.name == "Hand"
+                isHand = gunData.name == "Hand",
+                ObjectPool = projectilePoolingSystem
             };
             
             Debug.Log("Shooting with " + gunData.name);

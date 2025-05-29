@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,9 +14,15 @@ namespace MyDoom.Enemies
         [SerializeField] private GunData gunData;
         [SerializeField] private GunData handHeldGunData;
         int attackCounter = 0;
+        [SerializeField] ProjectilePoolingSystem projectilePoolingSystemObject;
         
         private bool CanShoot() => !gunData.reloading && timeSinceLastShot > 1f / (gunData.fireRate / 60f);
-        
+
+        private void Awake()
+        {
+            projectilePoolingSystemObject = GameObject.Find("FireBallPool").GetComponent<ProjectilePoolingSystem>();
+        }
+
         protected override void Attack()
         {
             projectileShootingSystem = ProjectileShooting.Instance;
@@ -54,11 +61,11 @@ namespace MyDoom.Enemies
                 projectileShootingSystem.Shoot(new WeaponContext()
                 {
                     Origin = projectileSpawnPoint,
-                    //Direction = playerPosition.position - projectileSpawnPoint.position,
                     GunData = gunData,
                     AutoAimAllowed = false,
                     ProjectilePrefab = projectilePrefab,
-                    ProjectileForce = 60f
+                    ProjectileForce = 60f,
+                    ObjectPool = projectilePoolingSystemObject.ObjectPool
                 });
                 attackCounter++;
                 timeSinceLastShot = 0f;

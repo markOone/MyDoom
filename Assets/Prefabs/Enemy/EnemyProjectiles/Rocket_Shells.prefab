@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 3478520538958821904}
   - component: {fileID: 2930427709193625247}
   - component: {fileID: 3698696754246419132}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Rocket_Shells
   m_TagString: Untagged
   m_Icon: {fileID: 0}

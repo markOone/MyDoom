@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Pool;
 
 namespace MyDoom.ShootingSystem
 {
@@ -12,6 +13,7 @@ namespace MyDoom.ShootingSystem
         public GameObject ProjectilePrefab { get; set; } // Only for projectile weapons
         public float ProjectileForce { get; set; } = 300f; // Default force for projectiles
         public bool isHand { get; set; } = true;
+        public IObjectPool<GameObject> ObjectPool { get; set; } // For projectile pooling
     }
 
     public class DamageContext
