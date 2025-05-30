@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
 using MyDoom.ShootingSystem;
+using MyDoom.GeneralSystems;
 using UnityEditor.Rendering;
 
 namespace MyDoom.Enemies
